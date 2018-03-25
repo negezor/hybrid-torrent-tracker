@@ -15,7 +15,7 @@ export default class ScrapeRequest extends Request {
 
 		if ((message.length - 16) % INFO_HASH_BYTES !== 0) {
 			throw new IncorrectRequestError({
-				message: 'invalid scrape message'
+				message: 'Invalid scrape message'
 			});
 		}
 

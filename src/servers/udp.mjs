@@ -20,7 +20,7 @@ import {
 } from '../structures/udp/responses';
 
 import { toUInt32 } from '../utils/helpers';
-import { defaultUDPServerOptions, trackerActions, UDP_CONNECTION_ID } from '../utils/constants';
+import { defaultUDPServerOptions, trackerActions, UDP_PROTOCOL_ID } from '../utils/constants';
 
 const debug = createDebug('hybrid-torrent-tracker:udp-server');
 
@@ -40,15 +40,15 @@ export default class UDPServer {
 		this.onMessageParseRequest = (message, remoteInfo) => {
 			const options = Request.parseMetadata(message, remoteInfo);
 
-			// if (!UDP_CONNECTION_ID.equals(options.connectionId)) {
-			// 	throw new IncorrectRequestError({
-			// 		message: 'Received packet with invalid connection id'
-			// 	});
-			// }
-
 			const { action } = options;
 
 			if (trackerActions.CONNECT === action) {
+				if (!UDP_PROTOCOL_ID.equals(options.connectionId)) {
+					throw new IncorrectRequestError({
+						message: 'Received packet with invalid protocol ID'
+					});
+				}
+
 				return new ConnectionRequest(message, options);
 			} else if (trackerActions.ANNOUNCE === action) {
 				return new AnnounceRequest(message, options);
@@ -79,17 +79,17 @@ export default class UDPServer {
 				case trackerActions.ANNOUNCE: {
 					return AnnounceResponse.toBuffer({
 						transactionId: request.transactionId,
-						intervalUpdate: Math.ceil(10 * 60),
-						incomplete: 0,
-						complete: 0,
-						peers: Buffer.from('Hello, world!') // lol, this working
+						announceInterval: Math.ceil(10 * 60),
+						leechers: 0,
+						seeders: 0,
+						peers: []
 					});
 				}
 
 				case trackerActions.SCRAPE: {
 					return ScrapeResponse.toBuffer({
 						transactionId: request.transactionId,
-						files: []
+						torrentStats: []
 					});
 				}
 

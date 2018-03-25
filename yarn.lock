@@ -562,6 +562,10 @@ acorn@^5.5.0:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
 
+addr-to-ip-port@^1.0.1:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/addr-to-ip-port/-/addr-to-ip-port-1.4.3.tgz#5a78cc30b8d328e213ca6d6f99c0380be4a51246"
+
 ajv-keywords@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-2.1.1.tgz#617997fc5f60576894c435f940d819e135b80762"
@@ -1868,6 +1872,10 @@ invariant@^2.2.0, invariant@^2.2.2:
   dependencies:
     loose-envify "^1.0.0"
 
+ipaddr.js@^1.0.1:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.6.0.tgz#e3fa357b773da619f26e95f049d055c72796f86b"
+
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/is-accessor-descriptor/-/is-accessor-descriptor-0.1.6.tgz#a9e12cb3ae8d876727eeef3843f8a0897b5c98d6"
@@ -3161,6 +3169,13 @@ string-width@^2.0.0, string-width@^2.1.0, string-width@^2.1.1:
   dependencies:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
+
+string2compact@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/string2compact/-/string2compact-1.2.2.tgz#420b3a9ee1c46854919b4a2aeac65c43fa50597b"
+  dependencies:
+    addr-to-ip-port "^1.0.1"
+    ipaddr.js "^1.0.1"
 
 string_decoder@~1.0.3:
   version "1.0.3"

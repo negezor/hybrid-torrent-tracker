@@ -1,3 +1,5 @@
+import string2compact from 'string2compact';
+
 import Response from './response';
 
 import { toUInt32 } from '../../../utils/helpers';
@@ -15,19 +17,20 @@ export default class AnnounceResponse extends Response {
 	 */
 	static toBuffer({
 		transactionId,
-		intervalUpdate,
-		incomplete,
-		complete,
-		peers
+		announceInterval,
+		leechers,
+		seeders,
+		peers = []
 	}) {
 		return Buffer.concat([
 			ANNOUNCE_ACTION,
 
 			toUInt32(transactionId),
-			toUInt32(intervalUpdate),
-			toUInt32(incomplete),
-			toUInt32(complete),
-			peers
+			toUInt32(announceInterval),
+			toUInt32(leechers),
+			toUInt32(seeders),
+
+			string2compact(peers.map(({ ip, port }) => `${ip}:${port}`))
 		]);
 	}
 }

@@ -5,7 +5,7 @@ import { toUInt32 } from './helpers';
  *
  * @type {Buffer}
  */
-export const UDP_CONNECTION_ID = Buffer.concat([toUInt32(0x417), toUInt32(0x27101980)]);
+export const UDP_PROTOCOL_ID = Buffer.concat([toUInt32(0x417), toUInt32(0x27101980)]);
 
 export const DEFAULT_ANNOUNCE_PEERS = 50;
 export const MAX_ANNOUNCE_PEERS = 82;
