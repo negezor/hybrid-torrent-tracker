@@ -65,7 +65,7 @@ export const defaultUDPServerOptions = {
 	host: null,
 
 	/* 10 min */
-	interval: 10 * 60e3
+	interval: 2 * 60e3
 };
 
 /**
@@ -80,7 +80,7 @@ export const defaultHTTPServerOptions = {
 	host: null,
 
 	/* 10 min */
-	interval: 10 * 60e3
+	interval: 2 * 60e3
 };
 
 /**
