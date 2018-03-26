@@ -2301,6 +2301,10 @@ micromatch@^3.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
+middleware-io@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/middleware-io/-/middleware-io-0.0.5.tgz#ea3da1860a29acd6ecec2ca303639e7dc269d159"
+
 mime-db@~1.33.0:
   version "1.33.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.33.0.tgz#a3492050a5cb9b63450541e39d9788d2272783db"

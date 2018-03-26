@@ -1,3 +1,5 @@
+import { inspect } from 'util';
+
 import { REMOVE_IPV4_MAPPED_IPV6_REGEX } from '../../utils/constants';
 
 export default class HTTPContext {
@@ -64,5 +66,22 @@ export default class HTTPContext {
 				resolve();
 			});
 		});
+	}
+
+	/**
+	 * Custom inspect object
+	 *
+	 * @param {?number} depth
+	 * @param {Object}  options
+	 *
+	 * @return {string}
+	 */
+	[inspect.custom](depth, options) {
+		const { name } = this.constructor;
+		const { sent } = this;
+
+		const payload = { sent };
+
+		return `${options.stylize(name, 'special')} ${inspect(payload, options)}`;
 	}
 }

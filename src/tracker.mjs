@@ -11,10 +11,11 @@ export default class Tracker {
 	 *
 	 * @param {Object} options
 	 */
-	constructor(options = {}) {
-		this.options = { ...defaultTrackerOptions, ...options };
+	constructor(trackerOptions = {}) {
+		this.options = { ...defaultTrackerOptions, ...trackerOptions };
 
-		this.httpServer = null;
+		this.httpServer = new HTTPServer(this.options.http);
+		this.udpServer = new UDPServer(this.options.udp);
 	}
 
 	/**
@@ -22,22 +23,10 @@ export default class Tracker {
 	 *
 	 * @return {Promise}
 	 */
-	async listen() {
-		try {
-			if (!this.httpServer) {
-				this.httpServer = new HTTPServer(this.options.http);
-			}
-
-			if (!this.udpServer) {
-				this.udpServer = new UDPServer(this.options.udp);
-			}
-
-			await Promise.all([
-				this.httpServer.listen(),
-				this.udpServer.listen()
-			]);
-		} catch (e) {
-			throw e;
-		}
+	listen() {
+		return Promise.all([
+			this.httpServer.listen(),
+			this.udpServer.listen()
+		]);
 	}
 }

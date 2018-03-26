@@ -1,4 +1,4 @@
-import { promisify } from 'util';
+import { promisify, inspect } from 'util';
 
 export default class UDPContext {
 	/**
@@ -11,6 +11,8 @@ export default class UDPContext {
 		this.remoteInfo = remoteInfo;
 
 		this.socketSend = socketSend;
+
+		this.sent = false;
 	}
 
 	/**
@@ -25,5 +27,24 @@ export default class UDPContext {
 		const { port, address } = this.remoteInfo;
 
 		await this.socketSend(body, 0, body.length, port, address);
+
+		this.sent = true;
+	}
+
+	/**
+	 * Custom inspect object
+	 *
+	 * @param {?number} depth
+	 * @param {Object}  options
+	 *
+	 * @return {string}
+	 */
+	[inspect.custom](depth, options) {
+		const { name } = this.constructor;
+		const { sent, remoteInfo } = this;
+
+		const payload = { sent, remoteInfo };
+
+		return `${options.stylize(name, 'special')} ${inspect(payload, options)}`;
 	}
 }

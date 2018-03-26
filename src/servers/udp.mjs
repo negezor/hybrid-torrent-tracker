@@ -1,4 +1,5 @@
 import createDebug from 'debug';
+import Middleware from 'middleware-io';
 
 import dgram from 'dgram';
 import { promisify } from 'util';
@@ -12,7 +13,6 @@ import {
 	AnnounceRequest,
 	ScrapeRequest
 } from '../structures/udp/requests';
-
 import {
 	ConnectionResponse,
 	AnnounceResponse,
@@ -20,10 +20,50 @@ import {
 	ErrorResponse
 } from '../structures/udp/responses';
 
-import { toUInt32 } from '../utils/helpers';
 import { defaultUDPServerOptions, trackerActions, UDP_PROTOCOL_ID } from '../utils/constants';
 
 const debug = createDebug('hybrid-torrent-tracker:udp-server');
+
+/**
+ * Returns request object
+ *
+ * @param {UDPContext} context
+ * @param {Buffer}     message
+ * @param {Object}     remoteInfo
+ *
+ * @return {Request}
+ */
+const getRequest = (context, message, remoteInfo) => {
+	const options = Request.parseMetadata(message, remoteInfo);
+
+	const { action } = options;
+
+	switch (action) {
+	case trackerActions.CONNECT: {
+		if (!UDP_PROTOCOL_ID.equals(options.connectionId)) {
+			throw new IncorrectRequestError({
+				message: 'Received packet with invalid protocol ID'
+			});
+		}
+
+		return new ConnectionRequest(context, message, options);
+	}
+
+	case trackerActions.ANNOUNCE: {
+		return new AnnounceRequest(context, message, options);
+	}
+
+	case trackerActions.SCRAPE: {
+		return new ScrapeRequest(context, message, options);
+	}
+
+	default: {
+		throw new IncorrectRequestError({
+			message: `Invalid action in UDP packet: ${action}`
+		});
+	}
+	}
+};
 
 export default class UDPServer {
 	/**
@@ -37,8 +77,51 @@ export default class UDPServer {
 		this.udp4Socket = this.options.udp4Socket;
 		this.udp6Socket = this.options.udp6Socket;
 
-		/* Testing */
-		this.onMessageParseRequest = (message, remoteInfo) => {
+		this.middleware = new Middleware([
+			async (request, next) => {
+				debug('UDP request', request);
+
+				await next();
+
+				if (request.context.sent) {
+					return;
+				}
+
+				const {
+					context,
+					response,
+					action,
+					transactionId
+				} = request;
+
+				if (trackerActions.CONNECT === action) {
+					await context.send(ConnectionResponse.toBuffer({
+						connectionId: request.connectionId,
+						transactionId
+					}));
+				} else if (trackerActions.ANNOUNCE === action) {
+					await context.send(AnnounceResponse.toBuffer({
+						interval: this.options.interval,
+						incomplete: response.incomplete,
+						complete: response.complete,
+						peers: response.peers,
+						transactionId
+					}));
+				} else if (trackerActions.SCRAPE === action) {
+					await context.send(ScrapeResponse.toBuffer({
+						files: response.files,
+						transactionId
+					}));
+				} else {
+					throw new IncorrectRequestError({
+						message: 'Internal server error'
+					});
+				}
+			}
+		]);
+
+		// eslint-disable-next-line consistent-return
+		this.onMessage = async (message, remoteInfo) => {
 			const isIPv4 = remoteInfo.family === 'IPv4';
 
 			const context = new UDPContext({
@@ -52,80 +135,42 @@ export default class UDPServer {
 					: this.sendUdp6
 			});
 
-			const options = Request.parseMetadata(message, remoteInfo);
+			try {
+				const request = getRequest(context, message);
 
-			const { action } = options;
-
-			if (trackerActions.CONNECT === action) {
-				if (!UDP_PROTOCOL_ID.equals(options.connectionId)) {
-					throw new IncorrectRequestError({
-						message: 'Received packet with invalid protocol ID'
-					});
+				await this.middleware.run(request);
+			} catch (error) {
+				try {
+					await context.send(ErrorResponse.toBuffer({
+						message: error.message
+					}));
+				} catch (responseError) {
+					// eslint-disable-next-line no-console
+					console.error('Response error:', responseError);
 				}
 
-				return new ConnectionRequest(context, message, options);
-			} else if (trackerActions.ANNOUNCE === action) {
-				return new AnnounceRequest(context, message, options);
-			} else if (trackerActions.SCRAPE === action) {
-				return new ScrapeRequest(context, message, options);
+				if (!(error instanceof IncorrectRequestError)) {
+					// eslint-disable-next-line no-console
+					console.error('Some error:', error);
+				}
 			}
-
-			throw new IncorrectRequestError({
-				message: `Invalid action in UDP packet: ${action}`
-			});
-		};
-
-		/* Testing */
-		this.onMessage = (message, remoteInfo) => {
-			const request = this.onMessageParseRequest(message, remoteInfo);
-
-			debug('UDP request', request);
-
-			const response = (() => {
-				switch (request.action) {
-				case trackerActions.CONNECT: {
-					return ConnectionResponse.toBuffer({
-						transactionId: request.transactionId,
-						connectionId: request.connectionId
-					});
-				}
-
-				case trackerActions.ANNOUNCE: {
-					return AnnounceResponse.toBuffer({
-						transactionId: request.transactionId,
-						announceInterval: Math.ceil(10 * 60),
-						leechers: 0,
-						seeders: 0,
-						peers: []
-					});
-				}
-
-				case trackerActions.SCRAPE: {
-					return ScrapeResponse.toBuffer({
-						transactionId: request.transactionId,
-						torrentStats: []
-					});
-				}
-
-				case trackerActions.ERROR: {
-					return ErrorResponse.toBuffer({
-						transactionId: request.transactionId,
-						failureReason: 'Unknown'
-					});
-				}
-
-				default: {
-					throw new Error(`Action not implemented: ${request.action}`);
-				}
-				}
-			})();
-
-			request.context.send(response)
-				.then(() => debug('Response for UDP', response));
 		};
 
 		// eslint-disable-next-line
-		this.onError = error => console.log('onError', error);
+		this.onError = error => console.log('Socket error', error);
+	}
+
+	/**
+	 * Added middleware
+	 *
+	 * @param {Function} handler
+	 *
+	 * @return {this}
+	 */
+	use(middleware) {
+		this.middleware.use(middleware);
+
+		return this;
 	}
 
 	/**

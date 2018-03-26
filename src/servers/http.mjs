@@ -1,4 +1,5 @@
 import createDebug from 'debug';
+import Middleware from 'middleware-io';
 
 import http from 'http';
 import { promisify } from 'util';
@@ -22,6 +23,36 @@ import { defaultHTTPServerOptions, trackerActions } from '../utils/constants';
 
 const debug = createDebug('hybrid-torrent-tracker:http-server');
 
+/**
+ * Returns request object
+ *
+ * @param {UDPContext} context
+ * @param {Buffer}     message
+ *
+ * @return {Request}
+ */
+const getRequest = (context) => {
+	const [path, rawQuery] = context.getUrl().split('?');
+
+	const query = decodeQueryString(rawQuery);
+
+	switch (path) {
+	case '/announce': {
+		return new AnnounceRequest(context, query);
+	}
+
+	case '/scrape': {
+		return new ScrapeRequest(context, query);
+	}
+
+	default: {
+		throw new IncorrectRequestError({
+			message: 'Invalid action in HTTP'
+		});
+	}
+	}
+};
+
 export default class HTTPServer {
 	/**
 	 * Constructor
@@ -33,61 +64,78 @@ export default class HTTPServer {
 
 		this.httpServer = this.options.httpServer;
 
-		this.onRequestParse = (request, response) => {
+		this.middleware = new Middleware([
+			async (request, next) => {
+				debug('HTTP request', request);
+
+				await next();
+
+				if (request.context.sent) {
+					return;
+				}
+
+				const { context, response, action } = request;
+
+				if (trackerActions.ANNOUNCE === action) {
+					await context.send(AnnounceResponse.toString({
+						interval: this.options.interval,
+						complete: response.complete,
+						incomplete: response.incomplete,
+						compact: request.compact,
+						peers: response.peers
+					}));
+				} else if (trackerActions.SCRAPE === action) {
+					await context.send(ScrapeResponse.toString({
+						interval: this.options.interval,
+						files: response.files
+					}));
+				} else {
+					throw new IncorrectRequestError({
+						message: 'Internal server error'
+					});
+				}
+			}
+		]);
+
+		this.onRequest = async (req, res) => {
 			const context = new HTTPContext({
-				request,
-				response
+				request: req,
+				response: res
 			});
 
-			const [path, rawQuery] = context.getUrl().split('?');
+			try {
+				const request = getRequest(context);
 
-			const query = decodeQueryString(rawQuery);
+				await this.middleware.run(request);
+			} catch (error) {
+				try {
+					await context.send(ErrorResponse.toString({
+						message: error.message
+					}));
+				} catch (responseError) {
+					// eslint-disable-next-line no-console
+					console.error('Response error:', responseError);
+				}
 
-			if (path === '/announce') {
-				return new AnnounceRequest(context, query);
-			} else if (path === '/scrape') {
-				return new ScrapeRequest(context, query);
+				if (!(error instanceof IncorrectRequestError)) {
+					// eslint-disable-next-line no-console
+					console.error('Some error:', error);
+				}
 			}
-
-			throw new IncorrectRequestError({
-				message: 'Invalid action in HTTP'
-			});
 		};
+	}
 
-		this.onRequest = (req, res) => {
-			if (req.url.startsWith('/favicon.ico')) {
-				return;
-			}
+	/**
+	 * Added middleware
+	 *
+	 * @param {Function} handler
+	 *
+	 * @return {this}
+	 */
+	use(middleware) {
+		this.middleware.use(middleware);
 
-			const request = this.onRequestParse(req, res);
-
-			debug('HTTP Request', request);
-
-			const response = (() => {
-				switch (request.action) {
-				case trackerActions.ANNOUNCE: {
-					return AnnounceResponse.toString({
-						interval: 600,
-						complete: 0,
-						incomplete: 0,
-						peers: []
-					});
-				}
-
-				case trackerActions.SCRAPE: {
-					return ScrapeResponse.toString({
-						interval: 600
-					});
-				}
-
-				default:
-					throw new Error(`Action not implemented: ${request.action}`);
-				}
-			})();
-
-			request.context.send(response)
-				.then(() => debug('Response for UDP', response));
-		};
+		return this;
 	}
 
 	/**

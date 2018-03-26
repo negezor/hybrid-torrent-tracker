@@ -51,6 +51,7 @@
 	"dependencies": {
 		"bencode": "^2.0.0",
 		"debug": "^3.1.0",
+		"middleware-io": "^0.0.5",
 		"string2compact": "^1.2.2"
 	}
 }

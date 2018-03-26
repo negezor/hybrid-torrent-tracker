@@ -19,6 +19,8 @@ export default class Request {
 		this.transactionId = transactionId;
 
 		this.compact = 1;
+
+		this.response = {};
 	}
 
 	/**

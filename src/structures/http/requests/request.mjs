@@ -13,5 +13,7 @@ export default class Request {
 		this.context = context;
 
 		this.type = requestTypes.HTTP;
+
+		this.response = {};
 	}
 }
