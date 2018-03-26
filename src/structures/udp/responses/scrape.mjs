@@ -23,9 +23,9 @@ export default class ScrapeResponse extends Response {
 			toUInt32(transactionId),
 
 			...[].concat(...files.map(torrent => [
-				toUInt32(torrent.complete),
-				toUInt32(torrent.downloaded),
-				toUInt32(torrent.incomplete)
+				toUInt32(torrent.complete || 0),
+				toUInt32(torrent.downloaded || 0),
+				toUInt32(torrent.incomplete || 0)
 			]))
 		]);
 	}

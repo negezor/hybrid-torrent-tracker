@@ -84,6 +84,16 @@ export const defaultHTTPServerOptions = {
 };
 
 /**
+ * Request types
+ *
+ * @type {Object}
+ */
+export const requestTypes = {
+	HTTP: 'http',
+	UDP: 'udp'
+};
+
+/**
  * Action list UDP
  *
  * @type {Object}
@@ -96,21 +106,11 @@ export const trackerActions = {
 };
 
 /**
- * Request types
+ * Events list announce
  *
  * @type {Object}
  */
-export const requestTypes = {
-	HTTP: 'http',
-	UDP: 'udp'
-};
-
-/**
- * Events list UDP
- *
- * @type {Object}
- */
-export const udpEvents = {
+export const announceEvents = {
 	UPDATE: 'update',
 	COMPLETED: 'completed',
 	STARTED: 'started',
@@ -118,13 +118,13 @@ export const udpEvents = {
 };
 
 /**
- * Events ids list UDP
+ * Events announce ids list UDP
  *
  * @type {Object}
  */
-export const udpEventsIds = {
-	0: udpEvents.UPDATE,
-	1: udpEvents.COMPLETED,
-	2: udpEvents.STARTED,
-	3: udpEvents.STOPPED
+export const udpAnnounceEventsIds = {
+	0: announceEvents.UPDATE,
+	1: announceEvents.COMPLETED,
+	2: announceEvents.STARTED,
+	3: announceEvents.STOPPED
 };

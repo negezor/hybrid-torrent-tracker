@@ -19,6 +19,20 @@ export default class Tracker {
 	}
 
 	/**
+	 * Added middleware
+	 *
+	 * @param {Function} handler
+	 *
+	 * @return {this}
+	 */
+	use(middleware) {
+		this.httpServer.use(middleware);
+		this.udpServer.use(middleware);
+
+		return this;
+	}
+
+	/**
 	 * Starts listening
 	 *
 	 * @return {Promise}

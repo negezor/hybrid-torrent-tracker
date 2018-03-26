@@ -3,7 +3,7 @@ import { IncorrectRequestError } from '../../../errors';
 
 import { fromUInt64, bufferToStringIp } from '../../../utils/helpers';
 import {
-	udpEventsIds,
+	udpAnnounceEventsIds,
 
 	DEFAULT_ANNOUNCE_PEERS,
 	MAX_ANNOUNCE_PEERS
@@ -33,7 +33,7 @@ export default class AnnounceRequest extends Request {
 		this.uploaded = fromUInt64(message.slice(72, 80));
 
 		/* 32 bytes */
-		this.event = udpEventsIds[message.readUInt32BE(80)];
+		this.event = udpAnnounceEventsIds[message.readUInt32BE(80)];
 
 		if (!this.event) {
 			throw new IncorrectRequestError({

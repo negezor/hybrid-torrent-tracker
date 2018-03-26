@@ -3,6 +3,7 @@ import { IncorrectRequestError } from '../../../errors';
 
 import {
 	trackerActions,
+	announceEvents,
 
 	IPV6_REGEX,
 
@@ -59,6 +60,14 @@ export default class AnnounceRequest extends Request {
 		}
 
 		this.left = left;
+
+		let event = announceEvents[query.event];
+
+		if (!event) {
+			event = announceEvents.UPDATE;
+		}
+
+		this.event = event;
 
 		let compact = Number(query.compact);
 

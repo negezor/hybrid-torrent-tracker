@@ -18,6 +18,12 @@ export default class ScrapeRequest extends Request {
 
 		let infoHashes = query.info_hash;
 
+		if (!infoHashes) {
+			this.infoHashes = [];
+
+			return;
+		}
+
 		if (!Array.isArray(infoHashes)) {
 			infoHashes = [infoHashes];
 		}
