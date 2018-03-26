@@ -15,17 +15,17 @@ export default class ScrapeResponse extends Response {
 	 */
 	static toBuffer({
 		transactionId,
-		torrentStats = []
+		files = []
 	}) {
 		return Buffer.concat([
 			SCRAPE_ACTION,
 
 			toUInt32(transactionId),
 
-			...[].concat(...torrentStats.map(torrent => [
-				toUInt32(torrent.seeders),
+			...[].concat(...files.map(torrent => [
+				toUInt32(torrent.complete),
 				toUInt32(torrent.downloaded),
-				toUInt32(torrent.leechers)
+				toUInt32(torrent.incomplete)
 			]))
 		]);
 	}

@@ -3,6 +3,7 @@ import createDebug from 'debug';
 import dgram from 'dgram';
 import { promisify } from 'util';
 
+import UDPContext from '../structures/udp/context';
 import { IncorrectRequestError } from '../errors';
 import {
 	Request,
@@ -38,6 +39,19 @@ export default class UDPServer {
 
 		/* Testing */
 		this.onMessageParseRequest = (message, remoteInfo) => {
+			const isIPv4 = remoteInfo.family === 'IPv4';
+
+			const context = new UDPContext({
+				remoteInfo,
+
+				socket: isIPv4
+					? this.udp4Socket
+					: this.udp6Socket,
+				socketSend: isIPv4
+					? this.sendUdp4
+					: this.sendUdp6
+			});
+
 			const options = Request.parseMetadata(message, remoteInfo);
 
 			const { action } = options;
@@ -49,11 +63,11 @@ export default class UDPServer {
 					});
 				}
 
-				return new ConnectionRequest(message, options);
+				return new ConnectionRequest(context, message, options);
 			} else if (trackerActions.ANNOUNCE === action) {
-				return new AnnounceRequest(message, options);
+				return new AnnounceRequest(context, message, options);
 			} else if (trackerActions.SCRAPE === action) {
-				return new ScrapeRequest(message, options);
+				return new ScrapeRequest(context, message, options);
 			}
 
 			throw new IncorrectRequestError({
@@ -67,7 +81,7 @@ export default class UDPServer {
 
 			debug('UDP request', request);
 
-			const buffer = (() => {
+			const response = (() => {
 				switch (request.action) {
 				case trackerActions.CONNECT: {
 					return ConnectionResponse.toBuffer({
@@ -106,31 +120,12 @@ export default class UDPServer {
 				}
 			})();
 
-			try {
-				const udp =	remoteInfo.family === 'IPv4'
-					? this.udp4Socket
-					: this.udp6Socket;
-
-				udp.send(buffer, 0, buffer.length, remoteInfo.port, remoteInfo.address);
-			} catch (e) {
-				// eslint-disable-next-line
-				console.log(e);
-			}
+			this.send(response, { request })
+				.then(() => debug('Response sended!', response));
 		};
 
 		// eslint-disable-next-line
 		this.onError = error => console.log('onError', error);
-	}
-
-	/**
-	 * Send response
-	 *
-	 * @param {UDPRequest} request
-	 *
-	 * @return {Promise}
-	 */
-	send(request) {
-
 	}
 
 	/**
@@ -162,6 +157,9 @@ export default class UDPServer {
 
 		const listenUdp4 = promisify(udp4Socket.bind).bind(udp4Socket);
 		const listenUdp6 = promisify(udp6Socket.bind).bind(udp6Socket);
+
+		this.sendUdp4 = promisify(udp4Socket.send).bind(udp4Socket);
+		this.sendUdp6 = promisify(udp6Socket.send).bind(udp6Socket);
 
 		const { port, host } = this.options;
 

@@ -1,3 +1,9 @@
+import string2compact from 'string2compact';
+
+import querystring from 'querystring';
+
+import { IPV4_REGEX, IPV6_REGEX } from './constants';
+
 /**
  * Delay N-ms
  *
@@ -77,3 +83,61 @@ export const bufferToStringIp = (buffer) => {
 
 	return null;
 };
+
+/**
+ * Binary to hex
+ *
+ * @param {string} str
+ *
+ * @return {string}
+ */
+export const binaryToHex = binary => Buffer.from(String(binary), 'binary').toString('hex');
+
+/**
+ * Hex to binary
+ *
+ * @param {string} str
+ *
+ * @return {string}
+ */
+export const hexToBinary = hex => Buffer.from(String(hex), 'hex').toString('binary');
+
+/**
+ * Decode query string bittorrent
+ *
+ * @param {string} query
+ *
+ * @return {Object}
+ */
+export const decodeQueryString = query => (
+	querystring.parse(query, null, null, {
+		decodeURIComponent: unescape
+	})
+);
+
+/**
+ * Decode query string bittorrent
+ *
+ * @param {string} query
+ *
+ * @return {Object}
+ */
+export const encodeQueryString = query => (
+	querystring.stringify(query, null, null, {
+		encodeURIComponent: escape
+	})
+		// `escape` doesn't encode the characters @*/+ so we do it manually
+		.replace(/[@*/+]/g, char => `%${char.charCodeAt(0).toString(16).toUpperCase()}`)
+);
+
+export const ipv4PeersToCompact = peers => (
+	string2compact(peers
+		.filter(peer => IPV4_REGEX.test(peer.ip))
+		.map(peer => `${peer.ip}:${peer.port}`))
+);
+
+export const ipv6PeersToCompact = peers => (
+	string2compact(peers
+		.filter(peer => IPV6_REGEX.test(peer.ip))
+		.map(peer => `[${peer.ip}]:${peer.port}`))
+);

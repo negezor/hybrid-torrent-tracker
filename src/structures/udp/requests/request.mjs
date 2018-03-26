@@ -5,25 +5,31 @@ export default class Request {
 	/**
 	 * Constructor
 	 *
-	 * @param {Buffer} message
-	 * @param {Object} options
+	 * @param {UDPContext} context
+	 * @param {Buffer}     message
+	 * @param {Object}     options
 	 */
-	constructor(message, { connectionId, action, transactionId }) {
+	constructor(context, message, { connectionId, action, transactionId }) {
+		this.context = context;
+
 		this.type = requestTypes.UDP;
 
 		this.connectionId = connectionId;
 		this.action = action;
 		this.transactionId = transactionId;
+
+		this.compact = 1;
 	}
 
 	/**
-	 * Constructor
+	 * Parser meta data
 	 *
 	 * @param {Buffer} message
+	 * @param {Object} remoteInfo
 	 *
 	 * @return {Object}
 	 */
-	static parseMetadata(message, remoteInfo) {
+	static parseMetadata(message) {
 		if (message.length < 16) {
 			throw new IncorrectRequestError({
 				message: 'Received packet is too short'
@@ -31,8 +37,6 @@ export default class Request {
 		}
 
 		return {
-			...remoteInfo,
-
 			/* 64 bytes */
 			connectionId: message.slice(0, 8),
 

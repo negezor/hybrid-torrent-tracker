@@ -13,11 +13,12 @@ export default class AnnounceRequest extends Request {
 	/**
 	 * Constructor
 	 *
-	 * @param {Buffer} message
-	 * @param {Object} options
+	 * @param {UDPContext} context
+	 * @param {Buffer}     message
+	 * @param {Object}     options
 	 */
-	constructor(message, options) {
-		super(message, options);
+	constructor(context, message, options) {
+		super(context, message, options);
 
 		/* 20 bytes */
 		this.infoHash = message.slice(16, 36).toString('hex');
@@ -45,7 +46,7 @@ export default class AnnounceRequest extends Request {
 
 		this.ip = ip
 			? bufferToStringIp(ip)
-			: options.address;
+			: options.remoteInfo.address;
 
 		/* 32 bytes */
 		this.key = message.readUInt32BE(88);

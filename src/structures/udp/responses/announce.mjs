@@ -1,8 +1,6 @@
-import string2compact from 'string2compact';
-
 import Response from './response';
 
-import { toUInt32 } from '../../../utils/helpers';
+import { toUInt32, ipv4PeersToCompact } from '../../../utils/helpers';
 import { trackerActions } from '../../../utils/constants';
 
 const ANNOUNCE_ACTION = toUInt32(trackerActions.ANNOUNCE);
@@ -17,20 +15,20 @@ export default class AnnounceResponse extends Response {
 	 */
 	static toBuffer({
 		transactionId,
-		announceInterval,
-		leechers,
-		seeders,
+		interval,
+		incomplete,
+		complete,
 		peers = []
 	}) {
 		return Buffer.concat([
 			ANNOUNCE_ACTION,
 
 			toUInt32(transactionId),
-			toUInt32(announceInterval),
-			toUInt32(leechers),
-			toUInt32(seeders),
+			toUInt32(interval),
+			toUInt32(incomplete),
+			toUInt32(complete),
 
-			string2compact(peers.map(({ ip, port }) => `${ip}:${port}`))
+			ipv4PeersToCompact(peers)
 		]);
 	}
 }

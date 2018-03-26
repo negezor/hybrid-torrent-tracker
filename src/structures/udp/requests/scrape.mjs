@@ -7,11 +7,12 @@ export default class ScrapeRequest extends Request {
 	/**
 	 * Constructor
 	 *
-	 * @param {Buffer} message
-	 * @param {Object} options
+	 * @param {UDPContext} context
+	 * @param {Buffer}     message
+	 * @param {Object}     options
 	 */
-	constructor(message, options) {
-		super(message, options);
+	constructor(context, message, options) {
+		super(context, message, options);
 
 		if ((message.length - 16) % INFO_HASH_BYTES !== 0) {
 			throw new IncorrectRequestError({
