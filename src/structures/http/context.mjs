@@ -24,9 +24,9 @@ export default class HTTPContext {
 
 		const ip = this.trustProxy
 			? headers['x-forwarded-for'] || connection.remoteAddress
-			: connection.remoteAddress;
+			: connection.remoteAddress.replace(REMOVE_IPV4_MAPPED_IPV6_REGEX, '');
 
-		return ip.replace(REMOVE_IPV4_MAPPED_IPV6_REGEX, '');
+		return ip;
 	}
 
 	/**
@@ -46,14 +46,13 @@ export default class HTTPContext {
 	 *
 	 * @return {Promise}
 	 */
-	send(body, { statusCode = 200 }) {
+	send(body, { statusCode = 200 } = {}) {
 		if (this.sent) {
 			throw new Error('Response sent!');
 		}
 
-		this.response.statusCode = statusCode;
-
 		return new Promise((resolve, reject) => {
+			this.response.statusCode = statusCode;
 			this.response.end(body, (error) => {
 				if (error) {
 					reject(error);

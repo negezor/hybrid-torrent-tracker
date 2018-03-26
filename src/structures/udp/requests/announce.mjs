@@ -46,7 +46,7 @@ export default class AnnounceRequest extends Request {
 
 		this.ip = ip
 			? bufferToStringIp(ip)
-			: options.remoteInfo.address;
+			: this.context.remoteInfo.address;
 
 		/* 32 bytes */
 		this.key = message.readUInt32BE(88);

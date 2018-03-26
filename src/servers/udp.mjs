@@ -120,8 +120,8 @@ export default class UDPServer {
 				}
 			})();
 
-			this.send(response, { request })
-				.then(() => debug('Response sended!', response));
+			request.context.send(response)
+				.then(() => debug('Response for UDP', response));
 		};
 
 		// eslint-disable-next-line

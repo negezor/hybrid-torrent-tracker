@@ -21,9 +21,9 @@ export default class UDPContext {
 	 *
 	 * @return {Promise}
 	 */
-	async send(body, { statusCode = 200 }) {
+	async send(body) {
 		const { port, address } = this.remoteInfo;
 
-		await this.response.socketSend(body, 0, body.length, port, address);
+		await this.socketSend(body, 0, body.length, port, address);
 	}
 }

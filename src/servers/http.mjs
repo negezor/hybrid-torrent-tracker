@@ -84,6 +84,9 @@ export default class HTTPServer {
 					throw new Error(`Action not implemented: ${request.action}`);
 				}
 			})();
+
+			request.context.send(response)
+				.then(() => debug('Response for UDP', response));
 		};
 	}
 
