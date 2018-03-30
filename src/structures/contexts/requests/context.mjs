@@ -14,6 +14,7 @@ export default class RequestContext {
 		/* Where did the context come from */
 		this.source = options.source;
 
+		this.state = {};
 		this.response = {};
 	}
 

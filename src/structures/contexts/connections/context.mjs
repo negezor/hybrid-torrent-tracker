@@ -1,8 +1,1 @@
-export default class ConnectionContext {
-	/**
-	 * Constructor
-	 */
-	constructor() {
-		this.state = {};
-	}
-}
+export default class ConnectionContext {}

@@ -1,5 +1,7 @@
 import { inspect } from 'util';
 
+import { TrackerError } from '../../../errors';
+
 import ConnectionContext from './context';
 import { HTTPParser } from '../../parsers';
 
@@ -64,11 +66,13 @@ export default class HTTPConnectionContext extends ConnectionContext {
 	 * @return {Promise}
 	 */
 	send(payload, options) {
-		if (this.sent) {
-			throw new Error('Response sent!');
-		}
-
 		return new Promise((resolve, reject) => {
+			if (this.sent) {
+				throw new TrackerError({
+					message: 'Response sent!'
+				});
+			}
+
 			const message = HTTPParser.toStringResponse(payload, options);
 
 			this.response.statusCode = options.statusCode || 200;

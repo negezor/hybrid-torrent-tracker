@@ -61,11 +61,11 @@ export default class HTTPServer {
 						interval: this.options.interval,
 						files: response.files
 					});
-				} else {
-					throw new IncorrectRequestError({
-						message: 'Internal server error'
-					});
 				}
+
+				throw new IncorrectRequestError({
+					message: 'Internal server error'
+				});
 			}
 		]);
 
@@ -78,7 +78,8 @@ export default class HTTPServer {
 				const RequestContext = requestContexts[payload.action];
 
 				const context = new RequestContext(connection, payload, {
-					source: requestTypes.HTTP
+					source: requestTypes.HTTP,
+					trustProxy: this.options.trustProxy
 				});
 
 				await this.middleware.run(context);
