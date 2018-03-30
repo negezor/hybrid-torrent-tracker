@@ -1,12 +1,3 @@
-import { toUInt32 } from './helpers';
-
-/**
- * The protocol ID of the UDP
- *
- * @type {Buffer}
- */
-export const UDP_PROTOCOL_ID = Buffer.concat([toUInt32(0x417), toUInt32(0x27101980)]);
-
 /**
  * The default value is the number of peers
  *
@@ -43,28 +34,20 @@ export const IPV6_REGEX = /^[\da-fA-F:]+$/;
 export const REMOVE_IPV4_MAPPED_IPV6_REGEX = /^::ffff:/;
 
 /**
- * Default tracker options
- *
- * @type {Object}
- */
-export const defaultTrackerOptions = {
-	http: {},
-	udp: {}
-};
-
-/**
  * Default UDP server options
  *
  * @type {Object}
  */
 export const defaultUDPServerOptions = {
+	enabled: true,
+
 	udp4Socket: null,
 	udp6Socket: null,
 
 	port: 80,
 	host: null,
 
-	/* 10 min */
+	/* 2 min */
 	interval: 2 * 60e3
 };
 
@@ -74,13 +57,45 @@ export const defaultUDPServerOptions = {
  * @type {Object}
  */
 export const defaultHTTPServerOptions = {
+	enabled: true,
+
 	httpServer: null,
 
 	port: 80,
 	host: null,
+	trustProxy: false,
 
-	/* 10 min */
+	/* 2 min */
 	interval: 2 * 60e3
+};
+
+/**
+ * Default WebSocket server options
+ *
+ * @type {Object}
+ */
+export const defaultWebSocketServerOptions = {
+	enabled: false,
+
+	httpServer: null,
+
+	port: 80,
+	host: null,
+	trustProxy: false,
+
+	/* 2 min */
+	interval: 2 * 60e3
+};
+
+/**
+ * Default tracker options
+ *
+ * @type {Object}
+ */
+export const defaultTrackerOptions = {
+	udp: defaultUDPServerOptions,
+	http: defaultHTTPServerOptions,
+	websocket: defaultWebSocketServerOptions
 };
 
 /**
@@ -89,6 +104,7 @@ export const defaultHTTPServerOptions = {
  * @type {Object}
  */
 export const requestTypes = {
+	WEBSOCKET: 'websocket',
 	HTTP: 'http',
 	UDP: 'udp'
 };

@@ -1,4 +1,5 @@
 import HTTPServer from './http';
 import UDPServer from './udp';
+import WebSocketServer from './websocket';
 
-export { HTTPServer, UDPServer };
+export { UDPServer, HTTPServer, WebSocketServer };

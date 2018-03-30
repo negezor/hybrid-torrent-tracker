@@ -1,56 +1,28 @@
 import createDebug from 'debug';
 import Middleware from 'middleware-io';
 
-import http from 'http';
-import { promisify } from 'util';
-
-import HTTPContext from '../structures/http/context';
 import { IncorrectRequestError } from '../errors';
+import { HTTPParser } from '../structures/parsers';
 import {
-	AnnounceResponse,
-	ScrapeResponse,
-	ErrorResponse
-} from '../structures/http/responses';
+	HTTPConnectionContext,
+
+	ConnectionRequestContext,
+	AnnounceRequestContext,
+	ScrapeRequestContext
+} from '../structures/contexts';
+
 import {
-	Request,
+	defaultHTTPServerOptions,
 
-	AnnounceRequest,
-	ScrapeRequest
-} from '../structures/http/requests';
-
-import { decodeQueryString } from '../utils/helpers';
-import { defaultHTTPServerOptions, trackerActions } from '../utils/constants';
+	trackerActions,
+	requestTypes
+} from '../utils/constants';
 
 const debug = createDebug('hybrid-torrent-tracker:http-server');
 
-/**
- * Returns request object
- *
- * @param {UDPContext} context
- * @param {Buffer}     message
- *
- * @return {Request}
- */
-const getRequest = (context) => {
-	const [path, rawQuery] = context.getUrl().split('?');
-
-	const query = decodeQueryString(rawQuery);
-
-	switch (path) {
-	case '/announce': {
-		return new AnnounceRequest(context, query);
-	}
-
-	case '/scrape': {
-		return new ScrapeRequest(context, query);
-	}
-
-	default: {
-		throw new IncorrectRequestError({
-			message: 'Invalid action in HTTP'
-		});
-	}
-	}
+const requestContexts = {
+	[trackerActions.ANNOUNCE]: AnnounceRequestContext,
+	[trackerActions.SCRAPE]: ScrapeRequestContext,
 };
 
 export default class HTTPServer {
@@ -65,30 +37,30 @@ export default class HTTPServer {
 		this.httpServer = this.options.httpServer;
 
 		this.middleware = new Middleware([
-			async (request, next) => {
-				debug('HTTP request', request);
+			async (context, next) => {
+				debug('HTTP request', context);
 
 				await next();
 
-				if (request.context.sent) {
+				if (context.isSent()) {
 					return;
 				}
 
-				const { context, response, action } = request;
+				const { action, response } = context;
 
 				if (trackerActions.ANNOUNCE === action) {
-					await context.send(AnnounceResponse.toString({
+					await context.send({
 						interval: this.options.interval,
 						complete: response.complete,
 						incomplete: response.incomplete,
-						compact: request.compact,
+						compact: context.compact,
 						peers: response.peers
-					}));
+					});
 				} else if (trackerActions.SCRAPE === action) {
-					await context.send(ScrapeResponse.toString({
+					await context.send({
 						interval: this.options.interval,
 						files: response.files
-					}));
+					});
 				} else {
 					throw new IncorrectRequestError({
 						message: 'Internal server error'
@@ -97,24 +69,34 @@ export default class HTTPServer {
 			}
 		]);
 
-		this.onRequest = async (req, res) => {
-			const context = new HTTPContext({
-				request: req,
-				response: res
-			});
+		this.onRequest = async (request, response) => {
+			const connection = new HTTPConnectionContext({ request, response });
 
 			try {
-				const request = getRequest(context);
+				const payload = HTTPParser.parseRequest(connection);
 
-				await this.middleware.run(request);
+				const RequestContext = requestContexts[payload.action];
+
+				const context = new RequestContext(connection, payload, {
+					source: requestTypes.HTTP
+				});
+
+				await this.middleware.run(context);
 			} catch (error) {
-				try {
-					await context.send(ErrorResponse.toString({
-						message: error.message
-					}));
-				} catch (responseError) {
-					// eslint-disable-next-line no-console
-					console.error('Response error:', responseError);
+				if (!connection.sent) {
+					try {
+						await connection.send(
+							{
+								message: error.message
+							},
+							{
+								action: trackerActions.ERROR
+							}
+						);
+					} catch (responseError) {
+						// eslint-disable-next-line no-console
+						console.error('Response error:', responseError);
+					}
 				}
 
 				if (!(error instanceof IncorrectRequestError)) {
@@ -144,10 +126,6 @@ export default class HTTPServer {
 	 * @return {Promise}
 	 */
 	async listen() {
-		if (this.httpServer === null) {
-			this.httpServer = http.createServer();
-		}
-
 		this.httpServer.on('request', (req, res) => {
 			if (res.headersSent) {
 				return;
@@ -156,12 +134,7 @@ export default class HTTPServer {
 			this.onRequest(req, res);
 		});
 
-		const { httpServer } = this;
 		const { port, host } = this.options;
-
-		const listen = promisify(httpServer.listen).bind(httpServer);
-
-		await listen(port, host);
 
 		debug(`listens on port: ${port}, host: ${host}`);
 	}

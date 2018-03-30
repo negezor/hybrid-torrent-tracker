@@ -16,6 +16,22 @@ export const delay = delayed => (
 );
 
 /**
+ * Assign default options
+ *
+ * @param {Object} defaultOptions
+ * @param {Object} options
+ *
+ * @return {Object}
+ */
+export const assignDefaultOptions = (defaultOptions, options) => (
+	Object.assign({}, defaultOptions, ...[...Object.entries(options)].map(([key, value]) => ({
+		[key]: typeof value === 'object'
+			? Object.assign(defaultOptions[key], value)
+			: value
+	})))
+);
+
+/**
  * Returns buffer UInt32
  *
  * @param {number} num
@@ -141,3 +157,11 @@ export const ipv6PeersToCompact = peers => (
 		.filter(peer => IPV6_REGEX.test(peer.ip))
 		.map(peer => `[${peer.ip}]:${peer.port}`))
 );
+
+export const simpleSchemaValidate = (payload, schema) => {
+	for (const [key, value] of Object.entries(schema)) {
+		payload[key] = value(payload[key], payload);
+	}
+
+	return payload;
+};

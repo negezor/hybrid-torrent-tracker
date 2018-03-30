@@ -1,23 +1,29 @@
 import { inspect } from 'util';
 
-import { REMOVE_IPV4_MAPPED_IPV6_REGEX } from '../../utils/constants';
+import ConnectionContext from './context';
+import { HTTPParser } from '../../parsers';
 
-export default class HTTPContext {
+import { REMOVE_IPV4_MAPPED_IPV6_REGEX } from '../../../utils/constants';
+
+export default class HTTPConnectionContext extends ConnectionContext {
 	/**
 	 * Constructor
 	 *
 	 * @param {Object} params
 	 */
-	constructor({ request, response }) {
+	constructor({ request, response, trustProxy = false }) {
+		super();
+
 		this.request = request;
 		this.response = response;
 
+		this.trustProxy = trustProxy;
+
 		this.sent = false;
-		this.trustProxy = false;
 	}
 
 	/**
-	 * Returns the IPv4 addres
+	 * Returns the connection ip addres
 	 *
 	 * @return {string}
 	 */
@@ -32,6 +38,15 @@ export default class HTTPContext {
 	}
 
 	/**
+	 * Returns the connection port
+	 *
+	 * @return {number}
+	 */
+	getPort() {
+		return this.request.remoteAddress.remotePort;
+	}
+
+	/**
 	 * Returns the current URL path
 	 *
 	 * @return {string}
@@ -41,21 +56,23 @@ export default class HTTPContext {
 	}
 
 	/**
-	 * Send response
+	 * Sends a response
 	 *
-	 * @param {mixed}  body
+	 * @param {Object} payload
 	 * @param {Object} options
 	 *
 	 * @return {Promise}
 	 */
-	send(body, { statusCode = 200 } = {}) {
+	send(payload, options) {
 		if (this.sent) {
 			throw new Error('Response sent!');
 		}
 
 		return new Promise((resolve, reject) => {
-			this.response.statusCode = statusCode;
-			this.response.end(body, (error) => {
+			const message = HTTPParser.toStringResponse(payload, options);
+
+			this.response.statusCode = options.statusCode || 200;
+			this.response.end(message, (error) => {
 				if (error) {
 					reject(error);
 					return;
