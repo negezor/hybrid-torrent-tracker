@@ -42,3 +42,6 @@ async function run() {
 
 run().catch(console.error); // async/await "sugar"
 ```
+
+## Debug
+Set environment `DEBUG=hybrid-torrent-tracker:*`
