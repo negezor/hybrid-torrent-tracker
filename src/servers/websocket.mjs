@@ -136,12 +136,12 @@ export default class WebSocketServer {
 	/**
 	 * Added middleware
 	 *
-	 * @param {Function} handler
+	 * @param {Function} middlewares
 	 *
 	 * @return {this}
 	 */
-	use(middleware) {
-		this.middleware.use(middleware);
+	use(middlewares) {
+		this.middleware.use(...middlewares);
 
 		return this;
 	}

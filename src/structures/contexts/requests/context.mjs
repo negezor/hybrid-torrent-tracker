@@ -1,3 +1,5 @@
+import { trackerActions, requestTypes } from '../../../utils/constants';
+
 export default class RequestContext {
 	/**
 	 * Constructor
@@ -41,6 +43,51 @@ export default class RequestContext {
 
 			...options
 		});
+	}
+
+	/**
+	 * Checks that the content is an connect
+	 *
+	 * @return {boolean}
+	 */
+	get isConnect() {
+		return this.action === trackerActions.CONNECT;
+	}
+
+	/**
+	 * Checks that the content is an announce
+	 *
+	 * @return {boolean}
+	 */
+	get isAnnounce() {
+		return this.action === trackerActions.ANNOUNCE;
+	}
+
+	/**
+	 * Checks that the content is an scrape
+	 *
+	 * @return {boolean}
+	 */
+	get isScrape() {
+		return this.action === trackerActions.SCRAPE;
+	}
+
+	/**
+	 * Checks that the source is HTTP
+	 *
+	 * @return {boolean}
+	 */
+	get isSourceHTTP() {
+		return this.source === requestTypes.HTTP;
+	}
+
+	/**
+	 * Checks that the source is UDP
+	 *
+	 * @return {boolean}
+	 */
+	get isSourceUDP() {
+		return this.source === requestTypes.UDP;
 	}
 
 	/**

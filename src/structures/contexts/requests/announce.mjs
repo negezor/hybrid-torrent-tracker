@@ -58,7 +58,11 @@ export default class AnnounceRequestContext extends RequestContext {
 	 * @return {number}
 	 */
 	get uploaded() {
-		return this.payload.uploaded;
+		const { uploaded } = this.payload;
+
+		return uploaded < 0
+			? -uploaded
+			: uploaded;
 	}
 
 	/**
@@ -67,7 +71,11 @@ export default class AnnounceRequestContext extends RequestContext {
 	 * @return {number}
 	 */
 	get downloaded() {
-		return this.payload.downloaded;
+		const { downloaded } = this.payload;
+
+		return downloaded < 0
+			? -downloaded
+			: downloaded;
 	}
 
 	/**
@@ -76,7 +84,11 @@ export default class AnnounceRequestContext extends RequestContext {
 	 * @return {number}
 	 */
 	get left() {
-		return this.payload.left;
+		const { left } = this.payload;
+
+		return left < 0
+			? -left
+			: left;
 	}
 
 	/**
@@ -156,6 +168,15 @@ export default class AnnounceRequestContext extends RequestContext {
 	 */
 	get trackerId() {
 		return this.payload.trackerid || null;
+	}
+
+	/**
+	 * Returns the request path
+	 *
+	 * @return {?string}
+	 */
+	get requestPath() {
+		return this.payload.request_string || null;
 	}
 
 	/**

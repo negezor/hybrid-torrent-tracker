@@ -121,12 +121,20 @@ const schemaScrape = {
 
 export default class HTTPParser {
 	static parseRequest(connection) {
-		const [path, rawQuery] = connection.getUrl().split('?');
+		const url = connection.getUrl();
+
+		const [path, rawQuery] = url.split('?');
 
 		const request = decodeQueryString(rawQuery);
 
 		if (path.startsWith('/announce')) {
-			return simpleSchemaValidate({ action: trackerActions.ANNOUNCE, ...request }, schemaAnnounce);
+			return simpleSchemaValidate({
+				action: trackerActions.ANNOUNCE,
+
+				...request,
+
+				request_string: url
+			}, schemaAnnounce);
 		}
 
 		if (path.startsWith('/scrape')) {

@@ -9,7 +9,9 @@ import {
 } from '../../utils/helpers';
 import {
 	trackerActions,
+
 	udpAnnounceEventsIds,
+	udpExtensionsBits,
 
 	DEFAULT_ANNOUNCE_PEERS
 } from '../../utils/constants';
@@ -57,6 +59,15 @@ export default class UDPParser {
 			}
 		} else if (action === trackerActions.ANNOUNCE) {
 			/* 32 bytes */
+			const event = udpAnnounceEventsIds[message.readUInt32BE(80)];
+
+			if (!event) {
+				throw new IncorrectRequestError({
+					message: 'Invalid event'
+				});
+			}
+
+			/* 32 bytes */
 			const ip = message.readUInt32BE(84);
 
 			Object.assign(request, {
@@ -72,8 +83,7 @@ export default class UDPParser {
 				/* 64 bytes */
 				uploaded: fromUInt64(message.slice(72, 80)),
 
-				/* 32 bytes */
-				event: udpAnnounceEventsIds[message.readUInt32BE(80)],
+				event,
 
 				ip: ip
 					? bufferToStringIp(ip)
@@ -82,17 +92,32 @@ export default class UDPParser {
 				/* 32 bytes */
 				key: message.readUInt32BE(88),
 
+				/* 32 bytes */
 				numwant: message.readUInt32BE(92) || DEFAULT_ANNOUNCE_PEERS,
 
 				/* 16 bytes */
 				port: message.readUInt16BE(96) || null
 			});
 
-			if (!request.event) {
-				throw new IncorrectRequestError({
-					message: 'Invalid event'
-				});
+			/* TODO: Make more extensions (now only request_string) */
+
+			/* 16 bytes */
+			const extensionBitMask = message.readUInt16BE(98);
+			const extensionMessage = message.slice(100);
+
+			let length = 0;
+
+			for (let i = 0, bit = 1; i < 16; i += 1, bit *= 2) {
+				if ((bit & extensionBitMask) === 512) {
+					break;
+				}
+
+				if ((bit & extensionBitMask) === bit) {
+					length += bit;
+				}
 			}
+
+			request.request_string = extensionMessage.slice(0, length).toString() || null;
 		} else if (action === trackerActions.SCRAPE) {
 			if ((message.length - 16) % INFO_HASH_BYTES !== 0) {
 				throw new IncorrectRequestError({
