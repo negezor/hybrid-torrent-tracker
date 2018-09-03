@@ -13,8 +13,10 @@ export default [
 		input: 'src/index.mjs',
 		external: [
 			...dependencies,
+			'querystring',
 			'crypto',
 			'stream',
+			'dgram',
 			'https',
 			'http',
 			'util',
