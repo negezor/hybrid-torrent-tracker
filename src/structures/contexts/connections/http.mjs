@@ -5,7 +5,7 @@ import { TrackerError } from '../../../errors';
 import ConnectionContext from './context';
 import { HTTPParser } from '../../parsers';
 
-import { REMOVE_IPV4_MAPPED_IPV6_REGEX } from '../../../utils/constants';
+import { REMOVE_IPV4_MAPPED_IPV6_RE } from '../../../utils/constants';
 
 export default class HTTPConnectionContext extends ConnectionContext {
 	/**
@@ -34,7 +34,7 @@ export default class HTTPConnectionContext extends ConnectionContext {
 
 		const ip = this.trustProxy
 			? headers['x-forwarded-for'] || connection.remoteAddress
-			: connection.remoteAddress.replace(REMOVE_IPV4_MAPPED_IPV6_REGEX, '');
+			: connection.remoteAddress.replace(REMOVE_IPV4_MAPPED_IPV6_RE, '');
 
 		return ip;
 	}

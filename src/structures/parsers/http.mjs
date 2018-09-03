@@ -149,9 +149,13 @@ export default class HTTPParser {
 	static toStringResponse(payload, { action }) {
 		if (action === trackerActions.ANNOUNCE) {
 			return this.responseAnnounce(payload);
-		} else if (action === trackerActions.SCRAPE) {
+		}
+
+		if (action === trackerActions.SCRAPE) {
 			return this.responseScrape(payload);
-		} else if (action === trackerActions.ERROR) {
+		}
+
+		if (action === trackerActions.ERROR) {
 			return this.responseError(payload);
 		}
 

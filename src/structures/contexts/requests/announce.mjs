@@ -7,7 +7,7 @@ import {
 	DEFAULT_ANNOUNCE_PEERS,
 	MAX_ANNOUNCE_PEERS,
 
-	IPV6_REGEX
+	IPV6_RE
 } from '../../../utils/constants';
 
 /**
@@ -187,7 +187,7 @@ export default class AnnounceRequestContext extends RequestContext {
 	get addres() {
 		const { ip, port } = this;
 
-		return IPV6_REGEX.test(ip)
+		return IPV6_RE.test(ip)
 			? `[${ip}]:${port}`
 			: `${ip}:${port}`;
 	}

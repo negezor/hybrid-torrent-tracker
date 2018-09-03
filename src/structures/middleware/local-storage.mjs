@@ -1,4 +1,4 @@
-import { IncorrectRequestError } from '../../servers';
+import { IncorrectRequestError } from '../../errors';
 
 import { announceEvents } from '../../utils/constants';
 

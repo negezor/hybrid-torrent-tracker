@@ -1,6 +1,5 @@
 import { TrackerError, IncorrectRequestError } from '../../errors';
 
-import { AnnounceRequestContext } from '../contexts';
 import {
 	toUInt32,
 	fromUInt64,
@@ -9,9 +8,7 @@ import {
 } from '../../utils/helpers';
 import {
 	trackerActions,
-
 	udpAnnounceEventsIds,
-	udpExtensionsBits,
 
 	DEFAULT_ANNOUNCE_PEERS
 } from '../../utils/constants';
@@ -150,11 +147,17 @@ export default class UDPParser {
 	static toBufferResponse(payload, { action }) {
 		if (action === trackerActions.CONNECT) {
 			return this.responseConnection(payload);
-		} else if (action === trackerActions.ANNOUNCE) {
+		}
+
+		if (action === trackerActions.ANNOUNCE) {
 			return this.responseAnnounce(payload);
-		} else if (action === trackerActions.SCRAPE) {
+		}
+
+		if (action === trackerActions.SCRAPE) {
 			return this.responseScrape(payload);
-		} else if (action === trackerActions.ERROR) {
+		}
+
+		if (action === trackerActions.ERROR) {
 			return this.responseError(payload);
 		}
 

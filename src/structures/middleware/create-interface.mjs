@@ -1,4 +1,5 @@
-import { IncorrectRequestError } from '../../servers';
+/* eslint-disable */
+import { IncorrectRequestError } from '../../errors';
 
 import { trackerActions, announceEvents } from '../../utils/constants';
 

@@ -60,6 +60,7 @@ export default class Tracker {
 		const promises = [];
 
 		if (udp.enabled) {
+			debug('UDP enabled');
 			this.udpServer = new UDPServer(udp);
 
 			this.udpServer.use(...this.stack);
@@ -90,6 +91,8 @@ export default class Tracker {
 		}
 
 		if (websocket.enabled) {
+			debug('WebSocket enabled');
+
 			this.webSocketServer = new WebSocketServer(websocket);
 
 			this.webSocketServer.use(...this.stack);
@@ -102,6 +105,8 @@ export default class Tracker {
 		}
 
 		if (http.enabled) {
+			debug('HTTP enabled');
+
 			this.httpServer = new HTTPServer(http);
 
 			this.httpServer.use(...this.stack);

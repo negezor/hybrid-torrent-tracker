@@ -6,7 +6,6 @@ import { HTTPParser } from '../structures/parsers';
 import {
 	HTTPConnectionContext,
 
-	ConnectionRequestContext,
 	AnnounceRequestContext,
 	ScrapeRequestContext
 } from '../structures/contexts';

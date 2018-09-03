@@ -1,3 +1,4 @@
+/* eslint-disable */
 import WebSocket from 'ws';
 import createDebug from 'debug';
 import Middleware from 'middleware-io';

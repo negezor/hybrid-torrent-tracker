@@ -2,7 +2,7 @@ import string2compact from 'string2compact';
 
 import querystring from 'querystring';
 
-import { IPV4_REGEX, IPV6_REGEX } from './constants';
+import { IPV4_RE, IPV6_RE } from './constants';
 
 /**
  * Delay N-ms
@@ -148,13 +148,13 @@ export const encodeQueryString = query => (
 
 export const ipv4PeersToCompact = peers => (
 	string2compact(peers
-		.filter(peer => IPV4_REGEX.test(peer.ip))
+		.filter(peer => IPV4_RE.test(peer.ip))
 		.map(peer => `${peer.ip}:${peer.port}`))
 );
 
 export const ipv6PeersToCompact = peers => (
 	string2compact(peers
-		.filter(peer => IPV6_REGEX.test(peer.ip))
+		.filter(peer => IPV6_RE.test(peer.ip))
 		.map(peer => `[${peer.ip}]:${peer.port}`))
 );
 

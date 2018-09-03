@@ -17,21 +17,21 @@ export const MAX_ANNOUNCE_PEERS = 82;
  *
  * @type {RegExp}
  */
-export const IPV4_REGEX = /^[\d.]+$/;
+export const IPV4_RE = /^[\d.]+$/;
 
 /**
  * The regular expression checks a string for IPv6
  *
  * @type {RegExp}
  */
-export const IPV6_REGEX = /^[\da-fA-F:]+$/;
+export const IPV6_RE = /^[\da-fA-F:]+$/;
 
 /**
  * A regular expression that removes mapped IPv6
  *
  * @type {RegExp}
  */
-export const REMOVE_IPV4_MAPPED_IPV6_REGEX = /^::ffff:/;
+export const REMOVE_IPV4_MAPPED_IPV6_RE = /^::ffff:/;
 
 /**
  * Default UDP server options

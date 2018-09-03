@@ -187,7 +187,7 @@ export default class UDPServer {
 
 		await Promise.all([
 			listenUdp4(port, host),
-			// listenUdp6(port, host)
+			listenUdp6(port, host)
 		]);
 
 		debug(`listens on port: ${port}, host: ${host}`);
