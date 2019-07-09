@@ -1,3 +1,0 @@
-describe('Coming', () => {
-	it('Soon', () => {});
-});

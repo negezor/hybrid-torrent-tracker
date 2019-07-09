@@ -5,7 +5,7 @@ hybrid-torrent-tracker - This is a torrent tracker for [Node.js](https://nodejs.
 - Predictable abstraction
 
 ## Installation
-**[Node.js](https://nodejs.org/) 9.0.0 or newer is required**  
+**[Node.js](https://nodejs.org/) 12.0.0 or newer is required**  
 
 ### Yarn
 Recommended

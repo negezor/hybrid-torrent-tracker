@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"lib": ["esnext"],
+		"moduleResolution": "node",
+		"declaration": true,
+		"sourceMap": false,
+		"strict": true
+	}
+}

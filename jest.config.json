@@ -1,10 +1,7 @@
 {
 	"name": "hybrid-torrent-tracker",
 	"verbose": true,
+	"preset": "ts-jest",
 	"testEnvironment": "node",
-	"moduleFileExtensions": ["js", "json"],
-	"testRegex": "./test/.+\\.test\\.js$",
-	"transform": {
-		"^.+\\.js$": "babel-jest"
-	}
+	"testMatch": ["<rootDir>/test/*.test.ts"]
 }
