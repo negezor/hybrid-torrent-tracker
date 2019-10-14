@@ -1,5 +1,8 @@
 hybrid-torrent-tracker - This is a torrent tracker for [Node.js](https://nodejs.org) with HTTP and UDP support based middleware.
 
+| 📖 [Documentation](docs/) |
+|---------------------------|
+
 ## Features
 - User-friendly interface for query processing (middleware)
 - Predictable abstraction
@@ -21,9 +24,9 @@ npm install hybrid-torrent-tracker --save
 ## Example usage
 
 ```js
-import Tracker, { createLocalStorage } from 'hybrid-torrent-tracker';
+import { TorrentTracker } from 'hybrid-torrent-tracker';
 
-const tracker = new Tracker({
+const tracker = new TorrentTracker({
 	http: {
 		port: 6881
 	},
@@ -32,15 +35,17 @@ const tracker = new Tracker({
 	}
 });
 
-tracker.use(createLocalStorage());
+tracker.use((context, next) => {
+	// Your logic
+});
 
 async function run() {
 	await tracker.listen();
 
-	console.log('Tracker listens');
+	console.log('Torrent tracker started');
 }
 
-run().catch(console.error); // async/await "sugar"
+run().catch(console.error);
 ```
 
 ## Debug

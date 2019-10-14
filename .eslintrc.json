@@ -17,9 +17,13 @@
 		"import",
 		"@typescript-eslint"
 	],
+	"globals": {
+		"BigInt": true
+	},
 	"rules": {
 		"@typescript-eslint/interface-name-prefix": ["error", "always"],
 		"@typescript-eslint/indent": ["error", "tab"],
+		"@typescript-eslint/ban-ts-ignore": "off",
 		"no-restricted-syntax": ["error", "WithStatement"],
 		"comma-dangle": ["error", "never"],
 		"no-param-reassign": ["error", {
@@ -29,7 +33,9 @@
 		"arrow-parens": "off",
 		"no-tabs": ["error", {
 			"allowIndentationTabs": true
-		}]
+		}],
+		"no-continue": "off",
+		"indent": "off"
 	},
 	"overrides": [
 		{

@@ -1,0 +1,104 @@
+import { HttpRequest, HttpResponse } from 'uWebSockets.js';
+
+import { inspect } from 'util';
+import { STATUS_CODES } from 'http';
+
+import { TrackerError } from '../../errors';
+import { IHTTPConnectionContext, HTTPResponseUnion } from '../../interfaces';
+
+import ConnectionContext from './context';
+import { HTTPParser } from '../../parsers';
+import { TrackerAction } from '../../../lib/constants';
+
+export interface IHTTPConnectionContextOptions {
+	request: HttpRequest;
+	response: HttpResponse;
+
+	trustProxy: boolean;
+}
+
+export default class HTTPConnectionContext
+	extends ConnectionContext
+	implements IHTTPConnectionContext {
+	public aborted = false;
+
+	protected request: HttpRequest;
+
+	protected response: HttpResponse;
+
+	protected trustProxy: boolean;
+
+	public constructor(options: IHTTPConnectionContextOptions) {
+		super();
+
+		this.request = options.request;
+		this.response = options.response;
+
+		this.trustProxy = options.trustProxy;
+
+		this.response.onAborted((): void => {
+			this.aborted = true;
+		});
+	}
+
+	public get ip(): string {
+		const xForwardedFor = this.request.getHeader('x-forwarded-for');
+
+		if (this.trustProxy && xForwardedFor) {
+			return xForwardedFor;
+		}
+
+		return (new Uint8Array(this.response.getRemoteAddress())).join('.');
+	}
+
+	public get url(): string {
+		return `${this.request.getUrl()}?${this.request.getQuery()}`;
+	}
+
+	public send(
+		payload: HTTPResponseUnion,
+		options: {
+			action: TrackerAction;
+			statusCode?: number;
+		}
+	): Promise<void> {
+		return new Promise((resolve, reject): void => {
+			if (this.sent) {
+				reject(new TrackerError({
+					message: 'Response already sent',
+					code: 'RESPONSE_ALREADY_SENT'
+				}));
+
+				return;
+			}
+
+			const message = HTTPParser.toBufferResponse(payload, options.action);
+
+			const { statusCode = 200 } = options;
+
+			this.response.writeStatus(`${statusCode} ${STATUS_CODES[statusCode]}`);
+			this.response.end(message);
+
+			this.sent = true;
+
+			resolve();
+		});
+	}
+
+	/**
+	 * Custom inspect object
+	 */
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	public [inspect.custom](depth: any, options: Record<string, any>): string {
+		const { name } = this.constructor;
+		const { sent, ip, url } = this;
+
+		const payload = {
+			sent,
+			ip,
+			url
+		};
+
+		return `${options.stylize(name, 'special')} ${inspect(payload, options)}`;
+	}
+}
