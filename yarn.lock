@@ -4224,9 +4224,9 @@ typescript@^3.6.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.4.tgz#b18752bb3792bc1a0281335f7f6ebf1bbfc5b91d"
   integrity sha512-unoCll1+l+YK4i4F8f22TaNVPRHcD9PA3yCuZ8g5e0qGqlVlJ/8FSateOLLSagn+Yg5+ZwuPkL8LFUc0Jcvksg==
 
-uWebSockets.js@uNetworking/uWebSockets.js#v16.0.0:
-  version "16.0.0"
-  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/279ddafb1f95c81b4befece127a320c1e3dfcd4a"
+uWebSockets.js@uNetworking/uWebSockets.js#v16.1.0:
+  version "16.1.0"
+  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/b49dfbaefa34118b954c82823fe0a23927cf4d3b"
 
 uglify-js@^3.1.4:
   version "3.6.1"
