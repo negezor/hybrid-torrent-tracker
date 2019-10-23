@@ -155,9 +155,15 @@ export default class WebServer {
 	 * Starts HTTP listening
 	 */
 	public listen(): Promise<void> {
-		return new Promise((resolve): void => {
-			this.app.listen(this.options.host, this.options.port, (): void => {
-				resolve();
+		return new Promise((resolve, reject): void => {
+			this.app.listen(this.options.host, this.options.port, (listenSocket): void => {
+				if (listenSocket) {
+					resolve();
+
+					return;
+				}
+
+				reject(new Error('Failed to start http server'));
 			});
 		});
 	}
