@@ -40,7 +40,7 @@ export default class UDPServer {
 	public constructor(options: IUDPServerOptions) {
 		this.options = {
 			// 2 min
-			interval: 60e3 * 2,
+			interval: 120,
 
 			...options
 		};

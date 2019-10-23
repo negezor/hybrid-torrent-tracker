@@ -32,7 +32,7 @@ export default class WebServer {
 		this.options = {
 			trustProxy: false,
 			// 2 min
-			interval: 60e3 * 2,
+			interval: 120,
 
 			...options
 		};
