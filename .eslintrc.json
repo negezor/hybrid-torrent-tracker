@@ -24,6 +24,10 @@
 		"@typescript-eslint/interface-name-prefix": ["error", "always"],
 		"@typescript-eslint/indent": ["error", "tab"],
 		"@typescript-eslint/ban-ts-ignore": "off",
+		"import/extensions": ["error", "ignorePackages", {
+			"js": "never",
+			"ts": "never"
+		}],
 		"no-restricted-syntax": ["error", "WithStatement"],
 		"comma-dangle": ["error", "never"],
 		"no-param-reassign": ["error", {
