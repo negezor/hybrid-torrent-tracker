@@ -35,6 +35,7 @@ export default class UDPServer {
 
 	protected stack: Middleware<RequestContext>[] = [];
 
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	protected chain: Middleware<RequestContext> = (): void => {};
 
 	public constructor(options: IUDPServerOptions) {
