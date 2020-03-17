@@ -20,7 +20,7 @@
 
 • **action**: *[TrackerAction](../enums/_constants_.trackeraction.md)*
 
-Defined in parsers/udp.ts:53
+*Defined in [src/parsers/udp.ts:53](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L53)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **connection_id**: *bigint*
 
-Defined in parsers/udp.ts:52
+*Defined in [src/parsers/udp.ts:52](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L52)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **transaction_id**: *number*
 
-Defined in parsers/udp.ts:54
+*Defined in [src/parsers/udp.ts:54](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L54)*

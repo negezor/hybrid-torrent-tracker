@@ -30,7 +30,7 @@
 
 \+ **new WebServer**(`options`: [IWebServerOptions](../interfaces/_servers_web_.iwebserveroptions.md)): *[WebServer](_servers_web_.webserver.md)*
 
-Defined in servers/web.ts:29
+*Defined in [src/servers/web.ts:31](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L31)*
 
 **Parameters:**
 
@@ -46,7 +46,7 @@ Name | Type |
 
 • **app**: *TemplatedApp*
 
-Defined in servers/web.ts:25
+*Defined in [src/servers/web.ts:26](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L26)*
 
 ___
 
@@ -54,15 +54,15 @@ ___
 
 • **options**: *Required‹[IWebServerOptions](../interfaces/_servers_web_.iwebserveroptions.md)›*
 
-Defined in servers/web.ts:23
+*Defined in [src/servers/web.ts:24](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L24)*
 
 ___
 
 ### `Protected` stack
 
-• **stack**: *Middleware‹[RequestContext](_contexts_requests_context_.requestcontext.md)›[]* =  []
+• **stack**: *Middleware‹[RequestContext](_contexts_requests_context_.requestcontext.md)›[]* = []
 
-Defined in servers/web.ts:27
+*Defined in [src/servers/web.ts:28](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L28)*
 
 ## Methods
 
@@ -70,7 +70,7 @@ Defined in servers/web.ts:27
 
 ▸ **chain**(): *void*
 
-Defined in servers/web.ts:29
+*Defined in [src/servers/web.ts:31](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L31)*
 
 **Returns:** *void*
 
@@ -80,7 +80,7 @@ ___
 
 ▸ **listen**(): *Promise‹void›*
 
-Defined in servers/web.ts:157
+*Defined in [src/servers/web.ts:159](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L159)*
 
 Starts HTTP listening
 
@@ -92,7 +92,7 @@ ___
 
 ▸ **use**(`middlewares`: Middleware‹[RequestContext](_contexts_requests_context_.requestcontext.md)›[]): *this*
 
-Defined in servers/web.ts:146
+*Defined in [src/servers/web.ts:148](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L148)*
 
 Added middleware
 

@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["contexts/connections/udp"](_contexts_connections_udp_.md)
 
-# External module: "contexts/connections/udp"
+# Module: "contexts/connections/udp"
 
 ## Index
 

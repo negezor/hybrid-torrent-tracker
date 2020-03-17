@@ -37,7 +37,7 @@
 
 • **action**: *[TrackerAction](../enums/_constants_.trackeraction.md)*
 
-Defined in interfaces.ts:183
+*Defined in [src/interfaces.ts:183](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L183)*
 
 Current action
 
@@ -47,7 +47,7 @@ ___
 
 • **isAnnounce**: *boolean*
 
-Defined in interfaces.ts:163
+*Defined in [src/interfaces.ts:163](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L163)*
 
 The current action is "announce"
 
@@ -57,7 +57,7 @@ ___
 
 • **isConnect**: *boolean*
 
-Defined in interfaces.ts:158
+*Defined in [src/interfaces.ts:158](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L158)*
 
 The current action is "connect"
 
@@ -67,7 +67,7 @@ ___
 
 • **isScrape**: *boolean*
 
-Defined in interfaces.ts:168
+*Defined in [src/interfaces.ts:168](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L168)*
 
 The current action is "scrape"
 
@@ -77,7 +77,7 @@ ___
 
 • **isSourceHTTP**: *boolean*
 
-Defined in interfaces.ts:173
+*Defined in [src/interfaces.ts:173](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L173)*
 
 The request source is HTTP
 
@@ -87,7 +87,7 @@ ___
 
 • **isSourceUDP**: *boolean*
 
-Defined in interfaces.ts:178
+*Defined in [src/interfaces.ts:178](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L178)*
 
 The request source is UDP
 
@@ -97,6 +97,6 @@ ___
 
 • **sent**: *boolean*
 
-Defined in interfaces.ts:188
+*Defined in [src/interfaces.ts:188](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L188)*
 
 Has an answer been sent

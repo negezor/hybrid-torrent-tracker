@@ -19,7 +19,7 @@ Events list announce
 
 • **COMPLETED**: = "completed"
 
-Defined in constants.ts:25
+*Defined in [src/constants.ts:25](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L25)*
 
 ___
 
@@ -27,7 +27,7 @@ ___
 
 • **STARTED**: = "started"
 
-Defined in constants.ts:26
+*Defined in [src/constants.ts:26](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L26)*
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 • **STOPPED**: = "stopped"
 
-Defined in constants.ts:27
+*Defined in [src/constants.ts:27](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L27)*
 
 ___
 
@@ -43,4 +43,4 @@ ___
 
 • **UPDATE**: = "update"
 
-Defined in constants.ts:24
+*Defined in [src/constants.ts:24](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L24)*

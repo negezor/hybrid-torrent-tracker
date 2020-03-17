@@ -34,7 +34,7 @@
 
 ### Methods
 
-* [__computed](_contexts_connections_http_.httpconnectioncontext.md#__computed)
+* [[inspect.custom]](_contexts_connections_http_.httpconnectioncontext.md#[inspect.custom])
 * [send](_contexts_connections_http_.httpconnectioncontext.md#send)
 
 ## Constructors
@@ -43,7 +43,7 @@
 
 \+ **new HTTPConnectionContext**(`options`: [IHTTPConnectionContextOptions](../interfaces/_contexts_connections_http_.ihttpconnectioncontextoptions.md)): *[HTTPConnectionContext](_contexts_connections_http_.httpconnectioncontext.md)*
 
-Defined in contexts/connections/http.ts:29
+*Defined in [src/contexts/connections/http.ts:29](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L29)*
 
 **Parameters:**
 
@@ -61,7 +61,7 @@ Name | Type |
 
 *Implementation of [IHTTPConnectionContext](../interfaces/_interfaces_.ihttpconnectioncontext.md).[aborted](../interfaces/_interfaces_.ihttpconnectioncontext.md#aborted)*
 
-Defined in contexts/connections/http.ts:23
+*Defined in [src/contexts/connections/http.ts:23](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L23)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **request**: *HttpRequest*
 
-Defined in contexts/connections/http.ts:25
+*Defined in [src/contexts/connections/http.ts:25](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L25)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **response**: *HttpResponse*
 
-Defined in contexts/connections/http.ts:27
+*Defined in [src/contexts/connections/http.ts:27](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L27)*
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 *Inherited from [ConnectionContext](_contexts_connections_context_.connectioncontext.md).[sent](_contexts_connections_context_.connectioncontext.md#sent)*
 
-Defined in contexts/connections/context.ts:4
+*Defined in [src/contexts/connections/context.ts:4](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/context.ts#L4)*
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 • **trustProxy**: *boolean*
 
-Defined in contexts/connections/http.ts:29
+*Defined in [src/contexts/connections/http.ts:29](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L29)*
 
 ## Accessors
 
@@ -105,7 +105,7 @@ Defined in contexts/connections/http.ts:29
 
 • **get ip**(): *string*
 
-Defined in contexts/connections/http.ts:44
+*Defined in [src/contexts/connections/http.ts:44](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L44)*
 
 **Returns:** *string*
 
@@ -115,17 +115,17 @@ ___
 
 • **get url**(): *string*
 
-Defined in contexts/connections/http.ts:54
+*Defined in [src/contexts/connections/http.ts:54](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L54)*
 
 **Returns:** *string*
 
 ## Methods
 
-###  __computed
+###  [inspect.custom]
 
-▸ **__computed**(`depth`: any, `options`: Record‹string, any›): *string*
+▸ **[inspect.custom]**(`depth`: any, `options`: Record‹string, any›): *string*
 
-Defined in contexts/connections/http.ts:92
+*Defined in [src/contexts/connections/http.ts:92](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L92)*
 
 Custom inspect object
 
@@ -144,7 +144,7 @@ ___
 
 ▸ **send**(`payload`: [HTTPResponseUnion](../modules/_interfaces_.md#httpresponseunion), `options`: object): *Promise‹void›*
 
-Defined in contexts/connections/http.ts:58
+*Defined in [src/contexts/connections/http.ts:58](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L58)*
 
 **Parameters:**
 
@@ -154,7 +154,7 @@ Defined in contexts/connections/http.ts:58
 
 Name | Type |
 ------ | ------ |
-`action` | TrackerAction |
+`action` | [TrackerAction](../enums/_constants_.trackeraction.md) |
 `statusCode?` | undefined &#124; number |
 
 **Returns:** *Promise‹void›*

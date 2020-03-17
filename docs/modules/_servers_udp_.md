@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["servers/udp"](_servers_udp_.md)
 
-# External module: "servers/udp"
+# Module: "servers/udp"
 
 ## Index
 
@@ -20,6 +20,6 @@
 
 ### `Const` debug
 
-• **debug**: *Debugger* =  createDebug('hybrid-torrent-tracker:udp-server')
+• **debug**: *Debugger* = createDebug('hybrid-torrent-tracker:udp-server')
 
-Defined in servers/udp.ts:21
+*Defined in [src/servers/udp.ts:22](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L22)*

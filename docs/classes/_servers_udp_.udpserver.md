@@ -31,7 +31,7 @@
 
 \+ **new UDPServer**(`options`: [IUDPServerOptions](../interfaces/_servers_udp_.iudpserveroptions.md)): *[UDPServer](_servers_udp_.udpserver.md)*
 
-Defined in servers/udp.ts:38
+*Defined in [src/servers/udp.ts:40](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L40)*
 
 **Parameters:**
 
@@ -47,15 +47,15 @@ Name | Type |
 
 • **options**: *Required‹[IUDPServerOptions](../interfaces/_servers_udp_.iudpserveroptions.md)›*
 
-Defined in servers/udp.ts:30
+*Defined in [src/servers/udp.ts:31](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L31)*
 
 ___
 
 ### `Protected` stack
 
-• **stack**: *Middleware‹[RequestContext](_contexts_requests_context_.requestcontext.md)›[]* =  []
+• **stack**: *Middleware‹[RequestContext](_contexts_requests_context_.requestcontext.md)›[]* = []
 
-Defined in servers/udp.ts:36
+*Defined in [src/servers/udp.ts:37](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L37)*
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **udp4Socket**: *Socket*
 
-Defined in servers/udp.ts:32
+*Defined in [src/servers/udp.ts:33](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L33)*
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 • **udp6Socket**: *Socket*
 
-Defined in servers/udp.ts:34
+*Defined in [src/servers/udp.ts:35](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L35)*
 
 ## Methods
 
@@ -79,7 +79,7 @@ Defined in servers/udp.ts:34
 
 ▸ **chain**(): *void*
 
-Defined in servers/udp.ts:38
+*Defined in [src/servers/udp.ts:40](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L40)*
 
 **Returns:** *void*
 
@@ -89,7 +89,7 @@ ___
 
 ▸ **listen**(): *Promise‹void›*
 
-Defined in servers/udp.ts:237
+*Defined in [src/servers/udp.ts:239](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L239)*
 
 Starts UDP listening
 
@@ -101,7 +101,7 @@ ___
 
 ▸ **use**(`middlewares`: Middleware‹[RequestContext](_contexts_requests_context_.requestcontext.md)›[]): *this*
 
-Defined in servers/udp.ts:226
+*Defined in [src/servers/udp.ts:228](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L228)*
 
 Added middleware
 

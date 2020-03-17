@@ -57,7 +57,7 @@ Request announce
 
 *Overrides [IRequestContext](_interfaces_.irequestcontext.md).[action](_interfaces_.irequestcontext.md#action)*
 
-Defined in interfaces.ts:209
+*Defined in [src/interfaces.ts:209](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L209)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **addres**: *string*
 
-Defined in interfaces.ts:289
+*Defined in [src/interfaces.ts:289](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L289)*
 
 Returns the addres like ip:port
 
@@ -75,7 +75,7 @@ ___
 
 • **compact**: *number*
 
-Defined in interfaces.ts:244
+*Defined in [src/interfaces.ts:244](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L244)*
 
 Returns the indicates that the client accepts a compact response
 
@@ -85,7 +85,7 @@ ___
 
 • **downloaded**: *bigint*
 
-Defined in interfaces.ts:234
+*Defined in [src/interfaces.ts:234](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L234)*
 
 Returns the total amount downloaded (since the client sent the 'started' event to the tracker)
 
@@ -95,7 +95,7 @@ ___
 
 • **event**: *[AnnounceEvent](../enums/_constants_.announceevent.md)*
 
-Defined in interfaces.ts:258
+*Defined in [src/interfaces.ts:258](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L258)*
 
 Returns be one of started, completed, stopped or update (if empty)
  started: The first request to the tracker must include the event key with this value
@@ -109,7 +109,7 @@ ___
 
 • **infoHash**: *string*
 
-Defined in interfaces.ts:214
+*Defined in [src/interfaces.ts:214](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L214)*
 
 Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
 
@@ -119,7 +119,7 @@ ___
 
 • **ip**: *string*
 
-Defined in interfaces.ts:264
+*Defined in [src/interfaces.ts:264](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L264)*
 
 Returns the true IP address of the client machine,
 in dotted quad format or rfc 3513 defined hexed IPv6 address.
@@ -132,7 +132,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isAnnounce](_interfaces_.irequestcontext.md#isannounce)*
 
-Defined in interfaces.ts:163
+*Defined in [src/interfaces.ts:163](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L163)*
 
 The current action is "announce"
 
@@ -142,7 +142,7 @@ ___
 
 • **isCompact**: *boolean*
 
-Defined in interfaces.ts:207
+*Defined in [src/interfaces.ts:207](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L207)*
 
 Checks that need a compact answer
 
@@ -154,7 +154,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isConnect](_interfaces_.irequestcontext.md#isconnect)*
 
-Defined in interfaces.ts:158
+*Defined in [src/interfaces.ts:158](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L158)*
 
 The current action is "connect"
 
@@ -166,7 +166,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isScrape](_interfaces_.irequestcontext.md#isscrape)*
 
-Defined in interfaces.ts:168
+*Defined in [src/interfaces.ts:168](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L168)*
 
 The current action is "scrape"
 
@@ -178,7 +178,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isSourceHTTP](_interfaces_.irequestcontext.md#issourcehttp)*
 
-Defined in interfaces.ts:173
+*Defined in [src/interfaces.ts:173](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L173)*
 
 The request source is HTTP
 
@@ -190,7 +190,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isSourceUDP](_interfaces_.irequestcontext.md#issourceudp)*
 
-Defined in interfaces.ts:178
+*Defined in [src/interfaces.ts:178](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L178)*
 
 The request source is UDP
 
@@ -200,7 +200,7 @@ ___
 
 • **key**? : *string | number*
 
-Defined in interfaces.ts:274
+*Defined in [src/interfaces.ts:274](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L274)*
 
 Returns the an additional identification that is not shared with any other peers
 
@@ -210,7 +210,7 @@ ___
 
 • **left**: *bigint*
 
-Defined in interfaces.ts:239
+*Defined in [src/interfaces.ts:239](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L239)*
 
 Returns the number of bytes this client still has to download
 
@@ -220,7 +220,7 @@ ___
 
 • **noPeerId**: *number*
 
-Defined in interfaces.ts:249
+*Defined in [src/interfaces.ts:249](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L249)*
 
 Returns that the tracker can omit peer id field in peers dictionary
 
@@ -230,7 +230,7 @@ ___
 
 • **numwant**: *number*
 
-Defined in interfaces.ts:269
+*Defined in [src/interfaces.ts:269](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L269)*
 
 Returns the number of peers that the client would like to receive from the tracker
 
@@ -240,7 +240,7 @@ ___
 
 • **peerId**: *string*
 
-Defined in interfaces.ts:219
+*Defined in [src/interfaces.ts:219](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L219)*
 
 Returns 20-byte string used as a unique ID for the client, generated by the client at startup
 
@@ -250,7 +250,7 @@ ___
 
 • **port**: *number*
 
-Defined in interfaces.ts:224
+*Defined in [src/interfaces.ts:224](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L224)*
 
 Returns the port number that the client is listening on
 
@@ -260,7 +260,7 @@ ___
 
 • **requestPath**? : *undefined | string*
 
-Defined in interfaces.ts:284
+*Defined in [src/interfaces.ts:284](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L284)*
 
 Returns the request path
 
@@ -272,7 +272,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[sent](_interfaces_.irequestcontext.md#sent)*
 
-Defined in interfaces.ts:188
+*Defined in [src/interfaces.ts:188](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L188)*
 
 Has an answer been sent
 
@@ -282,7 +282,7 @@ ___
 
 • **trackerId**? : *string | number*
 
-Defined in interfaces.ts:279
+*Defined in [src/interfaces.ts:279](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L279)*
 
 Returns the tracker id, if a previous announce contained
 
@@ -292,7 +292,7 @@ ___
 
 • **transactionId**: *number*
 
-Defined in interfaces.ts:294
+*Defined in [src/interfaces.ts:294](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L294)*
 
 Returns the transaction ID (only UDP)
 
@@ -302,7 +302,7 @@ ___
 
 • **uploaded**: *bigint*
 
-Defined in interfaces.ts:229
+*Defined in [src/interfaces.ts:229](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L229)*
 
 Returns the total amount uploaded (since the client sent the 'started' event to the tracker)
 
@@ -312,7 +312,7 @@ Returns the total amount uploaded (since the client sent the 'started' event to 
 
 ▸ **send**(`payload`: [AnnounceRequestContextSendOptions](../modules/_interfaces_.md#announcerequestcontextsendoptions)): *Promise‹void›*
 
-Defined in interfaces.ts:299
+*Defined in [src/interfaces.ts:299](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L299)*
 
 Sends a response
 

@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["tracker"](_tracker_.md)
 
-# External module: "tracker"
+# Module: "tracker"
 
 ## Index
 
@@ -23,7 +23,7 @@
 
 Ƭ **ServerOptions**: *object & T*
 
-Defined in tracker.ts:18
+*Defined in [src/tracker.ts:18](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/tracker.ts#L18)*
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 Ƭ **TorrentTrackerMiddleware**: *Middleware‹[ConnectionRequestContext](../classes/_contexts_requests_connection_.connectionrequestcontext.md) | [ScrapeRequestContext](../classes/_contexts_requests_scrape_.scraperequestcontext.md) | [AnnounceRequestContext](../classes/_contexts_requests_announce_.announcerequestcontext.md)›*
 
-Defined in tracker.ts:12
+*Defined in [src/tracker.ts:12](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/tracker.ts#L12)*

@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["contexts/requests/scrape"](_contexts_requests_scrape_.md)
 
-# External module: "contexts/requests/scrape"
+# Module: "contexts/requests/scrape"
 
 ## Index
 

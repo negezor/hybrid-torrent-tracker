@@ -19,7 +19,7 @@
 
 • **message**: *string*
 
-Defined in interfaces.ts:82
+*Defined in [src/interfaces.ts:82](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L82)*
 
 ___
 
@@ -27,6 +27,6 @@ ___
 
 • **transactionId**: *number*
 
-Defined in interfaces.ts:80
+*Defined in [src/interfaces.ts:80](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L80)*
 
 Returns the transaction ID

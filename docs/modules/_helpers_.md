@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["helpers"](_helpers_.md)
 
-# External module: "helpers"
+# Module: "helpers"
 
 ## Index
 
@@ -33,7 +33,7 @@
 
 Ƭ **ParseSchemaReturn**: *object*
 
-Defined in helpers.ts:97
+*Defined in [src/helpers.ts:97](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L97)*
 
 #### Type declaration:
 
@@ -41,9 +41,9 @@ Defined in helpers.ts:97
 
 ### `Const` ipv4Re
 
-• **ipv4Re**: *RegExp* =  /^[\d.]+$/
+• **ipv4Re**: *RegExp‹›* = /^[\d.]+$/
 
-Defined in helpers.ts:43
+*Defined in [src/helpers.ts:43](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L43)*
 
 The regular expression checks a string for IPv4
 
@@ -51,9 +51,9 @@ ___
 
 ### `Const` ipv6Re
 
-• **ipv6Re**: *RegExp* =  /^[\da-fA-F:]+$/
+• **ipv6Re**: *RegExp‹›* = /^[\da-fA-F:]+$/
 
-Defined in helpers.ts:56
+*Defined in [src/helpers.ts:56](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L56)*
 
 The regular expression checks a string for IPv6
 
@@ -63,7 +63,7 @@ The regular expression checks a string for IPv6
 
 ▸ **binaryToHex**(`binary`: string): *string*
 
-Defined in helpers.ts:9
+*Defined in [src/helpers.ts:9](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L9)*
 
 Binary to hex
 
@@ -81,7 +81,7 @@ ___
 
 ▸ **copyParams**<**T**, **K**>(`params`: T, `properties`: K[]): *Pick‹T, K›*
 
-Defined in helpers.ts:120
+*Defined in [src/helpers.ts:120](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L120)*
 
 Copies object params to new object
 
@@ -104,9 +104,9 @@ ___
 
 ### `Const` decodeQueryString
 
-▸ **decodeQueryString**(`query`: string): *ReturnType‹parse›*
+▸ **decodeQueryString**(`query`: string): *ReturnType‹typeof parseQueryString›*
 
-Defined in helpers.ts:23
+*Defined in [src/helpers.ts:23](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L23)*
 
 Decode query string bittorrent
 
@@ -116,15 +116,15 @@ Name | Type |
 ------ | ------ |
 `query` | string |
 
-**Returns:** *ReturnType‹parse›*
+**Returns:** *ReturnType‹typeof parseQueryString›*
 
 ___
 
 ### `Const` getQueryFromURL
 
-▸ **getQueryFromURL**(`url`: string): *ReturnType‹[decodeQueryString](undefined)›*
+▸ **getQueryFromURL**(`url`: string): *ReturnType‹typeof decodeQueryString›*
 
-Defined in helpers.ts:32
+*Defined in [src/helpers.ts:32](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L32)*
 
 Returns decoded query from URL
 
@@ -134,7 +134,7 @@ Name | Type |
 ------ | ------ |
 `url` | string |
 
-**Returns:** *ReturnType‹[decodeQueryString](undefined)›*
+**Returns:** *ReturnType‹typeof decodeQueryString›*
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 ▸ **hexToBinary**(`hex`: string): *string*
 
-Defined in helpers.ts:16
+*Defined in [src/helpers.ts:16](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L16)*
 
 Hex to binary
 
@@ -160,7 +160,7 @@ ___
 
 ▸ **intToIPv4**(`ipInt`: number): *string*
 
-Defined in helpers.ts:91
+*Defined in [src/helpers.ts:91](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L91)*
 
 Converts number to IPv4
 
@@ -178,7 +178,7 @@ ___
 
 ▸ **ipv4PeersToCompact**(`peers`: object[]): *Buffer*
 
-Defined in helpers.ts:45
+*Defined in [src/helpers.ts:45](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L45)*
 
 **Parameters:**
 
@@ -194,7 +194,7 @@ ___
 
 ▸ **ipv6PeersToCompact**(`peers`: object[]): *Buffer*
 
-Defined in helpers.ts:58
+*Defined in [src/helpers.ts:58](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L58)*
 
 **Parameters:**
 
@@ -210,7 +210,7 @@ ___
 
 ▸ **parseBySchema**<**T**>(`schema`: T, `payload`: Partial‹[ParseSchemaReturn](_helpers_.md#parseschemareturn)‹T››): *[ParseSchemaReturn](_helpers_.md#parseschemareturn)‹T›*
 
-Defined in helpers.ts:101
+*Defined in [src/helpers.ts:101](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L101)*
 
 **Type parameters:**
 
@@ -231,7 +231,7 @@ ___
 
 ▸ **toUInt32**(`num`: number): *Buffer*
 
-Defined in helpers.ts:69
+*Defined in [src/helpers.ts:69](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L69)*
 
 Returns buffer UInt32
 
@@ -249,7 +249,7 @@ ___
 
 ▸ **toUInt64**(`num`: bigint): *Buffer*
 
-Defined in helpers.ts:80
+*Defined in [src/helpers.ts:80](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/helpers.ts#L80)*
 
 Returns buffer UInt64
 

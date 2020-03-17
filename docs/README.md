@@ -4,7 +4,7 @@
 
 ## Index
 
-### External modules
+### Modules
 
 * ["constants"](modules/_constants_.md)
 * ["contexts/connections/context"](modules/_contexts_connections_context_.md)

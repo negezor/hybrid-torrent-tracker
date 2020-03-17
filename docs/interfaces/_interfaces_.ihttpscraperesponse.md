@@ -19,7 +19,7 @@
 
 • **files**: *object[]*
 
-Defined in interfaces.ts:18
+*Defined in [src/interfaces.ts:18](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L18)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **interval**: *number*
 
-Defined in interfaces.ts:17
+*Defined in [src/interfaces.ts:17](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L17)*

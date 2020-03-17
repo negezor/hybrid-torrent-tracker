@@ -20,7 +20,7 @@
 
 • **host**: *string*
 
-Defined in servers/udp.ts:25
+*Defined in [src/servers/udp.ts:26](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L26)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **interval**? : *undefined | number*
 
-Defined in servers/udp.ts:26
+*Defined in [src/servers/udp.ts:27](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L27)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **port**: *number*
 
-Defined in servers/udp.ts:24
+*Defined in [src/servers/udp.ts:25](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/udp.ts#L25)*

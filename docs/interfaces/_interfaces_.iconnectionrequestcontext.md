@@ -41,7 +41,7 @@ Request connection
 
 *Overrides [IRequestContext](_interfaces_.irequestcontext.md).[action](_interfaces_.irequestcontext.md#action)*
 
-Defined in interfaces.ts:312
+*Defined in [src/interfaces.ts:312](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L312)*
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isAnnounce](_interfaces_.irequestcontext.md#isannounce)*
 
-Defined in interfaces.ts:163
+*Defined in [src/interfaces.ts:163](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L163)*
 
 The current action is "announce"
 
@@ -63,7 +63,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isConnect](_interfaces_.irequestcontext.md#isconnect)*
 
-Defined in interfaces.ts:158
+*Defined in [src/interfaces.ts:158](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L158)*
 
 The current action is "connect"
 
@@ -75,7 +75,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isScrape](_interfaces_.irequestcontext.md#isscrape)*
 
-Defined in interfaces.ts:168
+*Defined in [src/interfaces.ts:168](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L168)*
 
 The current action is "scrape"
 
@@ -87,7 +87,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isSourceHTTP](_interfaces_.irequestcontext.md#issourcehttp)*
 
-Defined in interfaces.ts:173
+*Defined in [src/interfaces.ts:173](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L173)*
 
 The request source is HTTP
 
@@ -99,7 +99,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[isSourceUDP](_interfaces_.irequestcontext.md#issourceudp)*
 
-Defined in interfaces.ts:178
+*Defined in [src/interfaces.ts:178](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L178)*
 
 The request source is UDP
 
@@ -111,7 +111,7 @@ ___
 
 *Inherited from [IRequestContext](_interfaces_.irequestcontext.md).[sent](_interfaces_.irequestcontext.md#sent)*
 
-Defined in interfaces.ts:188
+*Defined in [src/interfaces.ts:188](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L188)*
 
 Has an answer been sent
 
@@ -121,7 +121,7 @@ ___
 
 • **transactionId**: *number*
 
-Defined in interfaces.ts:317
+*Defined in [src/interfaces.ts:317](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L317)*
 
 Returns the transaction ID (only UDP)
 
@@ -131,7 +131,7 @@ Returns the transaction ID (only UDP)
 
 ▸ **send**(`payload`: [ConnectionRequestContextSendOptions](../modules/_interfaces_.md#connectionrequestcontextsendoptions)): *Promise‹void›*
 
-Defined in interfaces.ts:322
+*Defined in [src/interfaces.ts:322](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L322)*
 
 Sends a response
 

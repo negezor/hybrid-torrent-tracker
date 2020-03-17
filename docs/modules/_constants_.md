@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["constants"](_constants_.md)
 
-# External module: "constants"
+# Module: "constants"
 
 ## Index
 
@@ -19,8 +19,8 @@
 
 ### `Const` inspectCustomData
 
-• **inspectCustomData**: *unique symbol* =  Symbol('inspectCustomData')
+• **inspectCustomData**: *unique symbol* = Symbol('inspectCustomData')
 
-Defined in constants.ts:53
+*Defined in [src/constants.ts:53](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L53)*
 
 Inspect custom data

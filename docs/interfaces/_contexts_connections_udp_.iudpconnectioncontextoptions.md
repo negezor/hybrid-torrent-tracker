@@ -19,7 +19,7 @@
 
 • **remoteInfo**: *RemoteInfo*
 
-Defined in contexts/connections/udp.ts:12
+*Defined in [src/contexts/connections/udp.ts:12](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L12)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **socket**: *Socket*
 
-Defined in contexts/connections/udp.ts:11
+*Defined in [src/contexts/connections/udp.ts:11](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L11)*

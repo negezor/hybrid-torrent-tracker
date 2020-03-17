@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["parsers/http"](_parsers_http_.md)
 
-# External module: "parsers/http"
+# Module: "parsers/http"
 
 ## Index
 
@@ -19,7 +19,7 @@
 
 ▸ **announceResponse**(`__namedParameters`: object): *Buffer*
 
-Defined in parsers/http.ts:40
+*Defined in [src/parsers/http.ts:40](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/http.ts#L40)*
 
 **Parameters:**
 
@@ -31,7 +31,7 @@ Name | Type | Default |
 `complete` | number | - |
 `incomplete` | number | - |
 `interval` | number | - |
-`peers` | object[] |  [] |
+`peers` | object[] | [] |
 
 **Returns:** *Buffer*
 
@@ -41,7 +41,7 @@ ___
 
 ▸ **errorResponse**(`__namedParameters`: object): *Buffer*
 
-Defined in parsers/http.ts:99
+*Defined in [src/parsers/http.ts:99](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/http.ts#L99)*
 
 **Parameters:**
 
@@ -59,7 +59,7 @@ ___
 
 ▸ **parseAnnounceRequest**(`connection`: [IHTTPConnectionContext](../interfaces/_interfaces_.ihttpconnectioncontext.md)): *[IAnnounceRequestPayload](../interfaces/_interfaces_.iannouncerequestpayload.md)*
 
-Defined in parsers/http.ts:25
+*Defined in [src/parsers/http.ts:25](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/http.ts#L25)*
 
 **Parameters:**
 
@@ -75,7 +75,7 @@ ___
 
 ▸ **parseScrapeRequest**(`connection`: [IHTTPConnectionContext](../interfaces/_interfaces_.ihttpconnectioncontext.md)): *[IScrapeRequestPayload](../interfaces/_interfaces_.iscraperequestpayload.md)*
 
-Defined in parsers/http.ts:34
+*Defined in [src/parsers/http.ts:34](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/http.ts#L34)*
 
 **Parameters:**
 
@@ -91,7 +91,7 @@ ___
 
 ▸ **scrapeResponse**(`__namedParameters`: object): *Buffer*
 
-Defined in parsers/http.ts:80
+*Defined in [src/parsers/http.ts:80](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/http.ts#L80)*
 
 **Parameters:**
 
@@ -99,7 +99,7 @@ Defined in parsers/http.ts:80
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`files` | object[] |  [] |
+`files` | object[] | [] |
 `interval` | number | - |
 
 **Returns:** *Buffer*
@@ -110,7 +110,7 @@ ___
 
 ▸ **toBufferResponse**(`payload`: [HTTPResponseUnion](_interfaces_.md#httpresponseunion), `action`: [TrackerAction](../enums/_constants_.trackeraction.md)): *Buffer*
 
-Defined in parsers/http.ts:107
+*Defined in [src/parsers/http.ts:107](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/http.ts#L107)*
 
 **Parameters:**
 

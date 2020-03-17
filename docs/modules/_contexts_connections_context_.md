@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["contexts/connections/context"](_contexts_connections_context_.md)
 
-# External module: "contexts/connections/context"
+# Module: "contexts/connections/context"
 
 ## Index
 

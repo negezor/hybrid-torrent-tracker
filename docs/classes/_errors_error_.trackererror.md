@@ -6,7 +6,7 @@ General error class
 
 ## Hierarchy
 
-* Error
+* [Error](_errors_error_.trackererror.md#static-error)
 
   ↳ **TrackerError**
 
@@ -28,7 +28,7 @@ General error class
 
 ### Accessors
 
-* [__@toStringTag](_errors_error_.trackererror.md#__@tostringtag)
+* [[Symbol.toStringTag]](_errors_error_.trackererror.md#[symbol.tostringtag])
 
 ### Methods
 
@@ -40,7 +40,7 @@ General error class
 
 \+ **new TrackerError**(`__namedParameters`: object): *[TrackerError](_errors_error_.trackererror.md)*
 
-Defined in errors/error.ts:16
+*Defined in [src/errors/error.ts:16](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/errors/error.ts#L16)*
 
 Constructor
 
@@ -61,7 +61,7 @@ Name | Type |
 
 • **code**: *string*
 
-Defined in errors/error.ts:16
+*Defined in [src/errors/error.ts:16](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/errors/error.ts#L16)*
 
 Error code
 
@@ -71,9 +71,9 @@ ___
 
 • **message**: *string*
 
-*Inherited from void*
+*Inherited from [TrackerError](_errors_error_.trackererror.md).[message](_errors_error_.trackererror.md#message)*
 
-Defined in /mnt/c/Users/negezor/projects/hybrid-torrent-tracker/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:974
+Defined in node_modules/typescript/lib/lib.es5.d.ts:974
 
 ___
 
@@ -81,9 +81,9 @@ ___
 
 • **name**: *string*
 
-*Inherited from void*
+*Inherited from [TrackerError](_errors_error_.trackererror.md).[name](_errors_error_.trackererror.md#name)*
 
-Defined in /mnt/c/Users/negezor/projects/hybrid-torrent-tracker/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:973
+Defined in node_modules/typescript/lib/lib.es5.d.ts:973
 
 ___
 
@@ -91,11 +91,9 @@ ___
 
 • **stack**? : *undefined | string*
 
-*Inherited from void*
+*Inherited from [TrackerError](_errors_error_.trackererror.md).[stack](_errors_error_.trackererror.md#optional-stack)*
 
-*Overrides void*
-
-Defined in /mnt/c/Users/negezor/projects/hybrid-torrent-tracker/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:975
+Defined in node_modules/typescript/lib/lib.es5.d.ts:975
 
 ___
 
@@ -103,15 +101,15 @@ ___
 
 ▪ **Error**: *ErrorConstructor*
 
-Defined in /mnt/c/Users/negezor/projects/hybrid-torrent-tracker/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:984
+Defined in node_modules/typescript/lib/lib.es5.d.ts:984
 
 ## Accessors
 
-###  __@toStringTag
+###  [Symbol.toStringTag]
 
-• **get __@toStringTag**(): *string*
+• **get [Symbol.toStringTag]**(): *string*
 
-Defined in errors/error.ts:34
+*Defined in [src/errors/error.ts:34](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/errors/error.ts#L34)*
 
 Returns custom tag
 
@@ -123,7 +121,7 @@ Returns custom tag
 
 ▸ **toJSON**(): *[CopiedError](../modules/_errors_error_.md#copiederror)*
 
-Defined in errors/error.ts:41
+*Defined in [src/errors/error.ts:41](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/errors/error.ts#L41)*
 
 Returns property for json
 

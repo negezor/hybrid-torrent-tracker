@@ -19,7 +19,7 @@
 
 • **info_hash**: *string[]*
 
-Defined in interfaces.ts:453
+*Defined in [src/interfaces.ts:453](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L453)*
 
 Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
 
@@ -29,6 +29,6 @@ ___
 
 • **transaction_id**? : *undefined | number*
 
-Defined in interfaces.ts:458
+*Defined in [src/interfaces.ts:458](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L458)*
 
 Returns the transaction ID

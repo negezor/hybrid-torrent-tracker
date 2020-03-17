@@ -18,7 +18,7 @@ Type of request source
 
 • **HTTP**: = "http"
 
-Defined in constants.ts:6
+*Defined in [src/constants.ts:6](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L6)*
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **UDP**: = "udp"
 
-Defined in constants.ts:7
+*Defined in [src/constants.ts:7](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L7)*
 
 ___
 
@@ -34,4 +34,4 @@ ___
 
 • **WEBSOCKET**: = "websocket"
 
-Defined in constants.ts:5
+*Defined in [src/constants.ts:5](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L5)*

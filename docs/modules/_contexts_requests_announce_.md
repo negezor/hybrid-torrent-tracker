@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["contexts/requests/announce"](_contexts_requests_announce_.md)
 
-# External module: "contexts/requests/announce"
+# Module: "contexts/requests/announce"
 
 ## Index
 

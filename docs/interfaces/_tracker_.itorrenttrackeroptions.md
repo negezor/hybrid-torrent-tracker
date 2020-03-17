@@ -18,4 +18,4 @@
 
 • **servers**: *object & [IUDPServerOptions](_servers_udp_.iudpserveroptions.md) | object & [IWebServerOptions](_servers_web_.iwebserveroptions.md)[]*
 
-Defined in tracker.ts:23
+*Defined in [src/tracker.ts:23](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/tracker.ts#L23)*

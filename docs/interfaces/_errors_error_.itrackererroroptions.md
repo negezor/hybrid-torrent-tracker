@@ -19,7 +19,7 @@
 
 • **code**: *string*
 
-Defined in errors/error.ts:5
+*Defined in [src/errors/error.ts:5](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/errors/error.ts#L5)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **message**: *string*
 
-Defined in errors/error.ts:6
+*Defined in [src/errors/error.ts:6](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/errors/error.ts#L6)*

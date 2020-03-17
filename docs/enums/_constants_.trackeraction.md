@@ -19,7 +19,7 @@ Tracker event list
 
 • **ANNOUNCE**: = "announce"
 
-Defined in constants.ts:15
+*Defined in [src/constants.ts:15](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L15)*
 
 ___
 
@@ -27,7 +27,7 @@ ___
 
 • **CONNECT**: = "connect"
 
-Defined in constants.ts:14
+*Defined in [src/constants.ts:14](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L14)*
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 • **ERROR**: = "error"
 
-Defined in constants.ts:17
+*Defined in [src/constants.ts:17](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L17)*
 
 ___
 
@@ -43,4 +43,4 @@ ___
 
 • **SCRAPE**: = "scrape"
 
-Defined in constants.ts:16
+*Defined in [src/constants.ts:16](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L16)*

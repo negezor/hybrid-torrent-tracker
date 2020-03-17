@@ -22,7 +22,7 @@
 
 • **compact**: *number*
 
-Defined in interfaces.ts:7
+*Defined in [src/interfaces.ts:7](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L7)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **complete**: *number*
 
-Defined in interfaces.ts:5
+*Defined in [src/interfaces.ts:5](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L5)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **incomplete**: *number*
 
-Defined in interfaces.ts:6
+*Defined in [src/interfaces.ts:6](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L6)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **interval**: *number*
 
-Defined in interfaces.ts:4
+*Defined in [src/interfaces.ts:4](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L4)*
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 • **peers**: *object[]*
 
-Defined in interfaces.ts:8
+*Defined in [src/interfaces.ts:8](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L8)*

@@ -19,7 +19,7 @@
 
 • **files**: *object[]*
 
-Defined in interfaces.ts:69
+*Defined in [src/interfaces.ts:69](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L69)*
 
 ___
 
@@ -27,6 +27,6 @@ ___
 
 • **transactionId**: *number*
 
-Defined in interfaces.ts:67
+*Defined in [src/interfaces.ts:67](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L67)*
 
 Returns the transaction ID

@@ -32,7 +32,7 @@
 
 ### Methods
 
-* [__computed](_contexts_connections_udp_.udpconnectioncontext.md#__computed)
+* [[inspect.custom]](_contexts_connections_udp_.udpconnectioncontext.md#[inspect.custom])
 * [send](_contexts_connections_udp_.udpconnectioncontext.md#send)
 
 ## Constructors
@@ -41,7 +41,7 @@
 
 \+ **new UDPConnectionContext**(`options`: [IUDPConnectionContextOptions](../interfaces/_contexts_connections_udp_.iudpconnectioncontextoptions.md)): *[UDPConnectionContext](_contexts_connections_udp_.udpconnectioncontext.md)*
 
-Defined in contexts/connections/udp.ts:22
+*Defined in [src/contexts/connections/udp.ts:22](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L22)*
 
 **Parameters:**
 
@@ -57,7 +57,7 @@ Name | Type |
 
 • **remoteInfo**: *RemoteInfo*
 
-Defined in contexts/connections/udp.ts:22
+*Defined in [src/contexts/connections/udp.ts:22](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L22)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 *Overrides [ConnectionContext](_contexts_connections_context_.connectioncontext.md).[sent](_contexts_connections_context_.connectioncontext.md#sent)*
 
-Defined in contexts/connections/udp.ts:18
+*Defined in [src/contexts/connections/udp.ts:18](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L18)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **socket**: *Socket*
 
-Defined in contexts/connections/udp.ts:20
+*Defined in [src/contexts/connections/udp.ts:20](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L20)*
 
 ## Accessors
 
@@ -85,7 +85,7 @@ Defined in contexts/connections/udp.ts:20
 
 • **get ip**(): *string*
 
-Defined in contexts/connections/udp.ts:31
+*Defined in [src/contexts/connections/udp.ts:31](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L31)*
 
 **Returns:** *string*
 
@@ -95,17 +95,17 @@ ___
 
 • **get port**(): *number*
 
-Defined in contexts/connections/udp.ts:35
+*Defined in [src/contexts/connections/udp.ts:35](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L35)*
 
 **Returns:** *number*
 
 ## Methods
 
-###  __computed
+###  [inspect.custom]
 
-▸ **__computed**(`depth`: any, `options`: Record‹string, any›): *string*
+▸ **[inspect.custom]**(`depth`: any, `options`: Record‹string, any›): *string*
 
-Defined in contexts/connections/udp.ts:66
+*Defined in [src/contexts/connections/udp.ts:66](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L66)*
 
 Custom inspect object
 
@@ -124,7 +124,7 @@ ___
 
 ▸ **send**(`payload`: [UDPResponseUnion](../modules/_interfaces_.md#udpresponseunion), `options`: object): *Promise‹void›*
 
-Defined in contexts/connections/udp.ts:39
+*Defined in [src/contexts/connections/udp.ts:39](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/udp.ts#L39)*
 
 **Parameters:**
 

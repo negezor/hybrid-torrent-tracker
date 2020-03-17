@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["parsers/udp"](_parsers_udp_.md)
 
-# External module: "parsers/udp"
+# Module: "parsers/udp"
 
 ## Index
 
@@ -38,25 +38,25 @@
 
 ### `Const` ANNOUNCE_ACTION
 
-• **ANNOUNCE_ACTION**: *Buffer* =  toUInt32(1)
+• **ANNOUNCE_ACTION**: *Buffer‹›* = toUInt32(1)
 
-Defined in parsers/udp.ts:43
+*Defined in [src/parsers/udp.ts:43](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L43)*
 
 ___
 
 ### `Const` CONNECTION_ACTION
 
-• **CONNECTION_ACTION**: *Buffer* =  toUInt32(0)
+• **CONNECTION_ACTION**: *Buffer‹›* = toUInt32(0)
 
-Defined in parsers/udp.ts:42
+*Defined in [src/parsers/udp.ts:42](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L42)*
 
 ___
 
 ### `Const` ERROR_ACTION
 
-• **ERROR_ACTION**: *Buffer* =  toUInt32(3)
+• **ERROR_ACTION**: *Buffer‹›* = toUInt32(3)
 
-Defined in parsers/udp.ts:45
+*Defined in [src/parsers/udp.ts:45](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L45)*
 
 ___
 
@@ -64,23 +64,23 @@ ___
 
 • **INFO_HASH_BYTES**: *20* = 20
 
-Defined in parsers/udp.ts:49
+*Defined in [src/parsers/udp.ts:49](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L49)*
 
 ___
 
 ### `Const` PROTOCOL_ID
 
-• **PROTOCOL_ID**: *4497486125440n* =  0x41727101980n
+• **PROTOCOL_ID**: *4497486125440n* = 0x41727101980n
 
-Defined in parsers/udp.ts:47
+*Defined in [src/parsers/udp.ts:47](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L47)*
 
 ___
 
 ### `Const` SCRAPE_ACTION
 
-• **SCRAPE_ACTION**: *Buffer* =  toUInt32(2)
+• **SCRAPE_ACTION**: *Buffer‹›* = toUInt32(2)
 
-Defined in parsers/udp.ts:44
+*Defined in [src/parsers/udp.ts:44](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L44)*
 
 ## Functions
 
@@ -88,7 +88,7 @@ Defined in parsers/udp.ts:44
 
 ▸ **announceResponse**(`__namedParameters`: object): *Buffer*
 
-Defined in parsers/udp.ts:231
+*Defined in [src/parsers/udp.ts:231](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L231)*
 
 **Parameters:**
 
@@ -99,7 +99,7 @@ Name | Type | Default |
 `complete` | number | - |
 `incomplete` | number | - |
 `interval` | number | - |
-`peers` | object[] |  [] |
+`peers` | object[] | [] |
 `transactionId` | number | - |
 
 **Returns:** *Buffer*
@@ -110,7 +110,7 @@ ___
 
 ▸ **connectionResponse**(`__namedParameters`: object): *Buffer*
 
-Defined in parsers/udp.ts:218
+*Defined in [src/parsers/udp.ts:218](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L218)*
 
 **Parameters:**
 
@@ -129,7 +129,7 @@ ___
 
 ▸ **errorResponse**(`__namedParameters`: object): *Buffer*
 
-Defined in parsers/udp.ts:273
+*Defined in [src/parsers/udp.ts:273](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L273)*
 
 **Parameters:**
 
@@ -148,7 +148,7 @@ ___
 
 ▸ **parseAnnounceRequest**(`message`: Buffer, `headers`: [IUDPRequestHeaders](../interfaces/_parsers_udp_.iudprequestheaders.md)): *[IAnnounceRequestPayload](../interfaces/_interfaces_.iannouncerequestpayload.md)*
 
-Defined in parsers/udp.ts:94
+*Defined in [src/parsers/udp.ts:94](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L94)*
 
 **Parameters:**
 
@@ -165,7 +165,7 @@ ___
 
 ▸ **parseConnectionRequest**(`message`: Buffer, `headers`: [IUDPRequestHeaders](../interfaces/_parsers_udp_.iudprequestheaders.md)): *[IConnectionRequestPayload](../interfaces/_interfaces_.iconnectionrequestpayload.md)*
 
-Defined in parsers/udp.ts:80
+*Defined in [src/parsers/udp.ts:80](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L80)*
 
 **Parameters:**
 
@@ -182,7 +182,7 @@ ___
 
 ▸ **parseRequestHeaders**(`message`: Buffer): *[IUDPRequestHeaders](../interfaces/_parsers_udp_.iudprequestheaders.md)*
 
-Defined in parsers/udp.ts:57
+*Defined in [src/parsers/udp.ts:57](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L57)*
 
 **Parameters:**
 
@@ -198,7 +198,7 @@ ___
 
 ▸ **parseScrapeRequest**(`message`: Buffer, `headers`: [IUDPRequestHeaders](../interfaces/_parsers_udp_.iudprequestheaders.md)): *[IScrapeRequestPayload](../interfaces/_interfaces_.iscraperequestpayload.md)*
 
-Defined in parsers/udp.ts:187
+*Defined in [src/parsers/udp.ts:187](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L187)*
 
 **Parameters:**
 
@@ -215,7 +215,7 @@ ___
 
 ▸ **scrapeResponse**(`__namedParameters`: object): *Buffer*
 
-Defined in parsers/udp.ts:253
+*Defined in [src/parsers/udp.ts:253](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L253)*
 
 **Parameters:**
 
@@ -223,7 +223,7 @@ Defined in parsers/udp.ts:253
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`files` | object[] |  [] |
+`files` | object[] | [] |
 `transactionId` | number | - |
 
 **Returns:** *Buffer*
@@ -234,7 +234,7 @@ ___
 
 ▸ **toBufferResponse**(`payload`: [UDPResponseUnion](_interfaces_.md#udpresponseunion), `action`: [TrackerAction](../enums/_constants_.trackeraction.md)): *Buffer*
 
-Defined in parsers/udp.ts:286
+*Defined in [src/parsers/udp.ts:286](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L286)*
 
 **Parameters:**
 
@@ -251,33 +251,33 @@ Name | Type |
 
 ### ▪ **udpAnnounceEvents**: *object*
 
-Defined in parsers/udp.ts:25
+*Defined in [src/parsers/udp.ts:25](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L25)*
 
 Events announce ids list UDP
 
 ###  0
 
-• **0**: *[AnnounceEvent](../enums/_constants_.announceevent.md)* =  AnnounceEvent.UPDATE
+• **0**: *[AnnounceEvent](../enums/_constants_.announceevent.md)* = AnnounceEvent.UPDATE
 
-Defined in parsers/udp.ts:26
+*Defined in [src/parsers/udp.ts:26](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L26)*
 
 ###  1
 
-• **1**: *[AnnounceEvent](../enums/_constants_.announceevent.md)* =  AnnounceEvent.COMPLETED
+• **1**: *[AnnounceEvent](../enums/_constants_.announceevent.md)* = AnnounceEvent.COMPLETED
 
-Defined in parsers/udp.ts:27
+*Defined in [src/parsers/udp.ts:27](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L27)*
 
 ###  2
 
-• **2**: *[AnnounceEvent](../enums/_constants_.announceevent.md)* =  AnnounceEvent.STARTED
+• **2**: *[AnnounceEvent](../enums/_constants_.announceevent.md)* = AnnounceEvent.STARTED
 
-Defined in parsers/udp.ts:28
+*Defined in [src/parsers/udp.ts:28](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L28)*
 
 ###  3
 
-• **3**: *[AnnounceEvent](../enums/_constants_.announceevent.md)* =  AnnounceEvent.STOPPED
+• **3**: *[AnnounceEvent](../enums/_constants_.announceevent.md)* = AnnounceEvent.STOPPED
 
-Defined in parsers/udp.ts:29
+*Defined in [src/parsers/udp.ts:29](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L29)*
 
 ___
 
@@ -285,30 +285,30 @@ ___
 
 ### ▪ **udpTrackerActions**: *object*
 
-Defined in parsers/udp.ts:35
+*Defined in [src/parsers/udp.ts:35](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L35)*
 
 Action list UDP
 
 ###  0
 
-• **0**: *[TrackerAction](../enums/_constants_.trackeraction.md)* =  TrackerAction.CONNECT
+• **0**: *[TrackerAction](../enums/_constants_.trackeraction.md)* = TrackerAction.CONNECT
 
-Defined in parsers/udp.ts:36
+*Defined in [src/parsers/udp.ts:36](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L36)*
 
 ###  1
 
-• **1**: *[TrackerAction](../enums/_constants_.trackeraction.md)* =  TrackerAction.ANNOUNCE
+• **1**: *[TrackerAction](../enums/_constants_.trackeraction.md)* = TrackerAction.ANNOUNCE
 
-Defined in parsers/udp.ts:37
+*Defined in [src/parsers/udp.ts:37](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L37)*
 
 ###  2
 
-• **2**: *[TrackerAction](../enums/_constants_.trackeraction.md)* =  TrackerAction.SCRAPE
+• **2**: *[TrackerAction](../enums/_constants_.trackeraction.md)* = TrackerAction.SCRAPE
 
-Defined in parsers/udp.ts:38
+*Defined in [src/parsers/udp.ts:38](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L38)*
 
 ###  3
 
-• **3**: *[TrackerAction](../enums/_constants_.trackeraction.md)* =  TrackerAction.ERROR
+• **3**: *[TrackerAction](../enums/_constants_.trackeraction.md)* = TrackerAction.ERROR
 
-Defined in parsers/udp.ts:39
+*Defined in [src/parsers/udp.ts:39](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/parsers/udp.ts#L39)*

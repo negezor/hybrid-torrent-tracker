@@ -41,7 +41,8 @@
 
 ### Methods
 
-* [__computed](_contexts_requests_context_.requestcontext.md#__computed)
+* [[inspect.custom]](_contexts_requests_context_.requestcontext.md#[inspect.custom])
+* [[inspectCustomData]](_contexts_requests_context_.requestcontext.md#[inspectcustomdata])
 * [toJSON](_contexts_requests_context_.requestcontext.md#tojson)
 
 ## Constructors
@@ -50,7 +51,7 @@
 
 \+ **new RequestContext**(`options`: [IRequestContextOptions](../interfaces/_contexts_requests_context_.irequestcontextoptions.md)): *[RequestContext](_contexts_requests_context_.requestcontext.md)*
 
-Defined in contexts/requests/context.ts:20
+*Defined in [src/contexts/requests/context.ts:20](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L20)*
 
 **Parameters:**
 
@@ -68,7 +69,7 @@ Name | Type |
 
 *Implementation of [IRequestContext](../interfaces/_interfaces_.irequestcontext.md).[action](../interfaces/_interfaces_.irequestcontext.md#action)*
 
-Defined in contexts/requests/context.ts:14
+*Defined in [src/contexts/requests/context.ts:14](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L14)*
 
 ___
 
@@ -76,7 +77,7 @@ ___
 
 • **connection**: *[ConnectionContextUnion](../modules/_interfaces_.md#connectioncontextunion)*
 
-Defined in contexts/requests/context.ts:18
+*Defined in [src/contexts/requests/context.ts:18](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L18)*
 
 ___
 
@@ -84,7 +85,7 @@ ___
 
 • **payload**: *[RequestPayloadUnion](../modules/_interfaces_.md#requestpayloadunion)*
 
-Defined in contexts/requests/context.ts:20
+*Defined in [src/contexts/requests/context.ts:20](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L20)*
 
 ___
 
@@ -92,7 +93,7 @@ ___
 
 • **source**: *[RequestSource](../enums/_constants_.requestsource.md)*
 
-Defined in contexts/requests/context.ts:16
+*Defined in [src/contexts/requests/context.ts:16](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L16)*
 
 ## Accessors
 
@@ -100,7 +101,7 @@ Defined in contexts/requests/context.ts:16
 
 • **get isAnnounce**(): *boolean*
 
-Defined in contexts/requests/context.ts:32
+*Defined in [src/contexts/requests/context.ts:32](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L32)*
 
 **Returns:** *boolean*
 
@@ -110,7 +111,7 @@ ___
 
 • **get isConnect**(): *boolean*
 
-Defined in contexts/requests/context.ts:28
+*Defined in [src/contexts/requests/context.ts:28](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L28)*
 
 **Returns:** *boolean*
 
@@ -120,7 +121,7 @@ ___
 
 • **get isScrape**(): *boolean*
 
-Defined in contexts/requests/context.ts:36
+*Defined in [src/contexts/requests/context.ts:36](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L36)*
 
 **Returns:** *boolean*
 
@@ -130,7 +131,7 @@ ___
 
 • **get isSourceHTTP**(): *boolean*
 
-Defined in contexts/requests/context.ts:40
+*Defined in [src/contexts/requests/context.ts:40](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L40)*
 
 **Returns:** *boolean*
 
@@ -140,7 +141,7 @@ ___
 
 • **get isSourceUDP**(): *boolean*
 
-Defined in contexts/requests/context.ts:44
+*Defined in [src/contexts/requests/context.ts:44](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L44)*
 
 **Returns:** *boolean*
 
@@ -150,7 +151,7 @@ ___
 
 • **get sent**(): *boolean*
 
-Defined in contexts/requests/context.ts:48
+*Defined in [src/contexts/requests/context.ts:48](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L48)*
 
 **Returns:** *boolean*
 
@@ -160,17 +161,36 @@ ___
 
 • **get transactionId**(): *number*
 
-Defined in contexts/requests/context.ts:52
+*Defined in [src/contexts/requests/context.ts:52](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L52)*
 
 **Returns:** *number*
 
 ## Methods
 
-###  __computed
+###  [inspect.custom]
 
-▸ **__computed**(): *object*
+▸ **[inspect.custom]**(`depth`: number, `options`: Record‹string, any›): *string*
 
-Defined in contexts/requests/context.ts:73
+*Defined in [src/contexts/requests/context.ts:84](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L84)*
+
+Custom inspect object
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`depth` | number |
+`options` | Record‹string, any› |
+
+**Returns:** *string*
+
+___
+
+###  [inspectCustomData]
+
+▸ **[inspectCustomData]**(): *object*
+
+*Defined in [src/contexts/requests/context.ts:73](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L73)*
 
 Returns the custom data
 
@@ -182,7 +202,7 @@ ___
 
 ▸ **toJSON**(): *object*
 
-Defined in contexts/requests/context.ts:60
+*Defined in [src/contexts/requests/context.ts:60](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L60)*
 
 Returns data for JSON
 

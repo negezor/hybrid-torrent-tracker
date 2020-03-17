@@ -19,7 +19,7 @@
 
 • **connection_id**: *bigint*
 
-Defined in interfaces.ts:441
+*Defined in [src/interfaces.ts:441](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L441)*
 
 ___
 
@@ -27,6 +27,6 @@ ___
 
 • **transaction_id**? : *undefined | number*
 
-Defined in interfaces.ts:446
+*Defined in [src/interfaces.ts:446](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L446)*
 
 Returns the transaction ID

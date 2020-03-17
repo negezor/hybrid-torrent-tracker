@@ -20,7 +20,7 @@
 
 • **request**: *HttpRequest*
 
-Defined in contexts/connections/http.ts:14
+*Defined in [src/contexts/connections/http.ts:14](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L14)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **response**: *HttpResponse*
 
-Defined in contexts/connections/http.ts:15
+*Defined in [src/contexts/connections/http.ts:15](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L15)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **trustProxy**: *boolean*
 
-Defined in contexts/connections/http.ts:17
+*Defined in [src/contexts/connections/http.ts:17](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/http.ts#L17)*

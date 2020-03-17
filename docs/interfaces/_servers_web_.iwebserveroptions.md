@@ -21,7 +21,7 @@
 
 • **host**: *string*
 
-Defined in servers/web.ts:16
+*Defined in [src/servers/web.ts:17](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L17)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **interval**? : *undefined | number*
 
-Defined in servers/web.ts:18
+*Defined in [src/servers/web.ts:19](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L19)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 • **port**: *number*
 
-Defined in servers/web.ts:17
+*Defined in [src/servers/web.ts:18](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L18)*
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 • **trustProxy**? : *undefined | false | true*
 
-Defined in servers/web.ts:19
+*Defined in [src/servers/web.ts:20](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/servers/web.ts#L20)*

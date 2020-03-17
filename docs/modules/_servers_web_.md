@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["servers/web"](_servers_web_.md)
 
-# External module: "servers/web"
+# Module: "servers/web"
 
 ## Index
 

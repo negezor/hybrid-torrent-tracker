@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["errors/incorrect-request"](_errors_incorrect_request_.md)
 
-# External module: "errors/incorrect-request"
+# Module: "errors/incorrect-request"
 
 ## Index
 

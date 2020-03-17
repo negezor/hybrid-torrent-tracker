@@ -20,7 +20,7 @@
 
 • **connection**: *[ConnectionContextUnion](../modules/_interfaces_.md#connectioncontextunion)*
 
-Defined in contexts/requests/context.ts:8
+*Defined in [src/contexts/requests/context.ts:8](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L8)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **payload**: *[RequestPayloadUnion](../modules/_interfaces_.md#requestpayloadunion)*
 
-Defined in contexts/requests/context.ts:9
+*Defined in [src/contexts/requests/context.ts:9](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L9)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **source**: *[RequestSource](../enums/_constants_.requestsource.md)*
 
-Defined in contexts/requests/context.ts:10
+*Defined in [src/contexts/requests/context.ts:10](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/requests/context.ts#L10)*

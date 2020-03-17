@@ -32,7 +32,7 @@ Basic UDP connection information
 
 • **ip**: *string*
 
-Defined in interfaces.ts:136
+*Defined in [src/interfaces.ts:136](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L136)*
 
 Returns the connection ip addres
 
@@ -42,7 +42,7 @@ ___
 
 • **port**: *number*
 
-Defined in interfaces.ts:141
+*Defined in [src/interfaces.ts:141](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L141)*
 
 Returns the connection port
 
@@ -54,7 +54,7 @@ ___
 
 *Inherited from [IConnectionContext](_interfaces_.iconnectioncontext.md).[sent](_interfaces_.iconnectioncontext.md#sent)*
 
-Defined in interfaces.ts:98
+*Defined in [src/interfaces.ts:98](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L98)*
 
 Has an answer been sent
 
@@ -64,7 +64,7 @@ Has an answer been sent
 
 ▸ **send**(`payload`: [UDPResponseUnion](../modules/_interfaces_.md#udpresponseunion), `options`: object): *Promise‹void›*
 
-Defined in interfaces.ts:146
+*Defined in [src/interfaces.ts:146](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L146)*
 
 Sends a response
 

@@ -22,7 +22,7 @@
 
 • **complete**: *number*
 
-Defined in interfaces.ts:55
+*Defined in [src/interfaces.ts:55](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L55)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **incomplete**: *number*
 
-Defined in interfaces.ts:54
+*Defined in [src/interfaces.ts:54](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L54)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **interval**: *number*
 
-Defined in interfaces.ts:53
+*Defined in [src/interfaces.ts:53](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L53)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **peers**: *object[]*
 
-Defined in interfaces.ts:57
+*Defined in [src/interfaces.ts:57](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L57)*
 
 ___
 
@@ -54,6 +54,6 @@ ___
 
 • **transactionId**: *number*
 
-Defined in interfaces.ts:51
+*Defined in [src/interfaces.ts:51](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L51)*
 
 Returns the transaction ID

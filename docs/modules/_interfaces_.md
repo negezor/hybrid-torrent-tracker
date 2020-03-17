@@ -1,6 +1,6 @@
 [hybrid-torrent-tracker](../README.md) › ["interfaces"](_interfaces_.md)
 
-# External module: "interfaces"
+# Module: "interfaces"
 
 ## Index
 
@@ -42,7 +42,7 @@
 
 Ƭ **AnnounceRequestContextSendOptions**: *[IHTTPAnnounceResponse](../interfaces/_interfaces_.ihttpannounceresponse.md) | [IUDPAnnounceResponse](../interfaces/_interfaces_.iudpannounceresponse.md) | [RequestContextErrorResponse](_interfaces_.md#requestcontexterrorresponse)*
 
-Defined in interfaces.ts:193
+*Defined in [src/interfaces.ts:193](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L193)*
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 Ƭ **ConnectionContextUnion**: *[IHTTPConnectionContext](../interfaces/_interfaces_.ihttpconnectioncontext.md) | [IUDPConnectionContext](../interfaces/_interfaces_.iudpconnectioncontext.md)*
 
-Defined in interfaces.ts:152
+*Defined in [src/interfaces.ts:152](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L152)*
 
 Contains all connection context types
 
@@ -60,7 +60,7 @@ ___
 
 Ƭ **ConnectionRequestContextSendOptions**: *[IUDPConnectionResponse](../interfaces/_interfaces_.iudpconnectionresponse.md) | [RequestContextErrorResponse](_interfaces_.md#requestcontexterrorresponse)*
 
-Defined in interfaces.ts:302
+*Defined in [src/interfaces.ts:302](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L302)*
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 Ƭ **HTTPResponseUnion**: *[IHTTPAnnounceResponse](../interfaces/_interfaces_.ihttpannounceresponse.md) | [IHTTPScrapeResponse](../interfaces/_interfaces_.ihttpscraperesponse.md) | [IHTTPErrorResponse](../interfaces/_interfaces_.ihttperrorresponse.md)*
 
-Defined in interfaces.ts:30
+*Defined in [src/interfaces.ts:30](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L30)*
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 Ƭ **RequestContextErrorResponse**: *[IHTTPErrorResponse](../interfaces/_interfaces_.ihttperrorresponse.md) | [IUDPErrorResponse](../interfaces/_interfaces_.iudperrorresponse.md)*
 
-Defined in interfaces.ts:191
+*Defined in [src/interfaces.ts:191](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L191)*
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 Ƭ **RequestContextUnion**: *[IAnnounceRequestContext](../interfaces/_interfaces_.iannouncerequestcontext.md) | [IConnectionRequestContext](../interfaces/_interfaces_.iconnectionrequestcontext.md) | [IScrapeRequestContext](../interfaces/_interfaces_.iscraperequestcontext.md)*
 
-Defined in interfaces.ts:352
+*Defined in [src/interfaces.ts:352](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L352)*
 
 Contains all request context types
 
@@ -94,7 +94,7 @@ ___
 
 Ƭ **RequestPayloadUnion**: *[IAnnounceRequestPayload](../interfaces/_interfaces_.iannouncerequestpayload.md) | [IConnectionRequestPayload](../interfaces/_interfaces_.iconnectionrequestpayload.md) | [IScrapeRequestPayload](../interfaces/_interfaces_.iscraperequestpayload.md)*
 
-Defined in interfaces.ts:464
+*Defined in [src/interfaces.ts:464](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L464)*
 
 Contains all request payload types
 
@@ -104,7 +104,7 @@ ___
 
 Ƭ **ScrapeRequestContextSendOptions**: *[IHTTPScrapeResponse](../interfaces/_interfaces_.ihttpscraperesponse.md) | [IUDPScrapeResponse](../interfaces/_interfaces_.iudpscraperesponse.md) | [RequestContextErrorResponse](_interfaces_.md#requestcontexterrorresponse)*
 
-Defined in interfaces.ts:325
+*Defined in [src/interfaces.ts:325](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L325)*
 
 ___
 
@@ -112,4 +112,4 @@ ___
 
 Ƭ **UDPResponseUnion**: *[IUDPConnectionResponse](../interfaces/_interfaces_.iudpconnectionresponse.md) | [IUDPAnnounceResponse](../interfaces/_interfaces_.iudpannounceresponse.md) | [IUDPScrapeResponse](../interfaces/_interfaces_.iudpscraperesponse.md) | [IUDPErrorResponse](../interfaces/_interfaces_.iudperrorresponse.md)*
 
-Defined in interfaces.ts:85
+*Defined in [src/interfaces.ts:85](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L85)*

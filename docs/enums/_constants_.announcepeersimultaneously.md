@@ -18,7 +18,7 @@ Number of simultaneous peers
 
 • **DEFAULT**: = 50
 
-Defined in constants.ts:37
+*Defined in [src/constants.ts:37](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L37)*
 
 The default value is the number of peers
 
@@ -28,7 +28,7 @@ ___
 
 • **MAX**: = 82
 
-Defined in constants.ts:47
+*Defined in [src/constants.ts:47](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L47)*
 
 The max value is the number of peers
 
@@ -38,6 +38,6 @@ ___
 
 • **MIN**: = 1
 
-Defined in constants.ts:42
+*Defined in [src/constants.ts:42](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/constants.ts#L42)*
 
 The min value is the number of peers

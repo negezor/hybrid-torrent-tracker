@@ -28,4 +28,4 @@
 
 *Implementation of [IConnectionContext](../interfaces/_interfaces_.iconnectioncontext.md).[sent](../interfaces/_interfaces_.iconnectioncontext.md#sent)*
 
-Defined in contexts/connections/context.ts:4
+*Defined in [src/contexts/connections/context.ts:4](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/contexts/connections/context.ts#L4)*

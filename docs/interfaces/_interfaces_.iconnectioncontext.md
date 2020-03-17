@@ -30,6 +30,6 @@ Represents basic connection information
 
 • **sent**: *boolean*
 
-Defined in interfaces.ts:98
+*Defined in [src/interfaces.ts:98](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L98)*
 
 Has an answer been sent

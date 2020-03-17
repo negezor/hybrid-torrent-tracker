@@ -18,4 +18,4 @@
 
 • **message**: *string*
 
-Defined in interfaces.ts:27
+*Defined in [src/interfaces.ts:27](https://github.com/negezor/hybrid-torrent-tracker/blob/c8824be/src/interfaces.ts#L27)*
