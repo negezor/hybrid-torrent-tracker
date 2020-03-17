@@ -1,11 +1,12 @@
 {
 	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext",
-		"lib": ["esnext"],
-		"moduleResolution": "node",
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"strict": true,
+		"noEmit": true,
 		"declaration": true,
-		"sourceMap": false,
-		"strict": true
+		"strictNullChecks": true,
+		"forceConsistentCasingInFileNames": true
 	}
 }
