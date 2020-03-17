@@ -24,6 +24,8 @@
 		"@typescript-eslint/interface-name-prefix": ["error", "always"],
 		"@typescript-eslint/indent": ["error", "tab"],
 		"@typescript-eslint/ban-ts-ignore": "off",
+		"import/prefer-default-export": "off",
+		"import/no-default-export": ["error"],
 		"import/extensions": ["error", "ignorePackages", {
 			"js": "never",
 			"ts": "never"
