@@ -8,7 +8,7 @@ import { IHTTPConnectionContext, HTTPResponseUnion } from '../../interfaces';
 
 import ConnectionContext from './context';
 import { HTTPParser } from '../../parsers';
-import { TrackerAction } from '../../../lib/constants';
+import { TrackerAction } from '../../constants';
 
 export interface IHTTPConnectionContextOptions {
 	request: HttpRequest;
