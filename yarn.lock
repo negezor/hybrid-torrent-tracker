@@ -2972,10 +2972,10 @@ micromatch@^4.0.2:
     braces "^3.0.1"
     picomatch "^2.0.5"
 
-middleware-io@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/middleware-io/-/middleware-io-2.1.0.tgz#ff399e92d1dbf94fcedd659773d45489f3a7519f"
-  integrity sha512-zIZuD893z8OuNjQjvx2209PYrXpP8VjiDKzj20o1VLa5e8khyxMbLTLBxmT3oFeiDryflzqJNTRQq+5GevhYug==
+middleware-io@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/middleware-io/-/middleware-io-2.5.0.tgz#7ce650077259c1ca718fdf27e883c9fbc3e55966"
+  integrity sha512-UGy7fSCIX1QlTT+5lZAvp2M5mMBd0gdErmuAd7RWM9BTHnLH1iMSzHlelUe7di1EIgTcSFOlm7UL/pzP57+X/w==
 
 mime-db@1.40.0:
   version "1.40.0"
@@ -4346,9 +4346,9 @@ typescript@^3.8.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
   integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
 
-uWebSockets.js@uNetworking/uWebSockets.js#v16.1.0:
-  version "16.1.0"
-  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/b49dfbaefa34118b954c82823fe0a23927cf4d3b"
+uWebSockets.js@uNetworking/uWebSockets.js#v17.3.0:
+  version "17.3.0"
+  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/f54d0b45d1d9924d2562fd8f6f59cbca2bcbcc2c"
 
 uglify-js@^3.1.4:
   version "3.6.1"

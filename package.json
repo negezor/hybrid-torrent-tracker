@@ -49,9 +49,9 @@
 	"dependencies": {
 		"bencode": "^2.0.1",
 		"debug": "^4.1.1",
-		"middleware-io": "^2.1.0",
+		"middleware-io": "^2.5.0",
 		"string2compact": "^1.3.0",
-		"uWebSockets.js": "uNetworking/uWebSockets.js#v16.1.0"
+		"uWebSockets.js": "uNetworking/uWebSockets.js#v17.3.0"
 	},
 	"scripts": {
 		"prepare": "yarn run rollup:build && yarn run test",
