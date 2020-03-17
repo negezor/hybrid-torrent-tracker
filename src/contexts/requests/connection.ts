@@ -1,11 +1,11 @@
-import RequestContext from './context';
+import { RequestContext } from './context';
 
 import { IConnectionRequestContext, IConnectionRequestPayload, ConnectionRequestContextSendOptions } from '../../interfaces';
 
 import { copyParams } from '../../helpers';
 import { TrackerAction, inspectCustomData } from '../../constants';
 
-export default class ConnectionRequestContext
+export class ConnectionRequestContext
 	extends RequestContext
 	implements IConnectionRequestContext {
 	// @ts-ignore

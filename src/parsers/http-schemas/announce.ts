@@ -4,7 +4,7 @@ import { binaryToHex } from '../../helpers';
 
 const allowAnnounceEvents: string[] = [...Object.values(AnnounceEvent)];
 
-export default {
+export const httpAnnounceSchema = {
 	// eslint-disable-next-line @typescript-eslint/camelcase
 	info_hash: (infoHash: string): string => {
 		if (typeof infoHash !== 'string' || infoHash.length !== 20) {

@@ -4,6 +4,7 @@ import { Middleware, compose, noopNext } from 'middleware-io';
 import { promisify } from 'util';
 import { Socket, createSocket } from 'dgram';
 
+// eslint-disable-next-line import/named
 import { UDPParser } from '../parsers';
 import {
 	UDPConnectionContext,
@@ -26,7 +27,7 @@ export interface IUDPServerOptions {
 	interval?: number;
 }
 
-export default class UDPServer {
+export class UDPServer {
 	protected options: Required<IUDPServerOptions>;
 
 	protected udp4Socket: Socket;

@@ -10,7 +10,7 @@ export interface IRequestContextOptions {
 	source: RequestSource;
 }
 
-export default class RequestContext implements IRequestContext {
+export class RequestContext implements IRequestContext {
 	public action!: TrackerAction;
 
 	public source: RequestSource;

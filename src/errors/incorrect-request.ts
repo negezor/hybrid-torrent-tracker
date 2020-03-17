@@ -1,3 +1,3 @@
-import TrackerError from './error';
+import { TrackerError } from './error';
 
-export default class IncorrectRequestError extends TrackerError {}
+export class IncorrectRequestError extends TrackerError {}

@@ -3,7 +3,7 @@ import { inspect } from 'util';
 
 import { IUDPConnectionContext, UDPResponseUnion } from '../../interfaces';
 
-import ConnectionContext from './context';
+import { ConnectionContext } from './context';
 import { UDPParser } from '../../parsers';
 import { TrackerAction } from '../../constants';
 
@@ -12,7 +12,7 @@ export interface IUDPConnectionContextOptions {
 	remoteInfo: RemoteInfo;
 }
 
-export default class UDPConnectionContext
+export class UDPConnectionContext
 	extends ConnectionContext
 	implements IUDPConnectionContext {
 	public sent = false;

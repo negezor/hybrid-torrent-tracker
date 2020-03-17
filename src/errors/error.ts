@@ -9,7 +9,7 @@ export interface ITrackerErrorOptions {
 /**
  * General error class
  */
-export default class TrackerError extends Error {
+export class TrackerError extends Error {
 	/**
 	 * Error code
 	 */

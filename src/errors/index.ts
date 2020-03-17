@@ -1,2 +1,2 @@
-export { default as TrackerError } from './error';
-export { default as IncorrectRequestError } from './incorrect-request';
+export { TrackerError } from './error';
+export { IncorrectRequestError } from './incorrect-request';

@@ -1,11 +1,11 @@
-import RequestContext from './context';
+import { RequestContext } from './context';
 
 import { IScrapeRequestContext, IScrapeRequestPayload, ScrapeRequestContextSendOptions } from '../../interfaces';
 
 import { copyParams } from '../../helpers';
 import { TrackerAction, inspectCustomData } from '../../constants';
 
-export default class ScrapeRequestContext
+export class ScrapeRequestContext
 	extends RequestContext
 	implements IScrapeRequestContext {
 	// @ts-ignore

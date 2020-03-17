@@ -26,7 +26,7 @@ export interface ITorrentTrackerOptions {
 	)[];
 }
 
-export default class TorrentTracker {
+export class TorrentTracker {
 	protected servers: (UDPServer | WebServer)[] = [];
 
 	protected stack: TorrentTrackerMiddleware[] = [];

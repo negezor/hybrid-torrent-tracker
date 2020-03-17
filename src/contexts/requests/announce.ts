@@ -1,4 +1,4 @@
-import RequestContext from './context';
+import { RequestContext } from './context';
 
 import { IAnnounceRequestContext, IAnnounceRequestPayload, AnnounceRequestContextSendOptions } from '../../interfaces';
 
@@ -11,7 +11,7 @@ import {
 	inspectCustomData
 } from '../../constants';
 
-export default class AnnounceRequestContext
+export class AnnounceRequestContext
 	extends RequestContext
 	implements IAnnounceRequestContext {
 	// @ts-ignore

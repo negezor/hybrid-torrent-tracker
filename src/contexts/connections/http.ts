@@ -6,7 +6,7 @@ import { STATUS_CODES } from 'http';
 import { TrackerError } from '../../errors';
 import { IHTTPConnectionContext, HTTPResponseUnion } from '../../interfaces';
 
-import ConnectionContext from './context';
+import {ConnectionContext } from './context';
 import { HTTPParser } from '../../parsers';
 import { TrackerAction } from '../../constants';
 
@@ -17,7 +17,7 @@ export interface IHTTPConnectionContextOptions {
 	trustProxy: boolean;
 }
 
-export default class HTTPConnectionContext
+export class HTTPConnectionContext
 	extends ConnectionContext
 	implements IHTTPConnectionContext {
 	public aborted = false;

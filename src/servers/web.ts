@@ -1,6 +1,7 @@
 import { App, TemplatedApp } from 'uWebSockets.js';
 import { Middleware, compose, noopNext } from 'middleware-io';
 
+// eslint-disable-next-line import/named
 import { HTTPParser } from '../parsers';
 import { RequestSource, TrackerAction } from '../constants';
 import {
@@ -19,7 +20,7 @@ export interface IWebServerOptions {
 	trustProxy?: boolean;
 }
 
-export default class WebServer {
+export class WebServer {
 	protected options: Required<IWebServerOptions>;
 
 	protected app: TemplatedApp;
