@@ -102,15 +102,12 @@ export const parseBySchema = <T>(
 	schema: T,
 	payload: Partial<ParseSchemaReturn<T>>
 ): ParseSchemaReturn<T> => {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const transformed: Record<string, any> = {};
+	const transformed = {} as ParseSchemaReturn<T>;
 
 	for (const [key, value] of Object.entries(schema)) {
-		// @ts-ignore
-		transformed[key] = value(payload[key]);
+		transformed[key as keyof T] = value(payload[key as keyof T]);
 	}
 
-	// @ts-ignore
 	return transformed;
 };
 
@@ -121,8 +118,7 @@ export const copyParams = <
 	T,
 	K extends keyof T
 >(params: T, properties: K[]): Pick<T, K> => {
-	// @ts-ignore
-	const copies: Pick<T, K> = {};
+	const copies = {} as Pick<T, K>;
 
 	for (const property of properties) {
 		copies[property] = params[property];
