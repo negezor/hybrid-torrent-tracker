@@ -17,8 +17,6 @@ export interface IUDPConnectionContextOptions {
 export class UDPConnectionContext
 	extends ConnectionContext
 	implements IUDPConnectionContext {
-	public sent = false;
-
 	protected socket: Socket;
 
 	protected remoteInfo: RemoteInfo;
