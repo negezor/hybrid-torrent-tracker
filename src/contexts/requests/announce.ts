@@ -97,6 +97,10 @@ export class AnnounceRequestContext
 		return this.payload.trackerid;
 	}
 
+	public get addres(): string {
+		return `${this.ip}:${this.port}`;
+	}
+
 	public get requestPath(): string | undefined {
 		return this.payload.request_string;
 	}
