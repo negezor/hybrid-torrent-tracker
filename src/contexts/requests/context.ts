@@ -10,18 +10,25 @@ export interface IRequestContextOptions {
 	source: RequestSource;
 }
 
-export class RequestContext implements IRequestContext {
-	public action!: TrackerAction;
+export class RequestContext<
+	A extends TrackerAction = TrackerAction,
+	P extends RequestPayloadUnion = RequestPayloadUnion,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	R extends Record<string, any> = Record<string, any>
+> implements IRequestContext {
+	public action!: A;
 
 	public source: RequestSource;
 
 	protected connection!: ConnectionContextUnion;
 
-	protected payload!: RequestPayloadUnion;
+	protected payload!: P;
+
+	public response: R = {} as R;
 
 	public constructor(options: IRequestContextOptions) {
 		this.connection = options.connection;
-		this.payload = options.payload;
+		this.payload = options.payload as P;
 		this.source = options.source;
 	}
 

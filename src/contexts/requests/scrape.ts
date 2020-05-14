@@ -6,16 +6,11 @@ import { copyParams } from '../../helpers';
 import { TrackerAction, inspectCustomData } from '../../constants';
 
 export class ScrapeRequestContext
-	extends RequestContext
-	implements IScrapeRequestContext {
-	// @ts-ignore
-	public action = TrackerAction.SCRAPE;
-
-	// @ts-ignore
-	public response!: ScrapeRequestContextSendOptions = {};
-
-	protected payload!: IScrapeRequestPayload;
-
+	extends RequestContext <
+	TrackerAction.SCRAPE,
+	IScrapeRequestPayload,
+	ScrapeRequestContextSendOptions
+	> implements IScrapeRequestContext {
 	public get infoHashes(): string[] {
 		return this.payload.info_hash;
 	}

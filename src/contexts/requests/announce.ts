@@ -12,16 +12,11 @@ import {
 } from '../../constants';
 
 export class AnnounceRequestContext
-	extends RequestContext
-	implements IAnnounceRequestContext {
-	// @ts-ignore
-	public action = TrackerAction.ANNOUNCE;
-
-	// @ts-ignore
-	public response!: AnnounceRequestContextSendOptions = {};
-
-	protected payload!: IAnnounceRequestPayload;
-
+	extends RequestContext<
+	TrackerAction.ANNOUNCE,
+	IAnnounceRequestPayload,
+	AnnounceRequestContextSendOptions
+	> implements IAnnounceRequestContext {
 	public get isCompact(): boolean {
 		return this.compact === 1;
 	}

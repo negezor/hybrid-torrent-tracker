@@ -6,16 +6,11 @@ import { copyParams } from '../../helpers';
 import { TrackerAction, inspectCustomData } from '../../constants';
 
 export class ConnectionRequestContext
-	extends RequestContext
-	implements IConnectionRequestContext {
-	// @ts-ignore
-	public action = TrackerAction.CONNECT;
-
-	// @ts-ignore
-	public response!: ConnectionRequestContextSendOptions = {};
-
-	protected payload!: IConnectionRequestPayload;
-
+	extends RequestContext <
+	TrackerAction.CONNECT,
+	IConnectionRequestPayload,
+	ConnectionRequestContextSendOptions
+	> implements IConnectionRequestContext {
 	public get connectionId(): bigint {
 		return this.payload.connection_id;
 	}
