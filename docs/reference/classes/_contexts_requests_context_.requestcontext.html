@@ -60,7 +60,7 @@
 					<a href="_contexts_requests_context_.requestcontext.html">RequestContext</a>
 				</li>
 			</ul>
-			<h1>Class RequestContext&lt;A, P, R&gt;</h1>
+			<h1>Class RequestContext&lt;P, R&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -70,9 +70,6 @@
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
-					<li>
-						<h4>A<span class="tsd-signature-symbol">: </span><a href="../enums/_constants_.trackeraction.html" class="tsd-signature-type">TrackerAction</a></h4>
-					</li>
 					<li>
 						<h4>P<span class="tsd-signature-symbol">: </span><a href="../modules/_interfaces_.html#requestpayloadunion" class="tsd-signature-type">RequestPayloadUnion</a></h4>
 					</li>
@@ -119,7 +116,6 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_contexts_requests_context_.requestcontext.html#action" class="tsd-kind-icon">action</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_contexts_requests_context_.requestcontext.html#connection" class="tsd-kind-icon">connection</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_contexts_requests_context_.requestcontext.html#payload" class="tsd-kind-icon">payload</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_contexts_requests_context_.requestcontext.html#response" class="tsd-kind-icon">response</a></li>
@@ -129,6 +125,7 @@
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_contexts_requests_context_.requestcontext.html#action" class="tsd-kind-icon">action</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_contexts_requests_context_.requestcontext.html#isannounce" class="tsd-kind-icon">is<wbr>Announce</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_contexts_requests_context_.requestcontext.html#isconnect" class="tsd-kind-icon">is<wbr>Connect</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_contexts_requests_context_.requestcontext.html#isscrape" class="tsd-kind-icon">is<wbr>Scrape</a></li>
@@ -160,7 +157,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L27">src/contexts/requests/context.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L24">src/contexts/requests/context.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -176,24 +173,13 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="action" class="tsd-anchor"></a>
-					<h3>action</h3>
-					<div class="tsd-signature tsd-kind-icon">action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">A</span></div>
-					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/_interfaces_.irequestcontext.html">IRequestContext</a>.<a href="../interfaces/_interfaces_.irequestcontext.html#action">action</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L19">src/contexts/requests/context.ts:19</a></li>
-						</ul>
-					</aside>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="connection" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> connection</h3>
 					<div class="tsd-signature tsd-kind-icon">connection<span class="tsd-signature-symbol">:</span> <a href="../modules/_interfaces_.html#connectioncontextunion" class="tsd-signature-type">ConnectionContextUnion</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L23">src/contexts/requests/context.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L20">src/contexts/requests/context.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +189,7 @@
 					<div class="tsd-signature tsd-kind-icon">payload<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">P</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L25">src/contexts/requests/context.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L22">src/contexts/requests/context.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +199,7 @@
 					<div class="tsd-signature tsd-kind-icon">response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">R</span><span class="tsd-signature-symbol"> = {} as R</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L27">src/contexts/requests/context.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L24">src/contexts/requests/context.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -223,13 +209,30 @@
 					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <a href="../enums/_constants_.requestsource.html" class="tsd-signature-type">RequestSource</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L21">src/contexts/requests/context.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L18">src/contexts/requests/context.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="action" class="tsd-anchor"></a>
+					<h3>action</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> action<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_constants_.trackeraction.html" class="tsd-signature-type">TrackerAction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L33">src/contexts/requests/context.ts:33</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../enums/_constants_.trackeraction.html" class="tsd-signature-type">TrackerAction</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
 					<a name="isannounce" class="tsd-anchor"></a>
 					<h3>is<wbr>Announce</h3>
@@ -240,7 +243,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L39">src/contexts/requests/context.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L41">src/contexts/requests/context.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -257,7 +260,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L35">src/contexts/requests/context.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L37">src/contexts/requests/context.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -274,7 +277,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L43">src/contexts/requests/context.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L45">src/contexts/requests/context.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -291,7 +294,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L47">src/contexts/requests/context.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L49">src/contexts/requests/context.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -308,7 +311,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L51">src/contexts/requests/context.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L53">src/contexts/requests/context.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -325,7 +328,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L55">src/contexts/requests/context.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L57">src/contexts/requests/context.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -342,7 +345,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L59">src/contexts/requests/context.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L61">src/contexts/requests/context.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -362,7 +365,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L80">src/contexts/requests/context.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L82">src/contexts/requests/context.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -384,7 +387,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/e8e557d/src/contexts/requests/context.ts#L67">src/contexts/requests/context.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/negezor/hybrid-torrent-tracker/blob/36c4716/src/contexts/requests/context.ts#L69">src/contexts/requests/context.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -419,9 +422,6 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="_contexts_requests_context_.requestcontext.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_contexts_requests_context_.requestcontext.html#action" class="tsd-kind-icon">action</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_contexts_requests_context_.requestcontext.html#connection" class="tsd-kind-icon">connection</a>
 							</li>
@@ -433,6 +433,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_contexts_requests_context_.requestcontext.html#source" class="tsd-kind-icon">source</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_contexts_requests_context_.requestcontext.html#action" class="tsd-kind-icon">action</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="_contexts_requests_context_.requestcontext.html#isannounce" class="tsd-kind-icon">is<wbr>Announce</a>
