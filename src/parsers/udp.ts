@@ -68,8 +68,7 @@ export const parseRequestHeaders = (message: Buffer): IUDPRequestHeaders => {
 		connection_id: message.readBigUInt64BE(0),
 
 		/* 32 bytes (8-12) */
-		// @ts-ignore
-		action: udpTrackerActions[message.readUInt32BE(8)],
+		action: udpTrackerActions[message.readUInt32BE(8) as keyof typeof udpTrackerActions],
 
 		/* 32 bytes (12-16) */
 		// eslint-disable-next-line @typescript-eslint/camelcase
@@ -96,8 +95,7 @@ export const parseAnnounceRequest = (
 	headers: IUDPRequestHeaders
 ): IAnnounceRequestPayload => {
 	/* 32 bytes (80-84) */
-	// @ts-ignore
-	const event = udpAnnounceEvents[message.readUInt32BE(80)];
+	const event = udpAnnounceEvents[message.readUInt32BE(80) as keyof typeof udpAnnounceEvents];
 
 	if (!event) {
 		throw new IncorrectRequestError({

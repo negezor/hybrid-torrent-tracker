@@ -44,8 +44,11 @@ export const announceResponse = ({
 	compact = 1,
 	peers = []
 }: IHTTPAnnounceResponse): Buffer => {
-	// @ts-ignore
-	const response: {
+	const response = {
+		complete,
+		incomplete,
+		interval
+	} as {
 		complete: number;
 		incomplete: number;
 		interval: number;
@@ -55,20 +58,19 @@ export const announceResponse = ({
 			port: number;
 		}[];
 		peers6?: Buffer;
-	} = {
-		complete,
-		incomplete,
-		interval
 	};
 
 	if (compact === 1) {
 		response.peers = ipv4PeersToCompact(peers);
 		response.peers6 = ipv6PeersToCompact(peers);
 	} else if (compact === 0) {
-		// @ts-ignore
-		response.peers = peers.map((peer): object => ({
-			// @ts-ignore
-			'peer id': hexToBinary(peer.peerId),
+		response.peers = peers.map((peer): {
+			'peer id': string;
+			ip: string;
+			port: number;
+		} => ({
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			'peer id': hexToBinary(peer.peerId!),
 			ip: peer.ip,
 			port: peer.port
 		}));
