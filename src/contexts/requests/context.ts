@@ -1,4 +1,4 @@
-import { inspect } from 'util';
+import { inspectable } from 'inspectable';
 
 import { IRequestContext, RequestPayloadUnion, ConnectionContextUnion } from '../../interfaces';
 
@@ -76,24 +76,15 @@ export class RequestContext implements IRequestContext {
 
 		return payload;
 	}
-
-	/**
-	 * Custom inspect object
-	 */
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	public [inspect.custom](depth: number, options: Record<string, any>): string {
-		const { name } = this.constructor;
-
-		const customData = {
-			...this[inspectCustomData](),
-
-			action: this.action,
-			source: this.source,
-			connection: this.connection
-		};
-
-		const payload = inspect(customData, { ...options, compact: false });
-
-		return `${options.stylize(name, 'special')} ${payload}`;
-	}
 }
+
+inspectable(RequestContext, {
+	serialize: payload => ({
+		...payload[inspectCustomData](),
+
+		action: payload.action,
+		source: payload.source,
+		// @ts-ignore
+		connection: payload.connection
+	})
+});

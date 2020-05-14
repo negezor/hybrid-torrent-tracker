@@ -1,12 +1,12 @@
+import { inspectable } from 'inspectable';
 import { HttpRequest, HttpResponse } from 'uWebSockets.js';
 
-import { inspect } from 'util';
 import { STATUS_CODES } from 'http';
 
 import { TrackerError } from '../../errors';
 import { IHTTPConnectionContext, HTTPResponseUnion } from '../../interfaces';
 
-import {ConnectionContext } from './context';
+import { ConnectionContext } from './context';
 import { HTTPParser } from '../../parsers';
 import { TrackerAction } from '../../constants';
 
@@ -84,21 +84,12 @@ export class HTTPConnectionContext
 			resolve();
 		});
 	}
-
-	/**
-	 * Custom inspect object
-	 */
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	public [inspect.custom](depth: any, options: Record<string, any>): string {
-		const { name } = this.constructor;
-		const { sent, ip, url } = this;
-
-		const payload = {
-			sent,
-			ip,
-			url
-		};
-
-		return `${options.stylize(name, 'special')} ${inspect(payload, options)}`;
-	}
 }
+
+inspectable(HTTPConnectionContext, {
+	serialize: ({ sent, ip, url }) => ({
+		sent,
+		ip,
+		url
+	})
+});

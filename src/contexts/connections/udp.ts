@@ -1,5 +1,6 @@
+import { inspectable } from 'inspectable';
+
 import { Socket, RemoteInfo } from 'dgram';
-import { inspect } from 'util';
 
 import { IUDPConnectionContext, UDPResponseUnion } from '../../interfaces';
 
@@ -58,21 +59,12 @@ export class UDPConnectionContext
 			});
 		});
 	}
-
-	/**
-	 * Custom inspect object
-	 */
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	public [inspect.custom](depth: any, options: Record<string, any>): string {
-		const { name } = this.constructor;
-		const { sent, ip, port } = this;
-
-		const payload = {
-			sent,
-			ip,
-			port
-		};
-
-		return `${options.stylize(name, 'special')} ${inspect(payload, options)}`;
-	}
 }
+
+inspectable(UDPConnectionContext, {
+	serialize: ({ sent, ip, port }) => ({
+		sent,
+		ip,
+		port
+	})
+});
