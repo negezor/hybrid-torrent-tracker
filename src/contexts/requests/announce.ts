@@ -13,10 +13,14 @@ import {
 
 export class AnnounceRequestContext
 	extends RequestContext<
-	TrackerAction.ANNOUNCE,
 	IAnnounceRequestPayload,
 	AnnounceRequestContextSendOptions
 	> implements IAnnounceRequestContext {
+	// eslint-disable-next-line class-methods-use-this
+	public get action(): TrackerAction.ANNOUNCE {
+		return TrackerAction.ANNOUNCE;
+	}
+
 	public get isCompact(): boolean {
 		return this.compact === 1;
 	}

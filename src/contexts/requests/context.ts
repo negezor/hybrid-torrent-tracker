@@ -11,13 +11,10 @@ export interface IRequestContextOptions {
 }
 
 export class RequestContext<
-	A extends TrackerAction = TrackerAction,
 	P extends RequestPayloadUnion = RequestPayloadUnion,
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	R extends Record<string, any> = Record<string, any>
 > implements IRequestContext {
-	public action!: A;
-
 	public source: RequestSource;
 
 	protected connection!: ConnectionContextUnion;
@@ -30,6 +27,11 @@ export class RequestContext<
 		this.connection = options.connection;
 		this.payload = options.payload as P;
 		this.source = options.source;
+	}
+
+	// eslint-disable-next-line class-methods-use-this
+	public get action(): TrackerAction {
+		throw new Error('Property "action" not implemented');
 	}
 
 	public get isConnect(): boolean {

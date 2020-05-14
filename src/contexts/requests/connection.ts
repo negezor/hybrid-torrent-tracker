@@ -7,10 +7,14 @@ import { TrackerAction, inspectCustomData } from '../../constants';
 
 export class ConnectionRequestContext
 	extends RequestContext <
-	TrackerAction.CONNECT,
 	IConnectionRequestPayload,
 	ConnectionRequestContextSendOptions
 	> implements IConnectionRequestContext {
+	// eslint-disable-next-line class-methods-use-this
+	public get action(): TrackerAction.CONNECT {
+		return TrackerAction.CONNECT;
+	}
+
 	public get connectionId(): bigint {
 		return this.payload.connection_id;
 	}

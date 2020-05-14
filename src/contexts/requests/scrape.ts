@@ -7,10 +7,14 @@ import { TrackerAction, inspectCustomData } from '../../constants';
 
 export class ScrapeRequestContext
 	extends RequestContext <
-	TrackerAction.SCRAPE,
 	IScrapeRequestPayload,
 	ScrapeRequestContextSendOptions
 	> implements IScrapeRequestContext {
+	// eslint-disable-next-line class-methods-use-this
+	public get action(): TrackerAction.SCRAPE {
+		return TrackerAction.SCRAPE;
+	}
+
 	public get infoHashes(): string[] {
 		return this.payload.info_hash;
 	}
