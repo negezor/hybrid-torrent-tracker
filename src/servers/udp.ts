@@ -2,7 +2,7 @@ import createDebug from 'debug';
 import { Middleware, compose, noopNext } from 'middleware-io';
 
 import { promisify } from 'util';
-import { Socket, createSocket } from 'dgram';
+import { BindOptions, Socket, createSocket } from 'dgram';
 
 // eslint-disable-next-line import/named
 import { UDPParser } from '../parsers';
@@ -237,17 +237,16 @@ export class UDPServer {
 	 * Starts UDP listening
 	 */
 	public async listen(): Promise<void> {
-		const listenUdp4 = promisify(this.udp4Socket.bind).bind(this.udp4Socket);
-		// const listenUdp6 = promisify(this.udp6Socket.bind).bind(this.udp6Socket);
-
 		const { port, host: address } = this.options;
 
-		await Promise.all([
-			// @ts-ignore
-			listenUdp4({ address, port })
-			// @ts-ignore
-			// listenUdp6({ address, port })
-		]);
+		const sockets = [
+			this.udp4Socket
+			// this.udp6Socket
+		];
+
+		await Promise.all(sockets.map(socket => (
+			promisify<BindOptions>(socket.bind).call(socket, { address, port })
+		)));
 
 		debug(`listens on port: ${port}, host: ${address}`);
 	}
