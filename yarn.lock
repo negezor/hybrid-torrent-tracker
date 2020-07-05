@@ -2117,10 +2117,10 @@ inherits@2:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
-inspectable@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/inspectable/-/inspectable-0.0.1.tgz#15fe1c103af22562038e16f173ae3751d8f0c40c"
-  integrity sha512-C6Aq4A2TLxqO42PVmaE5ioYk5I+TMU79jRgSEDVHe1pLQP6bne6wP4pU12Da+oSuA5wKG1HTvg6SxvF7p9hxTQ==
+inspectable@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/inspectable/-/inspectable-1.0.0.tgz#0d5e4b2e8ca3b5de54b535ffc934d46fd22cf019"
+  integrity sha512-dw5aUFDQE+EIAXt3mBpIMEKQAlWSgzOlI/zGd/6mfbDDgfvkJFF4v2vLkHULvSvJ34CBP0jPGdlcd+6rVHtpVQ==
 
 interpret@^1.0.0:
   version "1.2.0"
@@ -4381,9 +4381,9 @@ typescript@^3.9.6:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.6.tgz#8f3e0198a34c3ae17091b35571d3afd31999365a"
   integrity sha512-Pspx3oKAPJtjNwE92YS05HQoY7z2SFyOpHo9MqJor3BXAGNaPUs83CuVp9VISFkSjyRfiTpmKuAYGJB7S7hOxw==
 
-uWebSockets.js@uNetworking/uWebSockets.js#v17.4.0:
-  version "17.4.0"
-  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/116a85f9668dcb03e7799db06dc8275bc43c0963"
+uWebSockets.js@uNetworking/uWebSockets.js#v18.3.0:
+  version "18.3.0"
+  resolved "https://codeload.github.com/uNetworking/uWebSockets.js/tar.gz/63c610cefde1ef71c27cba6dd1072495977ee34d"
 
 uglify-js@^3.1.4:
   version "3.9.3"
