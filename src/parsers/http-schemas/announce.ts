@@ -5,7 +5,6 @@ import { binaryToHex } from '../../helpers';
 const allowAnnounceEvents: string[] = [...Object.values(AnnounceEvent)];
 
 export const httpAnnounceSchema = {
-	// eslint-disable-next-line @typescript-eslint/camelcase
 	info_hash: (infoHash: string): string => {
 		if (typeof infoHash !== 'string' || infoHash.length !== 20) {
 			throw new IncorrectRequestError({
@@ -16,7 +15,6 @@ export const httpAnnounceSchema = {
 
 		return binaryToHex(infoHash);
 	},
-	// eslint-disable-next-line @typescript-eslint/camelcase
 	peer_id: (peerId: string): string => {
 		if (typeof peerId !== 'string' || peerId.length !== 20) {
 			throw new IncorrectRequestError({
@@ -71,7 +69,6 @@ export const httpAnnounceSchema = {
 			: 0;
 	},
 
-	// eslint-disable-next-line @typescript-eslint/camelcase
 	no_peer_id: (rawNoPeerId: string): number => {
 		const noPeerId = Number(rawNoPeerId);
 

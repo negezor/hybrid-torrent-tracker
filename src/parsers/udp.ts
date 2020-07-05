@@ -64,14 +64,12 @@ export const parseRequestHeaders = (message: Buffer): IUDPRequestHeaders => {
 
 	return {
 		/* 64 bytes (0-8) */
-		// eslint-disable-next-line @typescript-eslint/camelcase
 		connection_id: message.readBigUInt64BE(0),
 
 		/* 32 bytes (8-12) */
 		action: udpTrackerActions[message.readUInt32BE(8) as keyof typeof udpTrackerActions],
 
 		/* 32 bytes (12-16) */
-		// eslint-disable-next-line @typescript-eslint/camelcase
 		transaction_id: message.readUInt32BE(12)
 	};
 };
@@ -109,10 +107,8 @@ export const parseAnnounceRequest = (
 
 	const request = {
 		/* 20 bytes (16-36) */
-		// eslint-disable-next-line @typescript-eslint/camelcase
 		info_hash: message.slice(16, 36).toString('hex'),
 		/* 20 bytes (36-56) */
-		// eslint-disable-next-line @typescript-eslint/camelcase
 		peer_id: message.slice(36, 56).toString('hex'),
 
 		/* 64 bytes (56-64)  */
@@ -125,7 +121,6 @@ export const parseAnnounceRequest = (
 		/* UDP is always compact */
 		compact: 1,
 
-		// eslint-disable-next-line @typescript-eslint/camelcase
 		no_peer_id: 1,
 
 		event,
@@ -165,7 +160,6 @@ export const parseAnnounceRequest = (
 		}
 
 		const extensions = {
-			// eslint-disable-next-line @typescript-eslint/camelcase
 			request_string: extensionMessage.slice(0, length).toString() || undefined
 		};
 
@@ -208,7 +202,6 @@ export const parseScrapeRequest = (
 	return {
 		...headers,
 
-		// eslint-disable-next-line @typescript-eslint/camelcase
 		info_hash: infoHashes
 	};
 };

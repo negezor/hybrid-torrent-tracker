@@ -27,7 +27,6 @@ export const parseAnnounceRequest = (
 ): IAnnounceRequestPayload => ({
 	...parseBySchema(httpAnnounceSchema, getQueryFromURL(connection.url)),
 
-	// eslint-disable-next-line @typescript-eslint/camelcase
 	request_string: connection.url
 });
 
@@ -84,7 +83,7 @@ export const scrapeResponse = ({
 	files = []
 }: IHTTPScrapeResponse): Buffer => (
 	encode({
-		files: Object.assign({}, ...files.map((file): object => ({
+		files: Object.assign({}, ...files.map((file): Record<string, Record<string, bigint>> => ({
 			[hexToBinary(file.infoHash)]: {
 				complete: file.complete || 0n,
 				incomplete: file.incomplete || 0n,
@@ -92,7 +91,6 @@ export const scrapeResponse = ({
 			}
 		}))),
 		flags: {
-			// eslint-disable-next-line @typescript-eslint/camelcase
 			min_request_interval: interval
 		}
 	})

@@ -2,7 +2,6 @@ import { IncorrectRequestError } from '../../errors';
 import { binaryToHex } from '../../helpers';
 
 export const httpScrapeSchema = {
-	// eslint-disable-next-line @typescript-eslint/camelcase
 	info_hash: (rawInfoHashes: string | string[]): string[] => {
 		if (!rawInfoHashes) {
 			return [];
