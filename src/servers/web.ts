@@ -130,7 +130,27 @@ export class WebServer {
 
 				handleRequest(TrackerAction.ANNOUNCE, connection);
 			})
-			.get('scrape', (response, request): void => {
+			.get('/:passkey/announce', (response, request): void => {
+				const connection = new HTTPConnectionContext({
+					request,
+					response,
+
+					trustProxy: this.options.trustProxy
+				});
+
+				handleRequest(TrackerAction.ANNOUNCE, connection);
+			})
+			.get('/:passkey/scrape', (response, request): void => {
+				const connection = new HTTPConnectionContext({
+					request,
+					response,
+
+					trustProxy: this.options.trustProxy
+				});
+
+				handleRequest(TrackerAction.SCRAPE, connection);
+			})
+			.get('/scrape', (response, request): void => {
 				const connection = new HTTPConnectionContext({
 					request,
 					response,

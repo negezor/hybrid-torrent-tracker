@@ -56,6 +56,10 @@ export class HTTPConnectionContext
 		return `${this.request.getUrl()}?${this.request.getQuery()}`;
 	}
 
+	public get passkey(): string | undefined {
+		return this.request.getParameter(0);
+	}
+
 	public send(
 		payload: HTTPResponseUnion,
 		options: {

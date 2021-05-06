@@ -104,6 +104,10 @@ export class AnnounceRequestContext
 		return this.payload.request_string;
 	}
 
+	public get passkey(): string | undefined {
+		return this.payload.passkey;
+	}
+
 	public send(payload: AnnounceRequestContextSendOptions): Promise<void> {
 		// @ts-ignore
 		return this.connection.send(payload, {
@@ -130,6 +134,7 @@ export class AnnounceRequestContext
 			'key',
 			'trackerId',
 			'requestPath',
+			'passkey',
 			'isCompact'
 		]);
 	}

@@ -19,6 +19,10 @@ export class ScrapeRequestContext
 		return this.payload.info_hash;
 	}
 
+	public get passkey(): string | undefined {
+		return this.payload.passkey;
+	}
+
 	public send(payload: ScrapeRequestContextSendOptions): Promise<void> {
 		// @ts-ignore
 		return this.connection.send(payload, {
@@ -31,7 +35,8 @@ export class ScrapeRequestContext
 	 */
 	public [inspectCustomData](): object {
 		return copyParams(this, [
-			'infoHashes'
+			'infoHashes',
+			'passkey'
 		]);
 	}
 }

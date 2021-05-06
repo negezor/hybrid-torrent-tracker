@@ -118,6 +118,11 @@ export interface IHTTPConnectionContext extends IConnectionContext {
 	url: string;
 
 	/**
+	 * Returns the current URL path
+	 */
+	passkey?: string;
+
+	/**
 	 * Sends a response
 	 */
 	send(payload: HTTPResponseUnion, options: {
@@ -434,6 +439,11 @@ export interface IAnnounceRequestPayload {
 	 * Returns the transaction ID
 	 */
 	transaction_id?: number;
+
+	/**
+	 * Returns the passkey
+	 */
+	passkey?: string;
 }
 
 export interface IConnectionRequestPayload {
@@ -455,6 +465,11 @@ export interface IScrapeRequestPayload {
 	 * Returns the transaction ID
 	 */
 	transaction_id?: number;
+
+	/**
+	 * Returns the passkey
+	 */
+	passkey?: string;
 }
 
 /**

@@ -27,13 +27,18 @@ export const parseAnnounceRequest = (
 ): IAnnounceRequestPayload => ({
 	...parseBySchema(httpAnnounceSchema, getQueryFromURL(connection.url)),
 
-	request_string: connection.url
+	request_string: connection.url,
+	passkey: connection.passkey || undefined
 });
 
 export const parseScrapeRequest = (
 	connection: IHTTPConnectionContext
 ): IScrapeRequestPayload => (
-	parseBySchema(httpScrapeSchema, getQueryFromURL(connection.url))
+	{
+		...parseBySchema(httpScrapeSchema, getQueryFromURL(connection.url)),
+
+		passkey: connection.passkey || undefined
+	}
 );
 
 export const announceResponse = ({
