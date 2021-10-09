@@ -100,7 +100,7 @@ export class WebServer {
 					try {
 						await connection.send(
 							{
-								message: contextError.message
+								message: (contextError as Error).message
 							},
 							{
 								action: TrackerAction.ERROR

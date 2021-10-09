@@ -164,7 +164,7 @@ export class UDPServer {
 						await connection.send(
 							{
 								transactionId: headers.transaction_id,
-								message: contextError.message
+								message: (contextError as Error).message
 							},
 							{
 								action: TrackerAction.ERROR
