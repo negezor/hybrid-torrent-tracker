@@ -43,6 +43,9 @@
 			"js": "never",
 			"ts": "never"
 		}],
+		"class-methods-use-this": ["error", {
+			"enforceForClassFields": false
+		}],
 		"no-restricted-syntax": ["error", "WithStatement"],
 		"comma-dangle": ["error", "never"],
 		"no-param-reassign": ["error", {
