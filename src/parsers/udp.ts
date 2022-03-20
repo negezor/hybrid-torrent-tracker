@@ -22,22 +22,26 @@ import {
 /**
  * Events announce ids list UDP
  */
+/* eslint-disable @typescript-eslint/naming-convention */
 export const udpAnnounceEvents = {
 	0: AnnounceEvent.UPDATE,
 	1: AnnounceEvent.COMPLETED,
 	2: AnnounceEvent.STARTED,
 	3: AnnounceEvent.STOPPED
 };
+/* eslint-enable @typescript-eslint/naming-convention */
 
 /**
  * Action list UDP
  */
+/* eslint-disable @typescript-eslint/naming-convention */
 export const udpTrackerActions = {
 	0: TrackerAction.CONNECT,
 	1: TrackerAction.ANNOUNCE,
 	2: TrackerAction.SCRAPE,
 	3: TrackerAction.ERROR
 };
+/* eslint-enable @typescript-eslint/naming-convention */
 
 const CONNECTION_ACTION = toUInt32(0);
 const ANNOUNCE_ACTION = toUInt32(1);
