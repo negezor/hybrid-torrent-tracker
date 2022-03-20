@@ -55,11 +55,11 @@
 	},
 	"dependencies": {
 		"bencode": "^2.0.2",
-		"debug": "^4.3.3",
+		"debug": "^4.3.4",
 		"inspectable": "^1.2.1",
 		"middleware-io": "^2.8.0",
 		"string2compact": "^1.3.2",
-		"uWebSockets.js": "uNetworking/uWebSockets.js#v20.5.0"
+		"uWebSockets.js": "uNetworking/uWebSockets.js#v20.6.0"
 	},
 	"scripts": {
 		"prepare": "yarn run rollup:build && yarn run test",
