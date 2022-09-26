@@ -10,15 +10,15 @@ hybrid-torrent-tracker - This is a torrent tracker for [Node.js](https://nodejs.
 ## Installation
 **[Node.js](https://nodejs.org/) 12.0.0 or newer is required**  
 
-### Yarn
+### NPM
 Recommended
 ```shell
-yarn add hybrid-torrent-tracker
+npm install hybrid-torrent-tracker
 ```
 
-### NPM
+### Yarn
 ```shell
-npm install hybrid-torrent-tracker --save
+yarn add hybrid-torrent-tracker
 ```
 
 ## Example usage
