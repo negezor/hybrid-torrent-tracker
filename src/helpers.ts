@@ -98,7 +98,8 @@ type ParseSchemaReturn<T extends Record<string, any>> = {
 	[P in keyof T]: ReturnType<T[P]>;
 };
 
-export const parseBySchema = <T>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const parseBySchema = <T extends Record<string, any>>(
 	schema: T,
 	payload: Partial<ParseSchemaReturn<T>>
 ): ParseSchemaReturn<T> => {
