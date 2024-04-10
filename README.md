@@ -1,6 +1,6 @@
 <p align="center"><img src="https://raw.githubusercontent.com/negezor/hybrid-torrent-tracker/master/logo.svg?sanitize=true"></p>
 <p align="center">
-<a href="https://github.com/negezor/hybrid-torrent-tracker/actions/workflows/tests.yml"><img src="https://img.shields.io/github/workflow/status/negezor/hybrid-torrent-tracker/Hybrid-Torrent-Tracker CI?style=flat-square" alt="Build Status"></a>
+<a href="https://github.com/negezor/hybrid-torrent-tracker/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/negezor/hybrid-torrent-tracker/tests.yml?style=flat-square" alt="Build Status"></a>
 <a href="https://www.npmjs.com/package/hybrid-torrent-tracker"><img src="https://img.shields.io/npm/v/hybrid-torrent-tracker.svg?style=flat-square" alt="NPM version"></a>
 <a href="https://www.npmjs.com/package/hybrid-torrent-tracker"><img src="https://img.shields.io/npm/dt/hybrid-torrent-tracker.svg?style=flat-square" alt="NPM downloads"></a>
 </p>
