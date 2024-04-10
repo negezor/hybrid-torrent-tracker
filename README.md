@@ -16,7 +16,7 @@
 3. **Powerful**. User-friendly interface for query processing (middleware)
 
 ## Installation
-> **[Node.js](https://nodejs.org/) 12.0.0 or newer is required**
+> **[Node.js](https://nodejs.org/) 20.0.0 or newer is required**
 
 - **Using `npm`** (recommended)
 	```shell
