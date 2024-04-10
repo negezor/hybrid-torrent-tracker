@@ -39,11 +39,6 @@ export default [
 		],
 		output: [
 			{
-				file: pathJoin(lib, 'index.js'),
-				format: 'cjs',
-				exports: 'named'
-			},
-			{
 				file: pathJoin(lib, 'index.mjs'),
 				format: 'esm'
 			}

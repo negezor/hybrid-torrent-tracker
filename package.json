@@ -23,12 +23,12 @@
 	"files": [
 		"lib"
 	],
+    "type": "module",
 	"main": "./lib/index.js",
 	"types": "./lib/index.d.ts",
 	"exports": {
 		".": {
 			"import": "./lib/index.mjs",
-			"require": "./lib/index.js",
 			"types": "./lib/index.d.ts"
 		}
 	},

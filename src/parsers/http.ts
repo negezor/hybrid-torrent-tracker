@@ -1,4 +1,4 @@
-import { encode } from 'bencode';
+import bencode from 'bencode';
 
 import { TrackerAction } from '../constants';
 import { getQueryFromURL, hexToBinary, ipv4PeersToCompact, ipv6PeersToCompact, parseBySchema } from '../helpers';
@@ -71,11 +71,11 @@ export const announceResponse = ({
         );
     }
 
-    return encode(response);
+    return bencode.encode(response);
 };
 
 export const scrapeResponse = ({ interval, files = [] }: IHTTPScrapeResponse): Buffer =>
-    encode({
+    bencode.encode({
         files: Object.assign(
             {},
             ...files.map(
@@ -94,7 +94,7 @@ export const scrapeResponse = ({ interval, files = [] }: IHTTPScrapeResponse): B
     });
 
 export const errorResponse = ({ message }: IHTTPErrorResponse): Buffer =>
-    encode({
+    bencode.encode({
         'failure reason': message,
     });
 
