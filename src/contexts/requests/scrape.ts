@@ -10,7 +10,6 @@ export class ScrapeRequestContext
 	IScrapeRequestPayload,
 	ScrapeRequestContextSendOptions
 	> implements IScrapeRequestContext {
-	// eslint-disable-next-line class-methods-use-this
 	public get action(): TrackerAction.SCRAPE {
 		return TrackerAction.SCRAPE;
 	}

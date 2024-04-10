@@ -4,7 +4,6 @@ import { type Middleware, compose, noopNext } from 'middleware-io';
 import { promisify } from 'node:util';
 import { type BindOptions, type Socket, createSocket } from 'node:dgram';
 
-// eslint-disable-next-line import/named
 import { UDPParser } from '../parsers';
 import {
 	UDPConnectionContext,
@@ -36,7 +35,6 @@ export class UDPServer {
 
 	protected stack: Middleware<RequestContext>[] = [];
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	protected chain: Middleware<RequestContext> = (): void => {};
 
 	public constructor(options: IUDPServerOptions) {
@@ -171,13 +169,11 @@ export class UDPServer {
 							}
 						);
 					} catch (responseError) {
-						// eslint-disable-next-line no-console
 						console.error('Response error:', responseError);
 					}
 				}
 
 				if (!(contextError instanceof IncorrectRequestError)) {
-					// eslint-disable-next-line no-console
 					console.error('Some error:', contextError);
 				}
 			}
@@ -185,11 +181,9 @@ export class UDPServer {
 
 		for (const socket of [this.udp4Socket, this.udp6Socket]) {
 			socket.on('error', (error): void => {
-				// eslint-disable-next-line no-console
 				console.log('Socket error', error);
 			});
 
-			// eslint-disable-next-line no-loop-func
 			socket.on('message', async (message, remoteInfo): Promise<void> => {
 				const connection = new UDPConnectionContext({
 					remoteInfo,

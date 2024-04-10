@@ -57,7 +57,6 @@ export const announceResponse = ({
 		incomplete: number;
 		interval: number;
 		peers: Buffer | {
-			// eslint-disable-next-line @typescript-eslint/naming-convention
 			'peer id': string;
 			ip: string;
 			port: number;
@@ -70,13 +69,10 @@ export const announceResponse = ({
 		response.peers6 = ipv6PeersToCompact(peers);
 	} else if (compact === 0) {
 		response.peers = peers.map((peer): {
-			// eslint-disable-next-line @typescript-eslint/naming-convention
 			'peer id': string;
 			ip: string;
 			port: number;
 		} => ({
-			// eslint-disable-next-line max-len
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/naming-convention
 			// biome-ignore lint/style/noNonNullAssertion: in this case peer id should exist
 			'peer id': hexToBinary(peer.peerId!),
 			ip: peer.ip,
@@ -109,7 +105,6 @@ export const errorResponse = ({
 	message
 }: IHTTPErrorResponse): Buffer => (
 	encode({
-		// eslint-disable-next-line @typescript-eslint/naming-convention
 		'failure reason': message
 	})
 );

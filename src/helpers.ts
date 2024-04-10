@@ -89,17 +89,14 @@ export const toUInt64 = (num: bigint): Buffer => {
  * Converts number to IPv4
  */
 export const intToIPv4 = (ipInt: number): string => (
-	// eslint-disable-next-line no-bitwise
 	`${ipInt >>> 24}.${(ipInt >> 16) & 255}.${(ipInt >> 8) & 255}.${ipInt & 255}`
 );
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 // biome-ignore lint/suspicious/noExplicitAny: schema can be anything
 type ParseSchemaReturn<T extends Record<string, any>> = {
 	[P in keyof T]: ReturnType<T[P]>;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 // biome-ignore lint/suspicious/noExplicitAny: schema can be anything
 export const parseBySchema = <T extends Record<string, any>>(
 	schema: T,

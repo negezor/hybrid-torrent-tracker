@@ -7,7 +7,6 @@ import { TrackerError } from '../../errors';
 import type { IHTTPConnectionContext, HTTPResponseUnion } from '../../interfaces';
 
 import { ConnectionContext } from './context';
-// eslint-disable-next-line import/named
 import { HTTPParser } from '../../parsers';
 import type { TrackerAction } from '../../constants';
 

@@ -12,7 +12,6 @@ export interface IRequestContextOptions {
 
 export class RequestContext<
 	P extends RequestPayloadUnion = RequestPayloadUnion,
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	// biome-ignore lint/suspicious/noExplicitAny: response is unknown
 	R extends Record<string, any> = Record<string, any>
 > implements IRequestContext {
@@ -30,7 +29,6 @@ export class RequestContext<
 		this.source = options.source;
 	}
 
-	// eslint-disable-next-line class-methods-use-this
 	public get action(): TrackerAction {
 		throw new Error('Property "action" not implemented');
 	}
@@ -60,7 +58,6 @@ export class RequestContext<
 	}
 
 	public get transactionId(): number {
-		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		// biome-ignore lint/style/noNonNullAssertion: simplify type...
 		return this.payload.transaction_id!;
 	}
@@ -82,7 +79,6 @@ export class RequestContext<
 	 * Returns the custom data
 	 */
 	public [inspectCustomData](): object {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const { ...payload } = this;
 
 		return payload;

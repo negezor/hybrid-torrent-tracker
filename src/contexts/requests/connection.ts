@@ -10,7 +10,6 @@ export class ConnectionRequestContext
 	IConnectionRequestPayload,
 	ConnectionRequestContextSendOptions
 	> implements IConnectionRequestContext {
-	// eslint-disable-next-line class-methods-use-this
 	public get action(): TrackerAction.CONNECT {
 		return TrackerAction.CONNECT;
 	}

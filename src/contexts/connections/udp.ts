@@ -5,7 +5,6 @@ import type { Socket, RemoteInfo } from 'node:dgram';
 import type { IUDPConnectionContext, UDPResponseUnion } from '../../interfaces';
 
 import { ConnectionContext } from './context';
-// eslint-disable-next-line import/named
 import { UDPParser } from '../../parsers';
 import type { TrackerAction } from '../../constants';
 

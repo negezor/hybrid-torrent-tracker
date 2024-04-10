@@ -1,7 +1,6 @@
 import { App, type TemplatedApp } from 'uWebSockets.js';
 import { type Middleware, compose, noopNext } from 'middleware-io';
 
-// eslint-disable-next-line import/named
 import { HTTPParser } from '../parsers';
 import { RequestSource, TrackerAction } from '../constants';
 import {
@@ -27,7 +26,6 @@ export class WebServer {
 
 	protected stack: Middleware<RequestContext>[] = [];
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	protected chain: Middleware<RequestContext> = (): void => {};
 
 	public constructor(options: IWebServerOptions) {
@@ -107,13 +105,11 @@ export class WebServer {
 							}
 						);
 					} catch (responseError) {
-						// eslint-disable-next-line no-console
 						console.error('Response error:', responseError);
 					}
 				}
 
 				if (!(contextError instanceof IncorrectRequestError)) {
-					// eslint-disable-next-line no-console
 					console.error('Some error:', contextError);
 				}
 			}

@@ -16,7 +16,6 @@ export class AnnounceRequestContext
 	IAnnounceRequestPayload,
 	AnnounceRequestContextSendOptions
 	> implements IAnnounceRequestContext {
-	// eslint-disable-next-line class-methods-use-this
 	public get action(): TrackerAction.ANNOUNCE {
 		return TrackerAction.ANNOUNCE;
 	}
