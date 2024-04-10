@@ -1,36 +1,37 @@
 import { RequestContext } from './context';
 
-import type { IConnectionRequestContext, IConnectionRequestPayload, ConnectionRequestContextSendOptions } from '../../interfaces';
+import type {
+    ConnectionRequestContextSendOptions,
+    IConnectionRequestContext,
+    IConnectionRequestPayload,
+} from '../../interfaces';
 
-import { copyParams } from '../../helpers';
 import { TrackerAction, inspectCustomData } from '../../constants';
+import { copyParams } from '../../helpers';
 
 export class ConnectionRequestContext
-	extends RequestContext <
-	IConnectionRequestPayload,
-	ConnectionRequestContextSendOptions
-	> implements IConnectionRequestContext {
-	public get action(): TrackerAction.CONNECT {
-		return TrackerAction.CONNECT;
-	}
+    extends RequestContext<IConnectionRequestPayload, ConnectionRequestContextSendOptions>
+    implements IConnectionRequestContext
+{
+    public get action(): TrackerAction.CONNECT {
+        return TrackerAction.CONNECT;
+    }
 
-	public get connectionId(): bigint {
-		return this.payload.connection_id;
-	}
+    public get connectionId(): bigint {
+        return this.payload.connection_id;
+    }
 
-	public send(payload: ConnectionRequestContextSendOptions): Promise<void> {
-		// @ts-ignore
-		return this.connection.send(payload, {
-			action: this.action
-		});
-	}
+    public send(payload: ConnectionRequestContextSendOptions): Promise<void> {
+        // @ts-ignore
+        return this.connection.send(payload, {
+            action: this.action,
+        });
+    }
 
-	/**
-	 * Returns the custom data
-	 */
-	public [inspectCustomData](): object {
-		return copyParams(this, [
-			'connectionId'
-		]);
-	}
+    /**
+     * Returns the custom data
+     */
+    public [inspectCustomData](): object {
+        return copyParams(this, ['connectionId']);
+    }
 }

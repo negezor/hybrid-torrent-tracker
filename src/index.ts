@@ -5,8 +5,7 @@ export * from './interfaces';
 export { TrackerAction, RequestSource, AnnounceEvent } from './constants';
 
 export {
-	TorrentTracker,
-	TorrentTracker as default,
-
-	ITorrentTrackerOptions
+    TorrentTracker,
+    TorrentTracker as default,
+    ITorrentTrackerOptions,
 } from './tracker';

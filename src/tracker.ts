@@ -1,66 +1,57 @@
 import type { Middleware } from 'middleware-io';
 
-import { WebServer, UDPServer } from './servers';
-import type {
-	ConnectionRequestContext,
-	ScrapeRequestContext,
-	AnnounceRequestContext
-} from './contexts';
+import type { AnnounceRequestContext, ConnectionRequestContext, ScrapeRequestContext } from './contexts';
+import { UDPServer, WebServer } from './servers';
 import type { IUDPServerOptions } from './servers/udp';
 import type { IWebServerOptions } from './servers/web';
 
-type TorrentTrackerMiddleware = Middleware<
-ConnectionRequestContext
-| ScrapeRequestContext
-| AnnounceRequestContext
->;
+type TorrentTrackerMiddleware = Middleware<ConnectionRequestContext | ScrapeRequestContext | AnnounceRequestContext>;
 
 export type ServerOptions<K, T> = {
-	kind: K;
+    kind: K;
 } & T;
 
 export interface ITorrentTrackerOptions {
-	servers: (
-		ServerOptions<'udp', IUDPServerOptions>
-		| ServerOptions<'web', IWebServerOptions>
-	)[];
+    servers: (ServerOptions<'udp', IUDPServerOptions> | ServerOptions<'web', IWebServerOptions>)[];
 }
 
 export class TorrentTracker {
-	protected servers: (UDPServer | WebServer)[] = [];
+    protected servers: (UDPServer | WebServer)[] = [];
 
-	protected stack: TorrentTrackerMiddleware[] = [];
+    protected stack: TorrentTrackerMiddleware[] = [];
 
-	public constructor(options: ITorrentTrackerOptions) {
-		for (const { kind, ...serverOptions } of options.servers) {
-			if (kind === 'udp') {
-				this.servers.push(new UDPServer(serverOptions));
+    public constructor(options: ITorrentTrackerOptions) {
+        for (const { kind, ...serverOptions } of options.servers) {
+            if (kind === 'udp') {
+                this.servers.push(new UDPServer(serverOptions));
 
-				continue;
-			}
+                continue;
+            }
 
-			if (kind === 'web') {
-				this.servers.push(new WebServer(serverOptions));
+            if (kind === 'web') {
+                this.servers.push(new WebServer(serverOptions));
 
-				continue;
-			}
+                continue;
+            }
 
-			throw new Error('Unsupported torrent server');
-		}
-	}
+            throw new Error('Unsupported torrent server');
+        }
+    }
 
-	public use(middleware: TorrentTrackerMiddleware): this {
-		this.stack.push(middleware);
+    public use(middleware: TorrentTrackerMiddleware): this {
+        this.stack.push(middleware);
 
-		return this;
-	}
+        return this;
+    }
 
-	public async listen(): Promise<void> {
-		await Promise.all(this.servers.map((server): Promise<void> => {
-			// @ts-ignore
-			server.use(this.stack);
+    public async listen(): Promise<void> {
+        await Promise.all(
+            this.servers.map((server): Promise<void> => {
+                // @ts-ignore
+                server.use(this.stack);
 
-			return server.listen();
-		}));
-	}
+                return server.listen();
+            }),
+        );
+    }
 }

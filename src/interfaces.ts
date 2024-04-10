@@ -1,154 +1,150 @@
-import type { TrackerAction, AnnounceEvent } from './constants';
+import type { AnnounceEvent, TrackerAction } from './constants';
 
 export interface IHTTPAnnounceResponse {
-	interval: number;
-	complete: number;
-	incomplete: number;
-	compact: number;
-	peers: {
-		peerId?: string;
+    interval: number;
+    complete: number;
+    incomplete: number;
+    compact: number;
+    peers: {
+        peerId?: string;
 
-		ip: string;
-		port: number;
-	}[];
+        ip: string;
+        port: number;
+    }[];
 }
 
 export interface IHTTPScrapeResponse {
-	interval: number;
-	files: {
-		infoHash: string;
-		complete: bigint;
-		incomplete: bigint;
-		downloaded: bigint;
-	}[];
+    interval: number;
+    files: {
+        infoHash: string;
+        complete: bigint;
+        incomplete: bigint;
+        downloaded: bigint;
+    }[];
 }
 
 export interface IHTTPErrorResponse {
-	message: string;
+    message: string;
 }
 
-export type HTTPResponseUnion =
-	| IHTTPAnnounceResponse
-	| IHTTPScrapeResponse
-	| IHTTPErrorResponse;
+export type HTTPResponseUnion = IHTTPAnnounceResponse | IHTTPScrapeResponse | IHTTPErrorResponse;
 
 export interface IUDPConnectionResponse {
-	/**
-	 * Returns the connection ID
-	 */
-	connectionId: bigint;
+    /**
+     * Returns the connection ID
+     */
+    connectionId: bigint;
 
-	/**
-	 * Returns the transaction ID
-	 */
-	transactionId: number;
+    /**
+     * Returns the transaction ID
+     */
+    transactionId: number;
 }
 
 export interface IUDPAnnounceResponse {
-	/**
-	 * Returns the transaction ID
-	 */
-	transactionId: number;
+    /**
+     * Returns the transaction ID
+     */
+    transactionId: number;
 
-	interval: number;
-	incomplete: number;
-	complete: number;
+    interval: number;
+    incomplete: number;
+    complete: number;
 
-	peers: {
-		ip: string;
-		port: number;
-	}[];
+    peers: {
+        ip: string;
+        port: number;
+    }[];
 }
 
 export interface IUDPScrapeResponse {
-	/**
-	 * Returns the transaction ID
-	 */
-	transactionId: number;
+    /**
+     * Returns the transaction ID
+     */
+    transactionId: number;
 
-	files: {
-		complete: number;
-		downloaded: number;
-		incomplete: number;
-	}[];
+    files: {
+        complete: number;
+        downloaded: number;
+        incomplete: number;
+    }[];
 }
 
 export interface IUDPErrorResponse {
-	/**
-	 * Returns the transaction ID
-	 */
-	transactionId: number;
+    /**
+     * Returns the transaction ID
+     */
+    transactionId: number;
 
-	message: string;
+    message: string;
 }
 
-export type UDPResponseUnion =
-	IUDPConnectionResponse
-	| IUDPAnnounceResponse
-	| IUDPScrapeResponse
-	| IUDPErrorResponse;
+export type UDPResponseUnion = IUDPConnectionResponse | IUDPAnnounceResponse | IUDPScrapeResponse | IUDPErrorResponse;
 
 /**
  * Represents basic connection information
  */
 export interface IConnectionContext {
-	/**
-	 * Has an answer been sent
-	 */
-	sent: boolean;
+    /**
+     * Has an answer been sent
+     */
+    sent: boolean;
 }
 
 /**
  * Basic HTTP connection information
  */
 export interface IHTTPConnectionContext extends IConnectionContext {
-	/**
-	 * Is the request aborted
-	 */
-	aborted: boolean;
+    /**
+     * Is the request aborted
+     */
+    aborted: boolean;
 
-	/**
-	 * Returns the connection ip addres
-	 */
-	ip: string;
+    /**
+     * Returns the connection ip addres
+     */
+    ip: string;
 
-	/**
-	 * Returns the current URL path
-	 */
-	url: string;
+    /**
+     * Returns the current URL path
+     */
+    url: string;
 
-	/**
-	 * Returns the current URL path
-	 */
-	passkey?: string;
+    /**
+     * Returns the current URL path
+     */
+    passkey?: string;
 
-	/**
-	 * Sends a response
-	 */
-	send(payload: HTTPResponseUnion, options: {
-		statusCode?: number;
-		action: TrackerAction;
-	}): Promise<void>;
+    /**
+     * Sends a response
+     */
+    send(
+        payload: HTTPResponseUnion,
+        options: {
+            statusCode?: number;
+            action: TrackerAction;
+        },
+    ): Promise<void>;
 }
 
 /**
  * Basic UDP connection information
  */
 export interface IUDPConnectionContext extends IConnectionContext {
-	/**
-	 * Returns the connection ip addres
-	 */
-	ip: string;
+    /**
+     * Returns the connection ip addres
+     */
+    ip: string;
 
-	/**
-	 * Returns the connection port
-	 */
-	port: number;
+    /**
+     * Returns the connection port
+     */
+    port: number;
 
-	/**
-	 * Sends a response
-	 */
-	send(payload: UDPResponseUnion, options: { action: TrackerAction }): Promise<void>;
+    /**
+     * Sends a response
+     */
+    send(payload: UDPResponseUnion, options: { action: TrackerAction }): Promise<void>;
 }
 
 /**
@@ -157,48 +153,48 @@ export interface IUDPConnectionContext extends IConnectionContext {
 export type ConnectionContextUnion = IHTTPConnectionContext | IUDPConnectionContext;
 
 export interface IRequestContext {
-	/**
-	 * The current action is "connect"
-	 */
-	isConnect: boolean;
+    /**
+     * The current action is "connect"
+     */
+    isConnect: boolean;
 
-	/**
-	 * The current action is "announce"
-	 */
-	isAnnounce: boolean;
+    /**
+     * The current action is "announce"
+     */
+    isAnnounce: boolean;
 
-	/**
-	 * The current action is "scrape"
-	 */
-	isScrape: boolean;
+    /**
+     * The current action is "scrape"
+     */
+    isScrape: boolean;
 
-	/**
-	 * The request source is HTTP
-	 */
-	isSourceHTTP: boolean;
+    /**
+     * The request source is HTTP
+     */
+    isSourceHTTP: boolean;
 
-	/**
-	 * The request source is UDP
-	 */
-	isSourceUDP: boolean;
+    /**
+     * The request source is UDP
+     */
+    isSourceUDP: boolean;
 
-	/**
-	 * Current action
-	 */
-	action: TrackerAction;
+    /**
+     * Current action
+     */
+    action: TrackerAction;
 
-	/**
-	 * Has an answer been sent
-	 */
-	sent: boolean;
+    /**
+     * Has an answer been sent
+     */
+    sent: boolean;
 }
 
 export type RequestContextErrorResponse = IHTTPErrorResponse | IUDPErrorResponse;
 
 export type AnnounceRequestContextSendOptions =
-	IHTTPAnnounceResponse
-	| IUDPAnnounceResponse
-	| RequestContextErrorResponse;
+    | IHTTPAnnounceResponse
+    | IUDPAnnounceResponse
+    | RequestContextErrorResponse;
 
 /**
  * Request announce
@@ -206,107 +202,105 @@ export type AnnounceRequestContextSendOptions =
  * @see https://wiki.theory.org/index.php/BitTorrentSpecification#Tracker_Request_Parameters
  */
 export interface IAnnounceRequestContext extends IRequestContext {
-	/**
-	 * Checks that need a compact answer
-	 */
-	isCompact: boolean;
+    /**
+     * Checks that need a compact answer
+     */
+    isCompact: boolean;
 
-	action: TrackerAction.ANNOUNCE;
+    action: TrackerAction.ANNOUNCE;
 
-	/**
-	 * Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
-	 */
-	infoHash: string;
+    /**
+     * Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
+     */
+    infoHash: string;
 
-	/**
-	 * Returns 20-byte string used as a unique ID for the client, generated by the client at startup
-	 */
-	peerId: string;
+    /**
+     * Returns 20-byte string used as a unique ID for the client, generated by the client at startup
+     */
+    peerId: string;
 
-	/**
-	 * Returns the port number that the client is listening on
-	 */
-	port: number;
+    /**
+     * Returns the port number that the client is listening on
+     */
+    port: number;
 
-	/**
-	 * Returns the total amount uploaded (since the client sent the 'started' event to the tracker)
-	 */
-	uploaded: bigint;
+    /**
+     * Returns the total amount uploaded (since the client sent the 'started' event to the tracker)
+     */
+    uploaded: bigint;
 
-	/**
-	 * Returns the total amount downloaded (since the client sent the 'started' event to the tracker)
-	 */
-	downloaded: bigint;
+    /**
+     * Returns the total amount downloaded (since the client sent the 'started' event to the tracker)
+     */
+    downloaded: bigint;
 
-	/**
-	 * Returns the number of bytes this client still has to download
-	 */
-	left: bigint;
+    /**
+     * Returns the number of bytes this client still has to download
+     */
+    left: bigint;
 
-	/**
-	 * Returns the indicates that the client accepts a compact response
-	 */
-	compact: number;
+    /**
+     * Returns the indicates that the client accepts a compact response
+     */
+    compact: number;
 
-	/**
-	 * Returns that the tracker can omit peer id field in peers dictionary
-	 */
-	noPeerId: number;
+    /**
+     * Returns that the tracker can omit peer id field in peers dictionary
+     */
+    noPeerId: number;
 
-	/**
-	 * Returns be one of started, completed, stopped or update (if empty)
-	 *  started: The first request to the tracker must include the event key with this value
-	 *  stopped: Must be sent to the tracker if the client is shutting down gracefully
-	 *  completed: Must be sent to the tracker when the download completes
-	 *  update: This request is one performed at regular intervals.
-	 */
-	event: AnnounceEvent;
+    /**
+     * Returns be one of started, completed, stopped or update (if empty)
+     *  started: The first request to the tracker must include the event key with this value
+     *  stopped: Must be sent to the tracker if the client is shutting down gracefully
+     *  completed: Must be sent to the tracker when the download completes
+     *  update: This request is one performed at regular intervals.
+     */
+    event: AnnounceEvent;
 
-	/**
-	 * Returns the true IP address of the client machine,
-	 * in dotted quad format or rfc 3513 defined hexed IPv6 address.
-	 */
-	ip: string;
+    /**
+     * Returns the true IP address of the client machine,
+     * in dotted quad format or rfc 3513 defined hexed IPv6 address.
+     */
+    ip: string;
 
-	/**
-	 * Returns the number of peers that the client would like to receive from the tracker
-	 */
-	numwant: number;
+    /**
+     * Returns the number of peers that the client would like to receive from the tracker
+     */
+    numwant: number;
 
-	/**
-	 * Returns the an additional identification that is not shared with any other peers
-	 */
-	key?: string | number;
+    /**
+     * Returns the an additional identification that is not shared with any other peers
+     */
+    key?: string | number;
 
-	/**
-	 * Returns the tracker id, if a previous announce contained
-	 */
-	trackerId?: string | number;
+    /**
+     * Returns the tracker id, if a previous announce contained
+     */
+    trackerId?: string | number;
 
-	/**
-	 * Returns the request path
-	 */
-	requestPath?: string;
+    /**
+     * Returns the request path
+     */
+    requestPath?: string;
 
-	/**
-	 * Returns the addres like ip:port
-	 */
-	addres: string;
+    /**
+     * Returns the addres like ip:port
+     */
+    addres: string;
 
-	/**
-	 * Returns the transaction ID (only UDP)
-	 */
-	transactionId: number;
+    /**
+     * Returns the transaction ID (only UDP)
+     */
+    transactionId: number;
 
-	/**
-	 * Sends a response
-	 */
-	send(payload: AnnounceRequestContextSendOptions): Promise<void>;
+    /**
+     * Sends a response
+     */
+    send(payload: AnnounceRequestContextSendOptions): Promise<void>;
 }
 
-export type ConnectionRequestContextSendOptions =
-	IUDPConnectionResponse
-	| RequestContextErrorResponse;
+export type ConnectionRequestContextSendOptions = IUDPConnectionResponse | RequestContextErrorResponse;
 
 /**
  * Request connection
@@ -314,23 +308,20 @@ export type ConnectionRequestContextSendOptions =
  * @see http://www.bittorrent.org/beps/bep_0015.html UDP connections
  */
 export interface IConnectionRequestContext extends IRequestContext {
-	action: TrackerAction.CONNECT;
+    action: TrackerAction.CONNECT;
 
-	/**
-	 * Returns the transaction ID (only UDP)
-	 */
-	transactionId: number;
+    /**
+     * Returns the transaction ID (only UDP)
+     */
+    transactionId: number;
 
-	/**
-	 * Sends a response
-	 */
-	send(payload: ConnectionRequestContextSendOptions): Promise<void>;
+    /**
+     * Sends a response
+     */
+    send(payload: ConnectionRequestContextSendOptions): Promise<void>;
 }
 
-export type ScrapeRequestContextSendOptions =
-	IHTTPScrapeResponse
-	| IUDPScrapeResponse
-	| RequestContextErrorResponse;
+export type ScrapeRequestContextSendOptions = IHTTPScrapeResponse | IUDPScrapeResponse | RequestContextErrorResponse;
 
 /**
  * Request scrape
@@ -338,144 +329,138 @@ export type ScrapeRequestContextSendOptions =
  * @see https://wiki.theory.org/index.php/BitTorrentSpecification#Tracker_.27scrape.27_Convention
  */
 export interface IScrapeRequestContext extends IRequestContext {
-	action: TrackerAction.SCRAPE;
+    action: TrackerAction.SCRAPE;
 
-	/**
-	 * Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
-	 */
-	infoHashes: string[];
+    /**
+     * Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
+     */
+    infoHashes: string[];
 
-	/**
-	 * Sends a response
-	 */
-	send(payload: ScrapeRequestContextSendOptions): Promise<void>;
+    /**
+     * Sends a response
+     */
+    send(payload: ScrapeRequestContextSendOptions): Promise<void>;
 }
 
 /**
  * Contains all request context types
  */
-export type RequestContextUnion =
-	IAnnounceRequestContext
-	| IConnectionRequestContext
-	| IScrapeRequestContext;
+export type RequestContextUnion = IAnnounceRequestContext | IConnectionRequestContext | IScrapeRequestContext;
 
 export interface IAnnounceRequestPayload {
-	/**
-	 * Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
-	 */
-	info_hash: string;
+    /**
+     * Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
+     */
+    info_hash: string;
 
-	/**
-	 * Returns 20-byte string used as a unique ID for the client, generated by the client at startup
-	 */
-	peer_id: string;
+    /**
+     * Returns 20-byte string used as a unique ID for the client, generated by the client at startup
+     */
+    peer_id: string;
 
-	/**
-	 * Returns the port number that the client is listening on
-	 */
-	port?: number;
+    /**
+     * Returns the port number that the client is listening on
+     */
+    port?: number;
 
-	/**
-	 * Returns the total amount uploaded (since the client sent the 'started' event to the tracker)
-	 */
-	uploaded: bigint;
+    /**
+     * Returns the total amount uploaded (since the client sent the 'started' event to the tracker)
+     */
+    uploaded: bigint;
 
-	/**
-	 * Returns the total amount downloaded (since the client sent the 'started' event to the tracker)
-	 */
-	downloaded: bigint;
+    /**
+     * Returns the total amount downloaded (since the client sent the 'started' event to the tracker)
+     */
+    downloaded: bigint;
 
-	/**
-	 * Returns the number of bytes this client still has to download
-	 */
-	left: bigint;
+    /**
+     * Returns the number of bytes this client still has to download
+     */
+    left: bigint;
 
-	/**
-	 * Returns the indicates that the client accepts a compact response
-	 */
-	compact: number;
+    /**
+     * Returns the indicates that the client accepts a compact response
+     */
+    compact: number;
 
-	/**
-	 * Returns that the tracker can omit peer id field in peers dictionary
-	 */
-	no_peer_id: number;
+    /**
+     * Returns that the tracker can omit peer id field in peers dictionary
+     */
+    no_peer_id: number;
 
-	/**
-	 * Returns be one of started, completed, stopped or update (if empty)
-	 *  started: The first request to the tracker must include the event key with this value
-	 *  stopped: Must be sent to the tracker if the client is shutting down gracefully
-	 *  completed: Must be sent to the tracker when the download completes
-	 *  update: This request is one performed at regular intervals.
-	 */
-	event: AnnounceEvent;
+    /**
+     * Returns be one of started, completed, stopped or update (if empty)
+     *  started: The first request to the tracker must include the event key with this value
+     *  stopped: Must be sent to the tracker if the client is shutting down gracefully
+     *  completed: Must be sent to the tracker when the download completes
+     *  update: This request is one performed at regular intervals.
+     */
+    event: AnnounceEvent;
 
-	/**
-	 * Returns the true IP address of the client machine,
-	 * in dotted quad format or rfc 3513 defined hexed IPv6 address.
-	 */
-	ip?: string;
+    /**
+     * Returns the true IP address of the client machine,
+     * in dotted quad format or rfc 3513 defined hexed IPv6 address.
+     */
+    ip?: string;
 
-	/**
-	 * Returns the number of peers that the client would like to receive from the tracker
-	 */
-	numwant?: number;
+    /**
+     * Returns the number of peers that the client would like to receive from the tracker
+     */
+    numwant?: number;
 
-	/**
-	 * Returns the an additional identification that is not shared with any other peers
-	 */
-	key?: string | number;
+    /**
+     * Returns the an additional identification that is not shared with any other peers
+     */
+    key?: string | number;
 
-	/**
-	 * Returns the tracker id, if a previous announce contained
-	 */
-	trackerid?: string | number;
+    /**
+     * Returns the tracker id, if a previous announce contained
+     */
+    trackerid?: string | number;
 
-	/**
-	 * Returns the request path
-	 */
-	request_string?: string;
+    /**
+     * Returns the request path
+     */
+    request_string?: string;
 
-	/**
-	 * Returns the transaction ID
-	 */
-	transaction_id?: number;
+    /**
+     * Returns the transaction ID
+     */
+    transaction_id?: number;
 
-	/**
-	 * Returns the passkey
-	 */
-	passkey?: string;
+    /**
+     * Returns the passkey
+     */
+    passkey?: string;
 }
 
 export interface IConnectionRequestPayload {
-	connection_id: bigint;
+    connection_id: bigint;
 
-	/**
-	 * Returns the transaction ID
-	 */
-	transaction_id?: number;
+    /**
+     * Returns the transaction ID
+     */
+    transaction_id?: number;
 }
 
 export interface IScrapeRequestPayload {
-	/**
-	 * Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
-	 */
-	info_hash: string[];
+    /**
+     * Returns 20-byte SHA1 hash of the value of the info key from the metainfo file
+     */
+    info_hash: string[];
 
-	/**
-	 * Returns the transaction ID
-	 */
-	transaction_id?: number;
+    /**
+     * Returns the transaction ID
+     */
+    transaction_id?: number;
 
-	/**
-	 * Returns the passkey
-	 */
-	passkey?: string;
+    /**
+     * Returns the passkey
+     */
+    passkey?: string;
 }
 
 /**
  * Contains all request payload types
  */
-export type RequestPayloadUnion =
-	IAnnounceRequestPayload
-	| IConnectionRequestPayload
-	| IScrapeRequestPayload;
+export type RequestPayloadUnion = IAnnounceRequestPayload | IConnectionRequestPayload | IScrapeRequestPayload;

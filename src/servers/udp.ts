@@ -1,247 +1,236 @@
 import createDebug from 'debug';
 import { type Middleware, compose, noopNext } from 'middleware-io';
 
-import { promisify } from 'node:util';
 import { type BindOptions, type Socket, createSocket } from 'node:dgram';
+import { promisify } from 'node:util';
 
-import { UDPParser } from '../parsers';
 import {
-	UDPConnectionContext,
-	ConnectionRequestContext,
-	AnnounceRequestContext,
-	ScrapeRequestContext,
-	type RequestContext
+    AnnounceRequestContext,
+    ConnectionRequestContext,
+    type RequestContext,
+    ScrapeRequestContext,
+    UDPConnectionContext,
 } from '../contexts';
+import { UDPParser } from '../parsers';
 
 import { RequestSource, TrackerAction } from '../constants';
 import { IncorrectRequestError } from '../errors';
-import type { IUDPRequestHeaders } from '../parsers/udp';
 import type { IUDPAnnounceResponse, IUDPScrapeResponse } from '../interfaces';
+import type { IUDPRequestHeaders } from '../parsers/udp';
 
 const debug = createDebug('hybrid-torrent-tracker:udp-server');
 
 export interface IUDPServerOptions {
-	port: number;
-	host: string;
-	interval?: number;
+    port: number;
+    host: string;
+    interval?: number;
 }
 
 export class UDPServer {
-	protected options: Required<IUDPServerOptions>;
+    protected options: Required<IUDPServerOptions>;
 
-	protected udp4Socket: Socket;
+    protected udp4Socket: Socket;
 
-	protected udp6Socket: Socket;
+    protected udp6Socket: Socket;
 
-	protected stack: Middleware<RequestContext>[] = [];
+    protected stack: Middleware<RequestContext>[] = [];
 
-	protected chain: Middleware<RequestContext> = (): void => {};
+    protected chain: Middleware<RequestContext> = (): void => {};
 
-	public constructor(options: IUDPServerOptions) {
-		this.options = {
-			// 2 min
-			interval: 120,
+    public constructor(options: IUDPServerOptions) {
+        this.options = {
+            // 2 min
+            interval: 120,
 
-			...options
-		};
+            ...options,
+        };
 
-		this.udp4Socket = createSocket({
-			type: 'udp4',
-			reuseAddr: true
-		});
+        this.udp4Socket = createSocket({
+            type: 'udp4',
+            reuseAddr: true,
+        });
 
-		this.udp6Socket = createSocket({
-			type: 'udp6',
-			reuseAddr: true
-		});
+        this.udp6Socket = createSocket({
+            type: 'udp6',
+            reuseAddr: true,
+        });
 
-		const handleRequest = async ({
-			action,
-			connection,
-			message,
-			headers
-		}: {
-			action: TrackerAction;
-			connection: UDPConnectionContext;
-			message: Buffer;
-			headers: IUDPRequestHeaders;
-		}): Promise<void> => {
-			try {
-				let context: RequestContext;
-				if (action === TrackerAction.CONNECT) {
-					context = new ConnectionRequestContext({
-						connection,
+        const handleRequest = async ({
+            action,
+            connection,
+            message,
+            headers,
+        }: {
+            action: TrackerAction;
+            connection: UDPConnectionContext;
+            message: Buffer;
+            headers: IUDPRequestHeaders;
+        }): Promise<void> => {
+            try {
+                let context: RequestContext;
+                if (action === TrackerAction.CONNECT) {
+                    context = new ConnectionRequestContext({
+                        connection,
 
-						payload: UDPParser.parseConnectionRequest(
-							message,
-							headers
-						),
-						source: RequestSource.UDP
-					});
-				} else if (action === TrackerAction.ANNOUNCE) {
-					context = new AnnounceRequestContext({
-						connection,
+                        payload: UDPParser.parseConnectionRequest(message, headers),
+                        source: RequestSource.UDP,
+                    });
+                } else if (action === TrackerAction.ANNOUNCE) {
+                    context = new AnnounceRequestContext({
+                        connection,
 
-						payload: UDPParser.parseAnnounceRequest(
-							message,
-							headers
-						),
-						source: RequestSource.UDP
-					});
-				} else if (action === TrackerAction.SCRAPE) {
-					context = new ScrapeRequestContext({
-						connection,
+                        payload: UDPParser.parseAnnounceRequest(message, headers),
+                        source: RequestSource.UDP,
+                    });
+                } else if (action === TrackerAction.SCRAPE) {
+                    context = new ScrapeRequestContext({
+                        connection,
 
-						payload: UDPParser.parseScrapeRequest(
-							message,
-							headers
-						),
-						source: RequestSource.UDP
-					});
-				} else {
-					throw new IncorrectRequestError({
-						message: 'Invalid action',
-						code: 'INVALID_REQUEST'
-					});
-				}
+                        payload: UDPParser.parseScrapeRequest(message, headers),
+                        source: RequestSource.UDP,
+                    });
+                } else {
+                    throw new IncorrectRequestError({
+                        message: 'Invalid action',
+                        code: 'INVALID_REQUEST',
+                    });
+                }
 
-				await this.chain(context, noopNext);
+                await this.chain(context, noopNext);
 
-				if (context.sent) {
-					return;
-				}
+                if (context.sent) {
+                    return;
+                }
 
-				const { transactionId } = context;
+                const { transactionId } = context;
 
-				if (context instanceof ConnectionRequestContext) {
-					// const response = context.response as IUDPConnectionResponse;
+                if (context instanceof ConnectionRequestContext) {
+                    // const response = context.response as IUDPConnectionResponse;
 
-					await context.send({
-						transactionId,
+                    await context.send({
+                        transactionId,
 
-						connectionId: context.connectionId
-					});
+                        connectionId: context.connectionId,
+                    });
 
-					return;
-				}
+                    return;
+                }
 
-				if (context instanceof AnnounceRequestContext) {
-					const response = context.response as IUDPAnnounceResponse;
+                if (context instanceof AnnounceRequestContext) {
+                    const response = context.response as IUDPAnnounceResponse;
 
-					await context.send({
-						transactionId,
+                    await context.send({
+                        transactionId,
 
-						incomplete: response.incomplete,
-						complete: response.complete,
-						interval: this.options.interval,
-						peers: response.peers
-					});
+                        incomplete: response.incomplete,
+                        complete: response.complete,
+                        interval: this.options.interval,
+                        peers: response.peers,
+                    });
 
-					return;
-				}
+                    return;
+                }
 
-				if (context instanceof ScrapeRequestContext) {
-					const response = context.response as IUDPScrapeResponse;
+                if (context instanceof ScrapeRequestContext) {
+                    const response = context.response as IUDPScrapeResponse;
 
-					await context.send({
-						transactionId,
+                    await context.send({
+                        transactionId,
 
-						files: response.files
-					});
+                        files: response.files,
+                    });
 
-					return;
-				}
+                    return;
+                }
 
-				throw new IncorrectRequestError({
-					message: 'Internal server error',
-					code: 'INTERNAL_SERVER_ERROR'
-				});
-			} catch (contextError) {
-				if (!connection.sent) {
-					try {
-						await connection.send(
-							{
-								transactionId: headers.transaction_id,
-								message: (contextError as Error).message
-							},
-							{
-								action: TrackerAction.ERROR
-							}
-						);
-					} catch (responseError) {
-						console.error('Response error:', responseError);
-					}
-				}
+                throw new IncorrectRequestError({
+                    message: 'Internal server error',
+                    code: 'INTERNAL_SERVER_ERROR',
+                });
+            } catch (contextError) {
+                if (!connection.sent) {
+                    try {
+                        await connection.send(
+                            {
+                                transactionId: headers.transaction_id,
+                                message: (contextError as Error).message,
+                            },
+                            {
+                                action: TrackerAction.ERROR,
+                            },
+                        );
+                    } catch (responseError) {
+                        console.error('Response error:', responseError);
+                    }
+                }
 
-				if (!(contextError instanceof IncorrectRequestError)) {
-					console.error('Some error:', contextError);
-				}
-			}
-		};
+                if (!(contextError instanceof IncorrectRequestError)) {
+                    console.error('Some error:', contextError);
+                }
+            }
+        };
 
-		for (const socket of [this.udp4Socket, this.udp6Socket]) {
-			socket.on('error', (error): void => {
-				console.log('Socket error', error);
-			});
+        for (const socket of [this.udp4Socket, this.udp6Socket]) {
+            socket.on('error', (error): void => {
+                console.log('Socket error', error);
+            });
 
-			socket.on('message', async (message, remoteInfo): Promise<void> => {
-				const connection = new UDPConnectionContext({
-					remoteInfo,
-					socket
-				});
+            socket.on('message', async (message, remoteInfo): Promise<void> => {
+                const connection = new UDPConnectionContext({
+                    remoteInfo,
+                    socket,
+                });
 
-				try {
-					const headers = UDPParser.parseRequestHeaders(message);
+                try {
+                    const headers = UDPParser.parseRequestHeaders(message);
 
-					const { action } = headers;
+                    const { action } = headers;
 
-					await handleRequest({
-						action,
-						connection,
-						message,
-						headers
-					});
-				} catch (error) {
-					await connection.send(
-						{
-							transactionId: 0,
-							message: 'Bad request'
-						},
-						{
-							action: TrackerAction.ERROR
-						}
-					);
-				}
-			});
-		}
-	}
+                    await handleRequest({
+                        action,
+                        connection,
+                        message,
+                        headers,
+                    });
+                } catch (error) {
+                    await connection.send(
+                        {
+                            transactionId: 0,
+                            message: 'Bad request',
+                        },
+                        {
+                            action: TrackerAction.ERROR,
+                        },
+                    );
+                }
+            });
+        }
+    }
 
-	/**
-	 * Added middleware
-	 */
-	public use(middlewares: Middleware<RequestContext>[]): this {
-		this.stack.push(...middlewares);
+    /**
+     * Added middleware
+     */
+    public use(middlewares: Middleware<RequestContext>[]): this {
+        this.stack.push(...middlewares);
 
-		this.chain = compose(this.stack);
+        this.chain = compose(this.stack);
 
-		return this;
-	}
+        return this;
+    }
 
-	/**
-	 * Starts UDP listening
-	 */
-	public async listen(): Promise<void> {
-		const { port, host: address } = this.options;
+    /**
+     * Starts UDP listening
+     */
+    public async listen(): Promise<void> {
+        const { port, host: address } = this.options;
 
-		const sockets = [
-			this.udp4Socket
-			// this.udp6Socket
-		];
+        const sockets = [
+            this.udp4Socket,
+            // this.udp6Socket
+        ];
 
-		await Promise.all(sockets.map(socket => (
-			promisify<BindOptions>(socket.bind).call(socket, { address, port })
-		)));
+        await Promise.all(sockets.map(socket => promisify<BindOptions>(socket.bind).call(socket, { address, port })));
 
-		debug(`listens on port: ${port}, host: ${address}`);
-	}
+        debug(`listens on port: ${port}, host: ${address}`);
+    }
 }

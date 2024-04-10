@@ -4,96 +4,96 @@ import type { HttpRequest, HttpResponse } from 'uWebSockets.js';
 import { STATUS_CODES } from 'node:http';
 
 import { TrackerError } from '../../errors';
-import type { IHTTPConnectionContext, HTTPResponseUnion } from '../../interfaces';
+import type { HTTPResponseUnion, IHTTPConnectionContext } from '../../interfaces';
 
-import { ConnectionContext } from './context';
-import { HTTPParser } from '../../parsers';
 import type { TrackerAction } from '../../constants';
+import { HTTPParser } from '../../parsers';
+import { ConnectionContext } from './context';
 
 export interface IHTTPConnectionContextOptions {
-	request: HttpRequest;
-	response: HttpResponse;
+    request: HttpRequest;
+    response: HttpResponse;
 
-	trustProxy: boolean;
+    trustProxy: boolean;
 }
 
-export class HTTPConnectionContext
-	extends ConnectionContext
-	implements IHTTPConnectionContext {
-	public aborted = false;
+export class HTTPConnectionContext extends ConnectionContext implements IHTTPConnectionContext {
+    public aborted = false;
 
-	protected request: HttpRequest;
+    protected request: HttpRequest;
 
-	protected response: HttpResponse;
+    protected response: HttpResponse;
 
-	protected trustProxy: boolean;
+    protected trustProxy: boolean;
 
-	public constructor(options: IHTTPConnectionContextOptions) {
-		super();
+    public constructor(options: IHTTPConnectionContextOptions) {
+        super();
 
-		this.request = options.request;
-		this.response = options.response;
+        this.request = options.request;
+        this.response = options.response;
 
-		this.trustProxy = options.trustProxy;
+        this.trustProxy = options.trustProxy;
 
-		this.response.onAborted((): void => {
-			this.aborted = true;
-		});
-	}
+        this.response.onAborted((): void => {
+            this.aborted = true;
+        });
+    }
 
-	public get ip(): string {
-		const xForwardedFor = this.request.getHeader('x-forwarded-for');
+    public get ip(): string {
+        const xForwardedFor = this.request.getHeader('x-forwarded-for');
 
-		if (this.trustProxy && xForwardedFor) {
-			return xForwardedFor;
-		}
+        if (this.trustProxy && xForwardedFor) {
+            return xForwardedFor;
+        }
 
-		return (new Uint8Array(this.response.getRemoteAddress())).join('.');
-	}
+        return new Uint8Array(this.response.getRemoteAddress()).join('.');
+    }
 
-	public get url(): string {
-		return `${this.request.getUrl()}?${this.request.getQuery()}`;
-	}
+    public get url(): string {
+        return `${this.request.getUrl()}?${this.request.getQuery()}`;
+    }
 
-	public get passkey(): string | undefined {
-		return this.request.getParameter(0);
-	}
+    public get passkey(): string | undefined {
+        return this.request.getParameter(0);
+    }
 
-	public send(
-		payload: HTTPResponseUnion,
-		options: {
-			action: TrackerAction;
-			statusCode?: number;
-		}
-	): Promise<void> {
-		return new Promise((resolve, reject): void => {
-			if (this.sent) {
-				reject(new TrackerError({
-					message: 'Response already sent',
-					code: 'RESPONSE_ALREADY_SENT'
-				}));
+    public send(
+        payload: HTTPResponseUnion,
+        options: {
+            action: TrackerAction;
+            statusCode?: number;
+        },
+    ): Promise<void> {
+        return new Promise((resolve, reject): void => {
+            if (this.sent) {
+                reject(
+                    new TrackerError({
+                        message: 'Response already sent',
+                        code: 'RESPONSE_ALREADY_SENT',
+                    }),
+                );
 
-				return;
-			}
+                return;
+            }
 
-			const message = HTTPParser.toBufferResponse(payload, options.action);
+            const message = HTTPParser.toBufferResponse(payload, options.action);
 
-			const { statusCode = 200 } = options;
+            const { statusCode = 200 } = options;
 
-			this.response.writeStatus(`${statusCode} ${STATUS_CODES[statusCode]}`);
-			this.response.end(message);
+            this.response.writeStatus(`${statusCode} ${STATUS_CODES[statusCode]}`);
+            this.response.end(message);
 
-			this.sent = true;
+            this.sent = true;
 
-			resolve();
-		});
-	}
+            resolve();
+        });
+    }
 }
 
 inspectable(HTTPConnectionContext, {
-	serialize: ({ sent, ip, url }) => ({
-		sent,
-		ip,
-		url
-	})
+    serialize: ({ sent, ip, url }) => ({
+        sent,
+        ip,
+        url,
+    }),
 });
