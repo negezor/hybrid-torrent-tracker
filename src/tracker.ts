@@ -1,13 +1,13 @@
-import { Middleware } from 'middleware-io';
+import type { Middleware } from 'middleware-io';
 
 import { WebServer, UDPServer } from './servers';
-import {
+import type {
 	ConnectionRequestContext,
 	ScrapeRequestContext,
 	AnnounceRequestContext
 } from './contexts';
-import { IUDPServerOptions } from './servers/udp';
-import { IWebServerOptions } from './servers/web';
+import type { IUDPServerOptions } from './servers/udp';
+import type { IWebServerOptions } from './servers/web';
 
 type TorrentTrackerMiddleware = Middleware<
 ConnectionRequestContext

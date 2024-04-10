@@ -1,4 +1,4 @@
-import { TrackerAction, AnnounceEvent } from './constants';
+import type { TrackerAction, AnnounceEvent } from './constants';
 
 export interface IHTTPAnnounceResponse {
 	interval: number;

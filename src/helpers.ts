@@ -1,7 +1,7 @@
 // @ts-ignore
 import string2compact from 'string2compact';
-import { parse as parseQueryString } from 'querystring';
-import { isIPv6, isIPv4 } from 'net';
+import { parse as parseQueryString } from 'node:querystring';
+import { isIPv6, isIPv4 } from 'node:net';
 
 /**
  * Binary to hex
@@ -94,11 +94,13 @@ export const intToIPv4 = (ipInt: number): string => (
 );
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: schema can be anything
 type ParseSchemaReturn<T extends Record<string, any>> = {
 	[P in keyof T]: ReturnType<T[P]>;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: schema can be anything
 export const parseBySchema = <T extends Record<string, any>>(
 	schema: T,
 	payload: Partial<ParseSchemaReturn<T>>

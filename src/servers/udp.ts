@@ -1,8 +1,8 @@
 import createDebug from 'debug';
-import { Middleware, compose, noopNext } from 'middleware-io';
+import { type Middleware, compose, noopNext } from 'middleware-io';
 
-import { promisify } from 'util';
-import { BindOptions, Socket, createSocket } from 'dgram';
+import { promisify } from 'node:util';
+import { type BindOptions, type Socket, createSocket } from 'node:dgram';
 
 // eslint-disable-next-line import/named
 import { UDPParser } from '../parsers';
@@ -11,13 +11,13 @@ import {
 	ConnectionRequestContext,
 	AnnounceRequestContext,
 	ScrapeRequestContext,
-	RequestContext
+	type RequestContext
 } from '../contexts';
 
 import { RequestSource, TrackerAction } from '../constants';
 import { IncorrectRequestError } from '../errors';
-import { IUDPRequestHeaders } from '../parsers/udp';
-import { IUDPAnnounceResponse, IUDPScrapeResponse } from '../interfaces';
+import type { IUDPRequestHeaders } from '../parsers/udp';
+import type { IUDPAnnounceResponse, IUDPScrapeResponse } from '../interfaces';
 
 const debug = createDebug('hybrid-torrent-tracker:udp-server');
 
@@ -69,7 +69,7 @@ export class UDPServer {
 			headers: IUDPRequestHeaders;
 		}): Promise<void> => {
 			try {
-				let context;
+				let context: RequestContext;
 				if (action === TrackerAction.CONNECT) {
 					context = new ConnectionRequestContext({
 						connection,

@@ -1,6 +1,6 @@
 import { inspectable } from 'inspectable';
 
-import { IRequestContext, RequestPayloadUnion, ConnectionContextUnion } from '../../interfaces';
+import type { IRequestContext, RequestPayloadUnion, ConnectionContextUnion } from '../../interfaces';
 
 import { TrackerAction, RequestSource, inspectCustomData } from '../../constants';
 
@@ -13,6 +13,7 @@ export interface IRequestContextOptions {
 export class RequestContext<
 	P extends RequestPayloadUnion = RequestPayloadUnion,
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	// biome-ignore lint/suspicious/noExplicitAny: response is unknown
 	R extends Record<string, any> = Record<string, any>
 > implements IRequestContext {
 	public source: RequestSource;
@@ -60,6 +61,7 @@ export class RequestContext<
 
 	public get transactionId(): number {
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		// biome-ignore lint/style/noNonNullAssertion: simplify type...
 		return this.payload.transaction_id!;
 	}
 

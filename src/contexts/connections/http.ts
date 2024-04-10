@@ -1,15 +1,15 @@
 import { inspectable } from 'inspectable';
-import { HttpRequest, HttpResponse } from 'uWebSockets.js';
+import type { HttpRequest, HttpResponse } from 'uWebSockets.js';
 
-import { STATUS_CODES } from 'http';
+import { STATUS_CODES } from 'node:http';
 
 import { TrackerError } from '../../errors';
-import { IHTTPConnectionContext, HTTPResponseUnion } from '../../interfaces';
+import type { IHTTPConnectionContext, HTTPResponseUnion } from '../../interfaces';
 
 import { ConnectionContext } from './context';
 // eslint-disable-next-line import/named
 import { HTTPParser } from '../../parsers';
-import { TrackerAction } from '../../constants';
+import type { TrackerAction } from '../../constants';
 
 export interface IHTTPConnectionContextOptions {
 	request: HttpRequest;

@@ -1,6 +1,6 @@
 import { RequestContext } from './context';
 
-import { IAnnounceRequestContext, IAnnounceRequestPayload, AnnounceRequestContextSendOptions } from '../../interfaces';
+import type { IAnnounceRequestContext, IAnnounceRequestPayload, AnnounceRequestContextSendOptions } from '../../interfaces';
 
 import { copyParams } from '../../helpers';
 import {

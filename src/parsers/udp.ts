@@ -6,7 +6,7 @@ import {
 	ipv4PeersToCompact
 } from '../helpers';
 import { IncorrectRequestError } from '../errors';
-import {
+import type {
 	IConnectionRequestPayload,
 	IAnnounceRequestPayload,
 	IScrapeRequestPayload,
@@ -256,12 +256,11 @@ export const scrapeResponse = ({
 		toUInt32(transactionId),
 
 		...files
-			.map((torrent): Buffer[] => ([
+			.flatMap((torrent): Buffer[] => ([
 				toUInt32(torrent.complete || 0),
 				toUInt32(torrent.downloaded || 0),
 				toUInt32(torrent.incomplete || 0)
 			]))
-			.flat()
 	])
 );
 

@@ -1,13 +1,13 @@
 import { inspectable } from 'inspectable';
 
-import { Socket, RemoteInfo } from 'dgram';
+import type { Socket, RemoteInfo } from 'node:dgram';
 
-import { IUDPConnectionContext, UDPResponseUnion } from '../../interfaces';
+import type { IUDPConnectionContext, UDPResponseUnion } from '../../interfaces';
 
 import { ConnectionContext } from './context';
 // eslint-disable-next-line import/named
 import { UDPParser } from '../../parsers';
-import { TrackerAction } from '../../constants';
+import type { TrackerAction } from '../../constants';
 
 export interface IUDPConnectionContextOptions {
 	socket: Socket;

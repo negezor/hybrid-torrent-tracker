@@ -1,6 +1,6 @@
 import { RequestContext } from './context';
 
-import { IConnectionRequestContext, IConnectionRequestPayload, ConnectionRequestContextSendOptions } from '../../interfaces';
+import type { IConnectionRequestContext, IConnectionRequestPayload, ConnectionRequestContextSendOptions } from '../../interfaces';
 
 import { copyParams } from '../../helpers';
 import { TrackerAction, inspectCustomData } from '../../constants';

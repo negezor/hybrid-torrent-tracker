@@ -1,6 +1,6 @@
 import { encode } from 'bencode';
 
-import {
+import type {
 	IHTTPConnectionContext,
 
 	IAnnounceRequestPayload,
@@ -77,6 +77,7 @@ export const announceResponse = ({
 		} => ({
 			// eslint-disable-next-line max-len
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/naming-convention
+			// biome-ignore lint/style/noNonNullAssertion: in this case peer id should exist
 			'peer id': hexToBinary(peer.peerId!),
 			ip: peer.ip,
 			port: peer.port

@@ -1,5 +1,5 @@
-import { App, TemplatedApp } from 'uWebSockets.js';
-import { Middleware, compose, noopNext } from 'middleware-io';
+import { App, type TemplatedApp } from 'uWebSockets.js';
+import { type Middleware, compose, noopNext } from 'middleware-io';
 
 // eslint-disable-next-line import/named
 import { HTTPParser } from '../parsers';
@@ -8,10 +8,10 @@ import {
 	HTTPConnectionContext,
 	ScrapeRequestContext,
 	AnnounceRequestContext,
-	RequestContext
+	type RequestContext
 } from '../contexts';
 import { IncorrectRequestError } from '../errors';
-import { IHTTPAnnounceResponse, IHTTPScrapeResponse } from '../interfaces';
+import type { IHTTPAnnounceResponse, IHTTPScrapeResponse } from '../interfaces';
 
 export interface IWebServerOptions {
 	host: string;

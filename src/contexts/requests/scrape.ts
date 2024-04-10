@@ -1,6 +1,6 @@
 import { RequestContext } from './context';
 
-import { IScrapeRequestContext, IScrapeRequestPayload, ScrapeRequestContextSendOptions } from '../../interfaces';
+import type { IScrapeRequestContext, IScrapeRequestPayload, ScrapeRequestContextSendOptions } from '../../interfaces';
 
 import { copyParams } from '../../helpers';
 import { TrackerAction, inspectCustomData } from '../../constants';
