@@ -1,6 +1,6 @@
 {
 	"name": "hybrid-torrent-tracker",
-	"version": "1.3.3",
+	"version": "1.4.0",
 	"description": "Hybrid torrent tracker for Node.js",
 	"license": "MIT",
 	"author": {
