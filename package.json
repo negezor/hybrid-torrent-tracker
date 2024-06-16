@@ -50,7 +50,7 @@
 	"dependencies": {
 		"bencode": "^4.0.0",
 		"debug": "^4.3.5",
-		"inspectable": "^3.0.0",
+		"inspectable": "^3.0.2",
 		"middleware-io": "^2.8.1",
 		"string2compact": "^2.0.1",
 		"uWebSockets.js": "uNetworking/uWebSockets.js#v20.44.0"
