@@ -1,8 +1,8 @@
 import typescript from 'rollup-plugin-typescript2';
 
-import { tmpdir } from 'os';
-import { builtinModules } from 'module';
-import { join as pathJoin } from 'path';
+import { tmpdir } from 'node:os';
+import { builtinModules } from 'node:module';
+import { join as pathJoin } from 'node:path';
 
 import pkg from './package.json';
 
