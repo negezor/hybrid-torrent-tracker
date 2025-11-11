@@ -1,71 +1,71 @@
 {
-	"name": "hybrid-torrent-tracker",
-	"version": "2.0.1",
-	"description": "Hybrid torrent tracker for Node.js",
-	"license": "MIT",
-	"author": {
-		"name": "Vladlen (Negezor)",
-		"email": "negezor@gmail.com"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/negezor/hybrid-torrent-tracker.git"
-	},
-	"homepage": "https://github.com/negezor/hybrid-torrent-tracker#readme",
-	"bugs": "https://github.com/negezor/hybrid-torrent-tracker/issues",
-	"keywords": [
-		"torrent",
-		"http",
-		"udp",
-		"tracker",
-		"hybrid"
-	],
-	"files": [
-		"lib"
-	],
-	"type": "module",
-	"main": "./lib/index.js",
-	"types": "./lib/index.d.ts",
-	"exports": {
-		".": {
-			"import": "./lib/index.mjs",
-			"types": "./lib/index.d.ts"
-		}
-	},
-	"sideEffects": false,
-	"engines": {
-		"node": ">=20.0.0"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^2.3.4",
-		"@types/bencode": "^2.0.4",
-		"@types/debug": "^4.1.12",
-		"@types/node": "^24.10.0",
-		"rollup": "^4.53.2",
-		"rollup-plugin-typescript2": "^0.36.0",
-		"tsx": "^4.20.6",
-		"typedoc": "^0.28.14",
-		"typescript": "^5.9.3"
-	},
-	"dependencies": {
-		"bencode": "^4.0.0",
-		"debug": "^4.4.3",
-		"inspectable": "^3.0.2",
-		"middleware-io": "^2.8.1",
-		"string2compact": "^2.0.1",
-		"uWebSockets.js": "uNetworking/uWebSockets.js#v20.56.0"
-	},
-	"scripts": {
-		"prepare": "npm run rollup:build && npm run test",
-		"build": "npm run rollup:build",
-		"watch": "npm run rollup:watch",
-		"clean": "rm -rf lib",
-		"rollup:build": "rollup --bundleConfigAsCjs -c",
-		"rollup:watch": "npm run rollup:build -- --watch",
-		"test": "npm run test:node && npm run lint",
-		"test:node": "node --import tsx --test test/*.test.ts",
-		"lint": "npm run lint:biome",
-		"lint:biome": "biome lint --write ./src",
-		"docs:generate": "typedoc --theme default --out docs/reference --excludeExternals --readme none src"
-	}
+    "name": "hybrid-torrent-tracker",
+    "version": "2.0.1",
+    "description": "Hybrid torrent tracker for Node.js",
+    "license": "MIT",
+    "author": {
+        "name": "Vladlen (Negezor)",
+        "email": "negezor@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/negezor/hybrid-torrent-tracker.git"
+    },
+    "homepage": "https://github.com/negezor/hybrid-torrent-tracker#readme",
+    "bugs": "https://github.com/negezor/hybrid-torrent-tracker/issues",
+    "keywords": [
+        "torrent",
+        "http",
+        "udp",
+        "tracker",
+        "hybrid"
+    ],
+    "files": [
+        "lib"
+    ],
+    "type": "module",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./lib/index.mjs",
+            "types": "./lib/index.d.ts"
+        }
+    },
+    "sideEffects": false,
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.3.4",
+        "@types/bencode": "^2.0.4",
+        "@types/debug": "^4.1.12",
+        "@types/node": "^24.10.0",
+        "rollup": "^4.53.2",
+        "rollup-plugin-typescript2": "^0.36.0",
+        "tsx": "^4.20.6",
+        "typedoc": "^0.28.14",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "bencode": "^4.0.0",
+        "debug": "^4.4.3",
+        "inspectable": "^3.0.2",
+        "middleware-io": "^2.8.1",
+        "string2compact": "^2.0.1",
+        "uWebSockets.js": "uNetworking/uWebSockets.js#v20.56.0"
+    },
+    "scripts": {
+        "prepare": "npm run rollup:build && npm run test",
+        "build": "npm run rollup:build",
+        "watch": "npm run rollup:watch",
+        "clean": "rm -rf lib",
+        "rollup:build": "rollup --bundleConfigAsCjs -c",
+        "rollup:watch": "npm run rollup:build -- --watch",
+        "test": "npm run test:node && npm run lint",
+        "test:node": "node --import tsx --test test/*.test.ts",
+        "lint": "npm run lint:biome",
+        "lint:biome": "biome lint --write ./src",
+        "docs:generate": "typedoc --theme default --out docs/reference --excludeExternals --readme none src"
+    }
 }

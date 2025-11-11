@@ -1,13 +1,11 @@
-import { RequestContext } from './context';
-
+import { AnnounceEvent, AnnouncePeerSimultaneously, inspectCustomData, TrackerAction } from '../../constants';
+import { copyParams } from '../../helpers';
 import type {
     AnnounceRequestContextSendOptions,
     IAnnounceRequestContext,
     IAnnounceRequestPayload,
 } from '../../interfaces';
-
-import { AnnounceEvent, AnnouncePeerSimultaneously, TrackerAction, inspectCustomData } from '../../constants';
-import { copyParams } from '../../helpers';
+import { RequestContext } from './context';
 
 export class AnnounceRequestContext
     extends RequestContext<IAnnounceRequestPayload, AnnounceRequestContextSendOptions>
@@ -30,7 +28,7 @@ export class AnnounceRequestContext
     }
 
     public get port(): number {
-        // @ts-ignore
+        // @ts-expect-error
         return this.payload.port || this.connection.port;
     }
 
@@ -65,7 +63,6 @@ export class AnnounceRequestContext
     }
 
     public get ip(): string {
-        // @ts-ignore
         return this.payload.ip || this.connection.ip;
     }
 
@@ -94,7 +91,7 @@ export class AnnounceRequestContext
     }
 
     public send(payload: AnnounceRequestContextSendOptions): Promise<void> {
-        // @ts-ignore
+        // @ts-expect-error
         return this.connection.send(payload, {
             action: this.action,
         });

@@ -1,6 +1,6 @@
 import { isIPv4, isIPv6 } from 'node:net';
 import { parse as parseQueryString } from 'node:querystring';
-// @ts-ignore
+// @ts-expect-error
 import string2compact from 'string2compact';
 
 /**

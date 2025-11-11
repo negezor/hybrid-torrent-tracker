@@ -1,13 +1,11 @@
-import { RequestContext } from './context';
-
+import { inspectCustomData, TrackerAction } from '../../constants';
+import { copyParams } from '../../helpers';
 import type {
     ConnectionRequestContextSendOptions,
     IConnectionRequestContext,
     IConnectionRequestPayload,
 } from '../../interfaces';
-
-import { TrackerAction, inspectCustomData } from '../../constants';
-import { copyParams } from '../../helpers';
+import { RequestContext } from './context';
 
 export class ConnectionRequestContext
     extends RequestContext<IConnectionRequestPayload, ConnectionRequestContextSendOptions>
@@ -22,7 +20,7 @@ export class ConnectionRequestContext
     }
 
     public send(payload: ConnectionRequestContextSendOptions): Promise<void> {
-        // @ts-ignore
+        // @ts-expect-error
         return this.connection.send(payload, {
             action: this.action,
         });

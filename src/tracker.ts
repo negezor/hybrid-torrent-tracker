@@ -47,7 +47,7 @@ export class TorrentTracker {
     public async listen(): Promise<void> {
         await Promise.all(
             this.servers.map((server): Promise<void> => {
-                // @ts-ignore
+                // @ts-expect-error
                 server.use(this.stack);
 
                 return server.listen();

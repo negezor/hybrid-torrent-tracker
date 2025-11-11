@@ -1,11 +1,10 @@
-export * from './errors';
+export { AnnounceEvent, RequestSource, TrackerAction } from './constants';
 export * from './contexts';
+export * from './errors';
 export * from './interfaces';
 
-export { TrackerAction, RequestSource, AnnounceEvent } from './constants';
-
 export {
+    ITorrentTrackerOptions,
     TorrentTracker,
     TorrentTracker as default,
-    ITorrentTrackerOptions,
 } from './tracker';

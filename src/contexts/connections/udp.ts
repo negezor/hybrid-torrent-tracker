@@ -1,10 +1,7 @@
-import { inspectable } from 'inspectable';
-
 import type { RemoteInfo, Socket } from 'node:dgram';
-
-import type { IUDPConnectionContext, UDPResponseUnion } from '../../interfaces';
-
+import { inspectable } from 'inspectable';
 import type { TrackerAction } from '../../constants';
+import type { IUDPConnectionContext, UDPResponseUnion } from '../../interfaces';
 import { UDPParser } from '../../parsers';
 import { ConnectionContext } from './context';
 

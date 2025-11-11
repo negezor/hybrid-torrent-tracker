@@ -1,8 +1,6 @@
 import { inspectable } from 'inspectable';
-
+import { inspectCustomData, RequestSource, TrackerAction } from '../../constants';
 import type { ConnectionContextUnion, IRequestContext, RequestPayloadUnion } from '../../interfaces';
-
-import { RequestSource, TrackerAction, inspectCustomData } from '../../constants';
 
 export interface IRequestContextOptions {
     connection: ConnectionContextUnion;
@@ -92,7 +90,7 @@ inspectable(RequestContext, {
 
         action: payload.action,
         source: payload.source,
-        // @ts-ignore
+        // @ts-expect-error
         connection: payload.connection,
     }),
 });

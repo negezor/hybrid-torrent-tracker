@@ -1,9 +1,8 @@
-import createDebug from 'debug';
-import { type Middleware, compose, noopNext } from 'middleware-io';
-
-import { type BindOptions, type Socket, createSocket } from 'node:dgram';
+import { type BindOptions, createSocket, type Socket } from 'node:dgram';
 import { promisify } from 'node:util';
-
+import createDebug from 'debug';
+import { compose, type Middleware, noopNext } from 'middleware-io';
+import { RequestSource, TrackerAction } from '../constants';
 import {
     AnnounceRequestContext,
     ConnectionRequestContext,
@@ -11,11 +10,9 @@ import {
     ScrapeRequestContext,
     UDPConnectionContext,
 } from '../contexts';
-import { UDPParser } from '../parsers';
-
-import { RequestSource, TrackerAction } from '../constants';
 import { IncorrectRequestError } from '../errors';
 import type { IUDPAnnounceResponse, IUDPScrapeResponse } from '../interfaces';
+import { UDPParser } from '../parsers';
 import type { IUDPRequestHeaders } from '../parsers/udp';
 
 const debug = createDebug('hybrid-torrent-tracker:udp-server');

@@ -1,5 +1,5 @@
-import { type Middleware, compose, noopNext } from 'middleware-io';
 import { App, type TemplatedApp } from 'uWebSockets.js';
+import { compose, type Middleware, noopNext } from 'middleware-io';
 
 import { RequestSource, TrackerAction } from '../constants';
 import { AnnounceRequestContext, HTTPConnectionContext, type RequestContext, ScrapeRequestContext } from '../contexts';

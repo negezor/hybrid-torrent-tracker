@@ -1,13 +1,13 @@
 {
-	"compilerOptions": {
-		"target": "ESNext",
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"strict": true,
-		"noEmit": true,
-		"declaration": true,
-		"strictNullChecks": true,
-		"forceConsistentCasingInFileNames": true,
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "strict": true,
+        "noEmit": true,
+        "declaration": true,
+        "strictNullChecks": true,
+        "forceConsistentCasingInFileNames": true,
         "allowSyntheticDefaultImports": true
-	}
+    }
 }

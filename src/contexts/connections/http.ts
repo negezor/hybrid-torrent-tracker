@@ -1,12 +1,9 @@
-import { inspectable } from 'inspectable';
 import type { HttpRequest, HttpResponse } from 'uWebSockets.js';
-
 import { STATUS_CODES } from 'node:http';
-
+import { inspectable } from 'inspectable';
+import type { TrackerAction } from '../../constants';
 import { TrackerError } from '../../errors';
 import type { HTTPResponseUnion, IHTTPConnectionContext } from '../../interfaces';
-
-import type { TrackerAction } from '../../constants';
 import { HTTPParser } from '../../parsers';
 import { ConnectionContext } from './context';
 

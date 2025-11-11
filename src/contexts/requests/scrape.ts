@@ -1,9 +1,7 @@
-import { RequestContext } from './context';
-
-import type { IScrapeRequestContext, IScrapeRequestPayload, ScrapeRequestContextSendOptions } from '../../interfaces';
-
-import { TrackerAction, inspectCustomData } from '../../constants';
+import { inspectCustomData, TrackerAction } from '../../constants';
 import { copyParams } from '../../helpers';
+import type { IScrapeRequestContext, IScrapeRequestPayload, ScrapeRequestContextSendOptions } from '../../interfaces';
+import { RequestContext } from './context';
 
 export class ScrapeRequestContext
     extends RequestContext<IScrapeRequestPayload, ScrapeRequestContextSendOptions>
@@ -22,7 +20,7 @@ export class ScrapeRequestContext
     }
 
     public send(payload: ScrapeRequestContextSendOptions): Promise<void> {
-        // @ts-ignore
+        // @ts-expect-error
         return this.connection.send(payload, {
             action: this.action,
         });
